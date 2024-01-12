@@ -7,6 +7,7 @@ import { Fonts } from '@/components/Fonts'
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme} colorModeManager={localStorageManager}>
+      <Fonts />
       <Component {...pageProps} />
     </ChakraProvider>
   )

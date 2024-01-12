@@ -6,7 +6,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link href="https://fonts.cdnfonts.com/css/br-shape" rel="stylesheet" />
+        <link href="https://fonts.cdnfonts.com/css/br-cobane" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
