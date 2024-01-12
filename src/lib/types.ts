@@ -11,3 +11,8 @@ export type PropMeta = {
 
 export type Meta = NameMeta | PropMeta
 
+// Navigation links
+export type NavLink = {
+  name: string
+  href: string
+}
