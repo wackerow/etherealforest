@@ -23,7 +23,7 @@ const overrides = {
   styles: {
     global: () => ({
       ":root": {
-        fontSize: "1.25rem",
+        fontSize: { base: "1rem", md: "1.25rem" },
       },
       '*': {
         boxSizing: 'border-box',
