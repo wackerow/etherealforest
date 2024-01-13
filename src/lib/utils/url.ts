@@ -17,3 +17,5 @@ export const isHrefActive = (
 }
 
 export const isHash = (href: string): boolean => href.startsWith("#")
+
+export const isMailto = (href: string): boolean => href.startsWith("mailto:")

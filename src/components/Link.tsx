@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { TbMailForward } from 'react-icons/tb'
 import { RxExternalLink } from 'react-icons/rx'
 import {
   Link as NextLink,
@@ -49,8 +50,6 @@ export const BaseLink = forwardRef(function Link(
   const { asPath } = useRouter()
 
   const isActive = url.isHrefActive(href, asPath, isPartiallyActive)
-  const isExternal = url.isExternal(href)
-  const isHash = url.isHash(href)
 
   const commonProps = {
     ref,
@@ -59,7 +58,17 @@ export const BaseLink = forwardRef(function Link(
     href,
   }
 
-  if (isExternal) {
+  if (url.isMailto(href)) {
+    return (
+      <ChakraLink {...commonProps}>
+        {children}
+        <VisuallyHidden>(opens with email provider)</VisuallyHidden>
+        <Icon as={TbMailForward} boxSize="6" p="1" verticalAlign="middle" />
+      </ChakraLink>
+    )
+  }
+
+  if (url.isExternal(href)) {
     return (
       <ChakraLink isExternal {...commonProps}>
         {children}
@@ -77,7 +86,8 @@ export const BaseLink = forwardRef(function Link(
     )
   }
 
-  if (isHash) return <ChakraLink {...commonProps}>{children}</ChakraLink>
+  if (url.isHash(href))
+    return <ChakraLink {...commonProps}>{children}</ChakraLink>
 
   return <NextLink {...commonProps}>{children}</NextLink>
 })
