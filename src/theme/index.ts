@@ -1,10 +1,10 @@
 import { extendTheme } from '@chakra-ui/react'
-import { config } from './foundations'
+import { config, fonts } from './foundations'
 const overrides = {
   config,
   colors: {},
   components: {},
-  fonts: {},
+  fonts,
   shadows: {},
   sizes: {},
   styles: {
