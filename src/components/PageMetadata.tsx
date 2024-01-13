@@ -30,7 +30,7 @@ export const PageMetadata = ({
   const url = new URL(path, origin).href
 
   /* Set fallback ogImage based on path */
-  const ogImage = image || 'hero.png'
+  const ogImage = image || 'assets/og.png'
 
   const ogImageUrl = new URL(ogImage, origin).href
   const metadata: Meta[] = [
