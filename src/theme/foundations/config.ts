@@ -1,4 +1,4 @@
-import { type ThemeConfig } from '@chakra-ui/react'
+import { type ThemeConfig } from "@chakra-ui/react"
 /**
  * https://chakra-ui.com/docs/styled-system/color-mode
  * initialColorMode: 'system' —— Will default to users system color mode
@@ -7,6 +7,6 @@ import { type ThemeConfig } from '@chakra-ui/react'
  * Choice is stored/managed with local storage
  */
 export const config: ThemeConfig = {
-  initialColorMode: 'system',
+  initialColorMode: "system",
   useSystemColorMode: true,
 }

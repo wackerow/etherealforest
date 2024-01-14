@@ -1,4 +1,4 @@
-import { Global } from '@emotion/react'
+import { Global } from "@emotion/react"
 
 export const Fonts = () => (
   <Global
@@ -100,8 +100,5 @@ export const Fonts = () => (
         src: local(''), url('https://fonts.cdnfonts.com/s/107551/BRCobane-BlackItalic-BF654d96a17ebab.woff') format('woff');
       }    
     `}
-    // styles={`
-    //   @import url('https://fonts.cdnfonts.com/css/br-cobane')
-    // `}
   />
 )

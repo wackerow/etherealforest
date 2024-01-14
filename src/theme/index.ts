@@ -1,5 +1,5 @@
-import { extendTheme } from '@chakra-ui/react'
-import { config, fonts } from './foundations'
+import { extendTheme } from "@chakra-ui/react"
+import { config, fonts } from "./foundations"
 const overrides = {
   config,
   colors: {
@@ -25,16 +25,16 @@ const overrides = {
       ":root": {
         fontSize: { base: "1rem", md: "1.25rem" },
       },
-      '*': {
-        boxSizing: 'border-box',
-        scrollBehavior: 'smooth',
-        scrollMarginTop: '5rem',
+      "*": {
+        boxSizing: "border-box",
+        scrollBehavior: "smooth",
+        scrollMarginTop: "5rem",
         padding: 0,
         margin: 0,
       },
       body: {},
       main: {
-        transition: 'background 200ms linear !important',
+        transition: "background 200ms linear !important",
       },
       p: {
         mb: 6,
@@ -43,21 +43,23 @@ const overrides = {
       },
       strong: {
         fontWeight: "extrabold",
-      }
+      },
     }),
   },
   textStyles: {},
   semanticTokens: {
     colors: {
-      primary: { _light: 'gray.300', _dark: 'gray.800' },
-      bg: { _light: 'gray.50', _dark: 'gray.800' },
+      primary: { _light: "gray.300", _dark: "gray.800" },
+      bg: { _light: "gray.50", _dark: "gray.800" },
       fadeUnderline: {
         _light: "linear-gradient(to right, #0000, black, #0000)",
-        _dark: "linear-gradient(to right, #FFF0, white, #FFF0)"
+        _dark: "linear-gradient(to right, #FFF0, white, #FFF0)",
       },
       rainbow: {
-        _light: "linear-gradient(to right, red, orange,#AA0, green, blue, indigo, violet)",
-        _dark: "linear-gradient(to right, #ff6666, #ffa666,#ffff66, #66B066, #8888ff, #8c66A2,#ffBBff)"
+        _light:
+          "linear-gradient(to right, red, orange,#AA0, green, blue, indigo, violet)",
+        _dark:
+          "linear-gradient(to right, #ff6666, #ffa666,#ffff66, #66B066, #8888ff, #8c66A2,#ffBBff)",
       },
       alpha900: { _light: "whiteAlpha.900", _dark: "blackAlpha.900" },
       alpha800: { _light: "whiteAlpha.800", _dark: "blackAlpha.800" },

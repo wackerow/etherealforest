@@ -1,19 +1,19 @@
-import { useRouter } from 'next/router'
-import { TbMailForward } from 'react-icons/tb'
-import { RxExternalLink } from 'react-icons/rx'
+import { useRouter } from "next/router"
+import { TbMailForward } from "react-icons/tb"
+import { RxExternalLink } from "react-icons/rx"
 import {
   Link as NextLink,
   type LinkProps as NextLinkProps,
-} from '@chakra-ui/next-js'
+} from "@chakra-ui/next-js"
 import {
   forwardRef,
   Icon,
   Link as ChakraLink,
   type StyleProps,
   VisuallyHidden,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react"
 
-import * as url from '@/lib/utils/url'
+import * as url from "@/lib/utils/url"
 
 type BaseProps = {
   href: string
@@ -42,7 +42,7 @@ export const BaseLink = forwardRef(function Link(
     children,
     hideArrow,
     isPartiallyActive = true,
-    activeStyle = { color: 'primary' },
+    activeStyle = { color: "primary" },
     ...props
   }: LinkProps,
   ref

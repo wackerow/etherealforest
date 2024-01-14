@@ -12,13 +12,13 @@ import {
   UnorderedList,
   useColorModeValue,
   ListIcon,
-} from '@chakra-ui/react'
-import { FaRegCalendar, FaRegCalendarCheck } from 'react-icons/fa'
+} from "@chakra-ui/react"
+import { FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa"
 
-import { PageMetadata } from '@/components/PageMetadata'
-import { Link } from '@/components/Link'
+import { PageMetadata } from "@/components/PageMetadata"
+import { Link } from "@/components/Link"
 
-type WideImageProps = Omit<ImageProps, 'alt' | 'src'> & {
+type WideImageProps = Omit<ImageProps, "alt" | "src"> & {
   src: string
   alt: string
 }
@@ -30,14 +30,14 @@ const WideImage = ({ src, alt, ...props }: WideImageProps) => (
     maxH="250px"
     maxW="full"
     minH="250px"
-    style={{ objectFit: 'cover' }}
+    style={{ objectFit: "cover" }}
     w="full"
     {...props}
   />
 )
 
 const TextBlock = (props: TextProps) => (
-  <Text my="16" textAlign={{ md: 'justify' }} fontSize="xl" {...props} />
+  <Text my="16" textAlign={{ md: "justify" }} fontSize="xl" {...props} />
 )
 
 const Container = (props: BoxProps) => (
@@ -47,18 +47,18 @@ const Container = (props: BoxProps) => (
 const fadeUnderline = {
   _after: {
     content: '""',
-    display: 'block',
-    height: '1px',
-    bg: 'fadeUnderline',
-    mx: '4',
-    mt: '2',
-    mb: '6',
+    display: "block",
+    height: "1px",
+    bg: "fadeUnderline",
+    mx: "4",
+    mt: "2",
+    mb: "6",
   },
 }
 const Home = () => {
   const background = useColorModeValue(
-    'url(assets/bg10.png)',
-    'url(assets/bg5.png)'
+    "url(assets/bg10.png)",
+    "url(assets/bg5.png)"
   )
   return (
     <>
@@ -73,11 +73,11 @@ const Home = () => {
         mx="auto"
         _after={{
           content: '""',
-          position: 'fixed',
+          position: "fixed",
           inset: 0,
           zIndex: -1,
           background: background,
-          backgroundSize: 'cover',
+          backgroundSize: "cover",
         }}
       >
         <Flex
@@ -103,19 +103,19 @@ const Home = () => {
               Ethereal Forest
             </Heading>
             <Text fontSize="4xl" lineHeight="1.2" fontWeight="light" m="0">
-              Building{' '}
+              Building{" "}
               <Text as="span" fontWeight="semibold">
                 coordination
-              </Text>{' '}
-              infrastructure to make the city of{' '}
+              </Text>{" "}
+              infrastructure to make the city of{" "}
               <Text as="span" fontWeight="semibold">
                 Portland
-              </Text>{' '}
-              {/* a  */}more{' '}
+              </Text>{" "}
+              {/* a  */}more{" "}
               <Text as="span" fontWeight="semibold">
                 pluralistic
-              </Text>{' '}
-              and{' '}
+              </Text>{" "}
+              and{" "}
               <Text as="span" fontWeight="semibold">
                 sustainable
               </Text>
@@ -126,7 +126,7 @@ const Home = () => {
 
         <Container>
           <TextBlock>
-            We are a Portland, Oregon based workgroup focused on{' '}
+            We are a Portland, Oregon based workgroup focused on{" "}
             <Text as="strong">
               localist applications of the decentralized web
             </Text>
@@ -148,9 +148,9 @@ const Home = () => {
         >
           <Container bg="alpha800" p="8">
             <TextBlock>
-              Our work takes the form of three main fronts,{' '}
-              <Text as="strong">research</Text>,{' '}
-              <Text as="strong">discovery</Text> and{' '}
+              Our work takes the form of three main fronts,{" "}
+              <Text as="strong">research</Text>,{" "}
+              <Text as="strong">discovery</Text> and{" "}
               <Text as="strong">place-making</Text>. The team researches exotic
               social and economic forms that may embody or resonate with the
               web3 toolkit, discovers examples of and use cases for those social
@@ -165,10 +165,10 @@ const Home = () => {
             We are a champion of localism and hope to build out infrastructure
             to reflect the shared insights of localist, regenerative economic
             thinking and the decentralized web space. It's under this shared
-            insight that we emphasize principles of{' '}
-            <Text as="strong">autonomy</Text> and fair self-determination,{' '}
+            insight that we emphasize principles of{" "}
+            <Text as="strong">autonomy</Text> and fair self-determination,{" "}
             <Text as="strong">decentralization</Text> as a sustainability
-            measure, <Text as="strong">financial pluralism</Text> and{' '}
+            measure, <Text as="strong">financial pluralism</Text> and{" "}
             <Text as="strong">commons-oriented economics</Text>.
           </TextBlock>
         </Container>
@@ -190,7 +190,7 @@ const Home = () => {
             PDX DAO
           </Heading>
           <TextBlock>
-            Our central goal, as an expression of all of the above, is to build{' '}
+            Our central goal, as an expression of all of the above, is to build{" "}
             <Text as="strong">PDX DAO</Text>, an emergent network for the
             decentralized web toolkit that can steward the adoption of p2p and
             self-organized web-based systems in the Portland area.
@@ -253,7 +253,7 @@ const Home = () => {
           </TextBlock>
           <TextBlock>
             The city is a furnace for social, cultural and economic
-            experimentation. PDX DAO can be a catalyst for that creative{' '}
+            experimentation. PDX DAO can be a catalyst for that creative{" "}
             <Text as="strong">becoming. Join us! ✊</Text>
           </TextBlock>
         </Container>
@@ -309,14 +309,14 @@ const Home = () => {
             Connect
           </Heading>
           <Text>
-            Email:{' '}
+            Email:{" "}
             <Link href="mailto:etherealforest.eth@protonmail.com">
               etherealforest.eth@protonmail.com
             </Link>
           </Text>
 
           <Text>
-            Twitter:{' '}
+            Twitter:{" "}
             <Link href="https://twitter.com/ETHForestDAO">@ETHForestDAO</Link>
           </Text>
         </Container>

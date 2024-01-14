@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import Head from "next/head"
+import { useRouter } from "next/router"
 
-import { SITE_URL } from '@/lib/constants'
-import type { Meta, NameMeta, PropMeta } from '@/lib/types'
+import { SITE_URL } from "@/lib/constants"
+import type { Meta, NameMeta, PropMeta } from "@/lib/types"
 
 type PageMetadataProps = {
   title: string
@@ -18,19 +18,19 @@ export const PageMetadata = ({
 }: PageMetadataProps) => {
   const { asPath } = useRouter()
 
-  const desc = description || 'Ethereal Forest - PDX DAO'
-  const siteTitle = 'Ethereal Forest'
+  const desc = description || "Ethereal Forest - PDX DAO"
+  const siteTitle = "Ethereal Forest"
   const fullTitle = `${title} | ${siteTitle}`
   const origin = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL // TODO: Remove .env var usage after launch
 
   // Remove any query params (?) or hash links (#)
-  const path = asPath.replace(/[\?\#].*/, '')
+  const path = asPath.replace(/[\?\#].*/, "")
 
   /* e.g. set ethereum.org/about/ to ethereum.org/en/about/ */
   const url = new URL(path, origin).href
 
   /* Set fallback ogImage based on path */
-  const ogImage = image || 'assets/og.png'
+  const ogImage = image || "assets/og.png"
 
   const ogImageUrl = new URL(ogImage, origin).href
   const metadata: Meta[] = [

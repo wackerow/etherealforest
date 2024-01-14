@@ -1,4 +1,4 @@
-import { Link } from '@/components/Link'
+import { Link } from "@/components/Link"
 import {
   Flex,
   type FlexProps,
@@ -7,9 +7,9 @@ import {
   useColorModeValue,
   useToken,
   Box,
-} from '@chakra-ui/react'
-import { SunIcon, MoonIcon } from '@chakra-ui/icons'
-import { NavLink } from '@/lib/types'
+} from "@chakra-ui/react"
+import { SunIcon, MoonIcon } from "@chakra-ui/icons"
+import { NavLink } from "@/lib/types"
 
 export type NavProps = FlexProps & {
   items: NavLink[]
@@ -17,7 +17,7 @@ export type NavProps = FlexProps & {
 export const Nav = ({ items, ...props }: NavProps) => {
   const { toggleColorMode } = useColorMode()
   const icon = useColorModeValue(<MoonIcon />, <SunIcon />)
-  const insetInlineEnd = useToken('space', '4')
+  const insetInlineEnd = useToken("space", "4")
   return (
     <Box
       w="100vw"
@@ -26,11 +26,11 @@ export const Nav = ({ items, ...props }: NavProps) => {
       backdropFilter="blur(3px)"
       _before={{
         content: '""',
-        position: 'absolute',
+        position: "absolute",
         inset: 0,
-        bg: 'bg',
-        opacity: '0.9',
-        boxShadow: 'md',
+        bg: "bg",
+        opacity: "0.9",
+        boxShadow: "md",
       }}
       fontFamily="body"
     >
