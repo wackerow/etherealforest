@@ -23,10 +23,9 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.6",
-    "ethers": "5.7.2",
     "framer-motion": "^8.5.4",
     "next": "^14.0.4",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1",
     "typescript": "4.9.4"
