@@ -12,11 +12,17 @@ import {
   UnorderedList,
   useColorModeValue,
   ListIcon,
+  Button,
+  VisuallyHidden,
+  Icon,
 } from "@chakra-ui/react"
+import { ImNewspaper } from "react-icons/im"
 import { FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa"
 
 import { PageMetadata } from "@/components/PageMetadata"
 import { Link } from "@/components/Link"
+import { TbBrandTwitter, TbMailForward } from "react-icons/tb"
+import { CgHello } from "react-icons/cg"
 
 type WideImageProps = Omit<ImageProps, "alt" | "src"> & {
   src: string
@@ -30,31 +36,21 @@ const WideImage = ({ src, alt, ...props }: WideImageProps) => (
     maxH="250px"
     maxW="full"
     minH="250px"
+    my="16"
     style={{ objectFit: "cover" }}
     w="full"
     {...props}
   />
 )
 
-const TextBlock = (props: TextProps) => (
-  <Text my="16" textAlign={{ md: "justify" }} fontSize="xl" {...props} />
-)
+const TextBlock = (props: TextProps) => {
+  return <Text my="16" fontSize="lg" lineHeight="tall" {...props} />
+}
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
 )
 
-const fadeUnderline = {
-  _after: {
-    content: '""',
-    display: "block",
-    height: "1px",
-    bg: "fadeUnderline",
-    mx: "4",
-    mt: "2",
-    mb: "6",
-  },
-}
 const Home = () => {
   const background = useColorModeValue(
     "url(assets/bg10.png)",
@@ -69,7 +65,7 @@ const Home = () => {
 
       <Box
         as="main"
-        maxW="container.xl"
+        maxW="container.lg"
         mx="auto"
         _after={{
           content: '""',
@@ -81,64 +77,91 @@ const Home = () => {
         }}
       >
         <Flex
-          bg="url(assets/community.png)"
+          bg="url(assets/hero.png)"
           bgSize="cover"
-          bgPos="bottom"
-          minH="container.md"
+          // h="256px"
         >
-          <Container
-            my="8"
-            py="12"
-            h="fit-content"
-            lineHeight="short"
-            textAlign="center"
-            bg="alpha800"
-          >
+          <Container>
             <Heading
               as="h1"
-              fontSize="5xl"
-              fontWeight="extrabold"
-              {...fadeUnderline}
+              fontSize="4xl"
+              fontWeight="normal"
+              letterSpacing="wide"
+              textTransform="uppercase"
+              color="whiteAlpha.900"
+              pt={{ base: "8", md: "12" }}
+              pb={{ base: "24", md: "24" }}
             >
               Ethereal Forest
             </Heading>
-            <Text fontSize="4xl" lineHeight="1.2" fontWeight="light" m="0">
-              Building{" "}
-              <Text as="span" fontWeight="semibold">
-                coordination
-              </Text>{" "}
-              infrastructure to make the city of{" "}
-              <Text as="span" fontWeight="semibold">
-                Portland
-              </Text>{" "}
-              {/* a  */}more{" "}
-              <Text as="span" fontWeight="semibold">
-                pluralistic
-              </Text>{" "}
-              and{" "}
-              <Text as="span" fontWeight="semibold">
-                sustainable
-              </Text>
-              {/*  place */}
-            </Text>
           </Container>
         </Flex>
 
         <Container>
-          <TextBlock>
+          <TextBlock fontSize="2xl" lineHeight="short" mb="8">
             We are a Portland, Oregon based workgroup focused on{" "}
             <Text as="strong">
               localist applications of the decentralized web
             </Text>
-            . Our mission is to identify interventions that might be made using
+          </TextBlock>
+
+          <Button
+            as={Link}
+            href="#"
+            rightIcon={<ImNewspaper />}
+            variant="outline"
+            borderRadius="none"
+            _hover={{
+              textDecoration: "none",
+              bg: "primaryLight",
+            }}
+            _active={{
+              borderColor: "primaryHover",
+              bg: "primaryHover",
+            }}
+            textDecoration="none"
+            border="2px"
+            px="6"
+            py="4"
+            whiteSpace="break-spaces"
+            h="fit-content"
+            borderColor="primary"
+          >
+            Follow our cosmolocal misadventures
+          </Button>
+
+          <TextBlock>
+            Our mission is to identify interventions that might be made using
             tools and strategies from the DLT and p2p toolkit to help make the
             city a more open, pluralistic and peaceful place. This synergy
             between global peer production strategies and local implementation
             has been called <Text as="strong">cosmo-localism</Text>.
           </TextBlock>
+
+          <TextBlock>
+            Our work takes the form of three main fronts,{" "}
+            <Text as="strong">research</Text>,{" "}
+            <Text as="strong">discovery</Text> and{" "}
+            <Text as="strong">place-making</Text>. The team researches exotic
+            social and economic forms that may embody or resonate with the web3
+            toolkit, discovers examples of and use cases for those social and
+            economic technologies, and builds community and infrastructure to
+            support those experiments.
+          </TextBlock>
+
+          <TextBlock>
+            We are a champion of localism and hope to build out infrastructure
+            to reflect the shared insights of localist, regenerative economic
+            thinking and the decentralized web space. It's under this shared
+            insight that we emphasize principles of{" "}
+            <Text as="strong">autonomy</Text> and fair self-determination,{" "}
+            <Text as="strong">decentralization</Text> as a sustainability
+            measure, <Text as="strong">financial pluralism</Text> and{" "}
+            <Text as="strong">commons-oriented economics</Text>.
+          </TextBlock>
         </Container>
 
-        <Box
+        {/* <Box
           background="url(assets/mycelium-spirits.jpeg)"
           py="16"
           mb="12"
@@ -171,115 +194,122 @@ const Home = () => {
             measure, <Text as="strong">financial pluralism</Text> and{" "}
             <Text as="strong">commons-oriented economics</Text>.
           </TextBlock>
-        </Container>
+        </Container> */}
 
         <WideImage
-          src="assets/cap-wide.png"
-          alt="Illustration of mushroom caps"
+          src="assets/mycelial-rainbow.png"
+          alt="Illustration of colorful mushrooms blanketing a forest floor"
+          objectPosition="bottom"
         />
 
         <Container>
           <Heading
-            fontSize="5xl"
+            fontSize="4xl"
             textAlign="center"
             mb="8"
             mt="16"
-            fontWeight="extrabold"
-            {...fadeUnderline}
+            fontWeight="regular"
+            letterSpacing="wide"
           >
             PDX DAO
           </Heading>
+
           <TextBlock>
             Our central goal, as an expression of all of the above, is to build{" "}
             <Text as="strong">PDX DAO</Text>, an emergent network for the
             decentralized web toolkit that can steward the adoption of p2p and
             self-organized web-based systems in the Portland area.
           </TextBlock>
+
           <TextBlock>
             As a DAO of DAOs, PDX DAO will be a democratic confederation suited
             to reflect and dynamically change with a growing ecosystem. That
             coalition currently includes:
           </TextBlock>
-          <UnorderedList
-            styleType="none"
-            display="flex"
-            columnGap="12"
-            rowGap="4"
-            m="0"
-            mb="6"
-            flexWrap="wrap"
-            justifyContent="space-around"
-            alignItems="center"
-            textAlign="center"
-            fontWeight="extrabold"
-            letterSpacing="wider"
-            fontSize="2xl"
-          >
-            <ListItem>Ethereal Forest</ListItem>
-            <ListItem>EthPDX</ListItem>
-            <ListItem>FunDAO</ListItem>
-          </UnorderedList>
-        </Container>
 
-        <WideImage
-          src="assets/skeleton-wide.png"
-          alt="Illustration of skeletons dancing in a forest"
-          mt="16"
-        />
-
-        <Container>
           <TextBlock>
             As Ethereal Forest works to seed and discover local DAOs, we are
             building out a participatory infrastructure that will allow PDX DAO
             to function as a pluralistic confederation. The basic shape is as
             follows:
           </TextBlock>
-        </Container>
 
-        <Image
-          mb="12"
-          src="assets/council-diagram.png"
-          w="500px"
-          mx="auto"
-          alt="Diagram of council structure"
-        />
-
-        <Container>
-          <TextBlock>
-            We are on the lookout for organizations, associations, affinity
-            groups and squads to come on chain and cultivate this recursive
-            ecosystem. The more diverse we are as a coalition, the stronger we
-            will be as an advocate of pluralism.
+          <TextBlock bg="alpha800" p="8">
+            <Text as="strong">
+              We are on the lookout for organizations, associations, affinity
+              groups and squads to come on chain and cultivate this recursive
+              ecosystem.
+            </Text>{" "}
+            The more diverse we are as a coalition, the stronger we will be as
+            an advocate of pluralism.
           </TextBlock>
-          <TextBlock>
+
+          <TextBlock mb="8">
             The city is a furnace for social, cultural and economic
             experimentation. PDX DAO can be a catalyst for that creative{" "}
             <Text as="strong">becoming. Join us! ✊</Text>
           </TextBlock>
+
+          <Button
+            as={Link}
+            href="#"
+            rightIcon={<CgHello />}
+            variant="outline"
+            borderRadius="none"
+            _hover={{
+              textDecoration: "none",
+              bg: "primaryLight",
+            }}
+            _active={{
+              borderColor: "primaryHover",
+              bg: "primaryHover",
+            }}
+            textDecoration="none"
+            border="2px"
+            px="6"
+            py="4"
+            borderColor="primary"
+            whiteSpace="break-spaces"
+            h="fit-content"
+            maxW="100%"
+          >
+            {/* Would make a "Reach out" CTA, pull copy up */}
+            Contact us if you are a DAO or interested in building a DAO
+          </Button>
         </Container>
 
-        <WideImage src="assets/colorful-wide.png" alt="Illustration" />
+        <WideImage src="assets/forest-ground.png" alt="Illustration" />
 
         <Container>
+          <VisuallyHidden>
+            <Heading>Events</Heading>
+          </VisuallyHidden>
           <Heading
-            fontSize="5xl"
+            as="h3"
+            fontSize="4xl"
             textAlign="center"
-            mb="8"
             mt="16"
-            fontWeight="extrabold"
+            mb="8"
+            fontWeight="normal"
+            letterSpacing="wide"
           >
-            Events
-          </Heading>
-          <Heading as="h3" fontSize="2xl" mb="4">
-            Upcoming events...
+            Upcoming Events
           </Heading>
           <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
             <ListItem>
               <ListIcon as={FaRegCalendar} mb="0.5" />
-              TODO
+              February 28, 2024 - ETH Denver Side Event: DAO Localism
             </ListItem>
           </UnorderedList>
-          <Heading as="h3" fontSize="2xl" mb="4">
+          <Heading
+            as="h3"
+            fontSize="4xl"
+            textAlign="center"
+            mb="8"
+            mt="16"
+            fontWeight="normal"
+            letterSpacing="wide"
+          >
             Past events
           </Heading>
           <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
@@ -298,26 +328,53 @@ const Home = () => {
           </UnorderedList>
         </Container>
 
+        <WideImage src="assets/forest-ground.png" alt="Illustration" />
+
         <Container>
-          <Heading
-            fontSize="5xl"
+          {/* <Heading
+            fontSize="4xl"
             textAlign="center"
             mb="8"
             mt="16"
-            fontWeight="extrabold"
+            fontWeight="normal"
+            letterSpacing="wide"
           >
             Connect
-          </Heading>
-          <Text>
-            Email:{" "}
-            <Link href="mailto:etherealforest.eth@protonmail.com">
+          </Heading> */}
+          <Text lineHeight="base">
+            <Icon
+              as={TbMailForward}
+              boxSize="6"
+              p="1"
+              verticalAlign="middle"
+              ps="0"
+            />
+            Email
+            <Link
+              display="block"
+              href="mailto:etherealforest.eth@protonmail.com"
+              hideIcon
+            >
               etherealforest.eth@protonmail.com
             </Link>
           </Text>
 
-          <Text>
-            Twitter:{" "}
-            <Link href="https://twitter.com/ETHForestDAO">@ETHForestDAO</Link>
+          <Text lineHeight="base">
+            <Icon
+              as={TbBrandTwitter}
+              boxSize="6"
+              p="1"
+              verticalAlign="middle"
+              ps="0"
+            />
+            Twitter
+            <Link
+              display="block"
+              hideIcon
+              href="https://twitter.com/ETHForestDAO"
+            >
+              @ETHForestDAO
+            </Link>
           </Text>
         </Container>
       </Box>

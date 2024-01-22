@@ -15,6 +15,18 @@ const overrides = {
       800: "#1A1A1A",
       900: "#171717",
     },
+    fuchsia: {
+      50: '#ffe2f9',
+      100: '#ffb1e2',
+      200: '#ff7ecc',
+      300: '#ff4cb6',
+      400: '#ff1aa1',
+      500: '#e60088',
+      600: '#b4006a',
+      700: '#82004b',
+      800: '#50002e',
+      900: '#200012',
+    },
   },
   components: {},
   fonts,
@@ -49,12 +61,11 @@ const overrides = {
   textStyles: {},
   semanticTokens: {
     colors: {
-      primary: { _light: "gray.300", _dark: "gray.800" },
+      primary: { _light: "fuchsia.400", _dark: "fuchsia.500" },
+      primaryHover: { _light: "fuchsia.200", _dark: "fuchsia.300" },
+      primaryLight: { _light: "fuchsia.50", _dark: "fuchsia.800" },
+      body: { _light: "black", _dark: "white" },
       bg: { _light: "gray.50", _dark: "gray.800" },
-      fadeUnderline: {
-        _light: "linear-gradient(to right, #0000, black, #0000)",
-        _dark: "linear-gradient(to right, #FFF0, white, #FFF0)",
-      },
       rainbow: {
         _light:
           "linear-gradient(to right, red, orange,#AA0, green, blue, indigo, violet)",

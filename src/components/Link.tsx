@@ -17,9 +17,8 @@ import * as url from "@/lib/utils/url"
 
 type BaseProps = {
   href: string
-  hideArrow?: boolean
   isPartiallyActive?: boolean
-  activeStyle?: StyleProps
+  hideIcon?: boolean
 }
 
 export type LinkProps = BaseProps & NextLinkProps
@@ -40,9 +39,8 @@ export const BaseLink = forwardRef(function Link(
   {
     href,
     children,
-    hideArrow,
+    hideIcon,
     isPartiallyActive = true,
-    activeStyle = { color: "primary" },
     ...props
   }: LinkProps,
   ref
@@ -54,7 +52,7 @@ export const BaseLink = forwardRef(function Link(
   const commonProps = {
     ref,
     ...props,
-    ...(isActive && activeStyle),
+    isActive,
     href,
   }
 
@@ -63,7 +61,7 @@ export const BaseLink = forwardRef(function Link(
       <ChakraLink {...commonProps}>
         {children}
         <VisuallyHidden>(opens with email provider)</VisuallyHidden>
-        <Icon as={TbMailForward} boxSize="6" p="1" verticalAlign="middle" />
+        {!hideIcon && <Icon as={TbMailForward} boxSize="6" p="1" verticalAlign="middle" />}
       </ChakraLink>
     )
   }
@@ -73,7 +71,7 @@ export const BaseLink = forwardRef(function Link(
       <ChakraLink isExternal {...commonProps}>
         {children}
         <VisuallyHidden>(opens in a new tab)</VisuallyHidden>
-        {!hideArrow && (
+        {!hideIcon && (
           <Icon
             as={RxExternalLink}
             boxSize="6"
@@ -93,5 +91,5 @@ export const BaseLink = forwardRef(function Link(
 })
 
 export const Link = forwardRef((props: LinkProps, ref) => (
-  <BaseLink data-inline-link ref={ref} {...props} />
+  <BaseLink data-inline-link ref={ref} color="primary" _hover={{ color: "primary", textDecoration: "underline" }} {...props} />
 ))
