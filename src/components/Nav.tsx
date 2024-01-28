@@ -56,6 +56,7 @@ export const Nav = ({ items, ...props }: NavProps) => {
         boxShadow: "md",
       }}
       fontFamily="body"
+      zIndex="sticky"
     >
       <Flex
         position="sticky"
