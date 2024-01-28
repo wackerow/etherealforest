@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { HamburgerIcon, SunIcon, MoonIcon } from "@chakra-ui/icons"
 import {
   Flex,
@@ -15,6 +15,7 @@ import { Link } from "@/components/Link"
 
 import { NavLink } from "@/lib/types"
 import { useRouter } from "next/router"
+import { MobileMenu } from "./MobileMenu"
 
 export type NavProps = FlexProps & {
   items: NavLink[]
@@ -24,7 +25,8 @@ export const Nav = ({ items, ...props }: NavProps) => {
   const { toggleColorMode } = useColorMode()
   const icon = useColorModeValue(<MoonIcon />, <SunIcon />)
 
-  const mobileDisclosure = useDisclosure()
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const mobileDisclosures = useDisclosure()
 
   const { scrollY } = useScroll()
   const [hidden, setHidden] = useState(true)
@@ -77,15 +79,6 @@ export const Nav = ({ items, ...props }: NavProps) => {
             ))}
           </Flex>
 
-          {/* Mobile nav hamburger menu */}
-          <IconButton
-            hideFrom="md"
-            icon={<HamburgerIcon />}
-            variant="ghost"
-            onClick={mobileDisclosure.onOpen}
-            aria-label="Open navigation menu"
-          />
-
           {/* Color mode toggle */}
           <IconButton
             icon={icon}
@@ -93,6 +86,17 @@ export const Nav = ({ items, ...props }: NavProps) => {
             onClick={toggleColorMode}
             aria-label="Toggle color mode"
           />
+
+          {/* Mobile nav hamburger menu */}
+          <IconButton
+            ref={hamburgerRef}
+            hideFrom="md"
+            icon={<HamburgerIcon />}
+            variant="ghost"
+            onClick={mobileDisclosures.onOpen}
+            aria-label="Open navigation menu"
+          />
+          <MobileMenu items={items} disclosures={mobileDisclosures} />
         </Flex>
       </Flex>
     </Box>
