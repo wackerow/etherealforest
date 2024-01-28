@@ -127,7 +127,7 @@ const Home = () => {
             h="fit-content"
             borderColor="primary"
           >
-            Follow our cosmolocal misadventures
+            Subscribe to Our Newsletter
           </Button>
 
           <TextBlock>
