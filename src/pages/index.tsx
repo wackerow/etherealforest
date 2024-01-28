@@ -44,7 +44,7 @@ const WideImage = ({ src, alt, ...props }: WideImageProps) => (
 )
 
 const TextBlock = (props: TextProps) => {
-  return <Text my="16" fontSize="lg" lineHeight="tall" {...props} />
+  return <Text my="8" lineHeight="normal" {...props} />
 }
 
 const Container = (props: BoxProps) => (
