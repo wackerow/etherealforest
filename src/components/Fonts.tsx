@@ -1,12 +1,5 @@
 import { Global } from "@emotion/react"
-import { body } from "@/lib/fonts"
 
 export const Fonts = () => (
-  <Global
-    styles={`
-      :root {
-        --font-body: ${body.style.fontFamily};
-      }
-    `}
-  />
+  <Global styles='@import url("https://use.typekit.net/qja1orz.css");' />
 )

@@ -35,7 +35,7 @@ const overrides = {
   styles: {
     global: () => ({
       ":root": {
-        fontSize: { base: "1rem", md: "1.25rem" },
+        fontSize: { base: "lg", md: "xl" },
       },
       "*": {
         boxSizing: "border-box",
@@ -50,11 +50,9 @@ const overrides = {
       },
       p: {
         mb: 6,
-        letterSpacing: "widest",
-        lineHeight: 2,
       },
       strong: {
-        fontWeight: "extrabold",
+        // fontWeight: "semibold",
       },
     }),
   },

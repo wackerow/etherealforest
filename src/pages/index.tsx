@@ -84,7 +84,7 @@ const Home = () => {
           <Container>
             <Heading
               as="h1"
-              fontSize="4xl"
+              fontSize="5xl"
               fontWeight="normal"
               letterSpacing="wide"
               textTransform="uppercase"
@@ -98,7 +98,7 @@ const Home = () => {
         </Flex>
 
         <Container>
-          <TextBlock fontSize="2xl" lineHeight="short" mb="8">
+          <TextBlock fontSize="3xl" lineHeight="short" mb="8">
             We are a Portland, Oregon based workgroup focused on{" "}
             <Text as="strong">
               localist applications of the decentralized web

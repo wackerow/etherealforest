@@ -1,3 +1,4 @@
 export const fonts = {
-  body: "var(--font-body)",
+  body: "'belda-normal', sans-serif",
+  heading: "'belda-normal', sans-serif",
 }
