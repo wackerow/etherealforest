@@ -6,7 +6,6 @@ import {
   DrawerBody,
   UseDisclosureReturn,
   forwardRef,
-  Flex,
 } from "@chakra-ui/react"
 import { RefObject } from "react"
 import { Link } from "@/components/Link"
@@ -31,7 +30,13 @@ export const MobileMenu = forwardRef(
         <DrawerContent>
           <DrawerCloseButton />
 
-          <DrawerBody display="flex" alignItems="end" gap="8" flexDir="column" pt="24">
+          <DrawerBody
+            display="flex"
+            alignItems="end"
+            gap="8"
+            flexDir="column"
+            pt="24"
+          >
             {items.map(({ name, href }) => (
               <Link key={href} href={href} color="body">
                 {name}
