@@ -196,12 +196,6 @@ const Home = () => {
           </TextBlock>
         </Container> */}
 
-        <WideImage
-          src="assets/mycelial-rainbow.png"
-          alt="Illustration of colorful mushrooms blanketing a forest floor"
-          objectPosition="bottom"
-        />
-
         <Container>
           <Heading
             fontSize="4xl"
@@ -250,6 +244,10 @@ const Home = () => {
             <Text as="strong">becoming. Join us! ✊</Text>
           </TextBlock>
 
+          <TextBlock mb="8">
+            Are a DAO or interested in building a DAO?
+          </TextBlock>
+
           <Button
             as={Link}
             href="#"
@@ -274,11 +272,9 @@ const Home = () => {
             maxW="100%"
           >
             {/* Would make a "Reach out" CTA, pull copy up */}
-            Contact us if you are a DAO or interested in building a DAO
+            Contact us
           </Button>
         </Container>
-
-        <WideImage src="assets/forest-ground.png" alt="Illustration" />
 
         <Container>
           <VisuallyHidden>
@@ -327,8 +323,6 @@ const Home = () => {
             </ListItem>
           </UnorderedList>
         </Container>
-
-        <WideImage src="assets/forest-ground.png" alt="Illustration" />
 
         <Container>
           {/* <Heading
