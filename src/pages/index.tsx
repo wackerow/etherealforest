@@ -44,7 +44,7 @@ const WideImage = ({ src, alt, ...props }: WideImageProps) => (
 )
 
 const TextBlock = (props: TextProps) => {
-  return <Text my="16" fontSize="lg" lineHeight="tall" {...props} />
+  return <Text my="16" fontSize="lg" lineHeight="short" {...props} />
 }
 
 const Container = (props: BoxProps) => (
@@ -87,7 +87,7 @@ const Home = () => {
               fontSize="4xl"
               fontWeight="normal"
               letterSpacing="wide"
-              textTransform="uppercase"
+              xxxtextTransform="uppercase"
               color="whiteAlpha.900"
               pt={{ base: "8", md: "12" }}
               pb={{ base: "24", md: "24" }}
@@ -98,7 +98,7 @@ const Home = () => {
         </Flex>
 
         <Container>
-          <TextBlock fontSize="2xl" lineHeight="short" mb="8">
+          <TextBlock fontSize="2xl" lineHeight="short" mb="3">
             We are a Portland, Oregon based workgroup focused on{" "}
             <Text as="strong">
               localist applications of the decentralized web

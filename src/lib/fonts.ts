@@ -5,3 +5,9 @@ export const body = localFont({
   display: "swap",
   fallback: ["sans-serif"],
 })
+
+export const heading = localFont({
+  src: "../../public/fonts/Anybody-VariableFont_wdth,wght.ttf",
+  display: "swap",
+  fallback: ["sans-serif"],
+})
