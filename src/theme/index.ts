@@ -64,7 +64,7 @@ const overrides = {
       primary: { _light: "fuchsia.400", _dark: "fuchsia.500" },
       primaryHover: { _light: "fuchsia.200", _dark: "fuchsia.300" },
       primaryLight: { _light: "fuchsia.50", _dark: "fuchsia.800" },
-      body: { _light: "black", _dark: "white" },
+      body: { _light: "blackAlpha.900", _dark: "whiteAlpha.900" },
       bg: { _light: "gray.50", _dark: "gray.800" },
       rainbow: {
         _light:
