@@ -15,6 +15,7 @@ import {
   Button,
   VisuallyHidden,
   Icon,
+  Divider,
 } from "@chakra-ui/react"
 import { ImNewspaper } from "react-icons/im"
 import { FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa"
@@ -44,7 +45,7 @@ const WideImage = ({ src, alt, ...props }: WideImageProps) => (
 )
 
 const TextBlock = (props: TextProps) => {
-  return <Text my="16" fontSize="lg" lineHeight="short" {...props} />
+  return <Text mb="6" fontSize="lg" lineHeight="short" {...props} />
 }
 
 const Container = (props: BoxProps) => (
@@ -87,7 +88,7 @@ const Home = () => {
               fontSize="4xl"
               fontWeight="normal"
               letterSpacing="wide"
-              xxxtextTransform="uppercase"
+              textTransform="uppercase"
               color="whiteAlpha.900"
               pt={{ base: "8", md: "12" }}
               pb={{ base: "24", md: "24" }}
@@ -98,7 +99,7 @@ const Home = () => {
         </Flex>
 
         <Container>
-          <TextBlock fontSize="2xl" lineHeight="short" mb="3">
+          <TextBlock fontSize="2xl" lineHeight="short" mt="8">
             We are a Portland, Oregon based workgroup focused on{" "}
             <Text as="strong">
               localist applications of the decentralized web
@@ -123,6 +124,7 @@ const Home = () => {
             border="2px"
             px="6"
             py="4"
+            mb="12"
             whiteSpace="break-spaces"
             h="fit-content"
             borderColor="primary"
@@ -196,6 +198,8 @@ const Home = () => {
           </TextBlock>
         </Container> */}
 
+        <Divider py="8" />
+
         <Container>
           <Heading
             fontSize="4xl"
@@ -228,7 +232,7 @@ const Home = () => {
             follows:
           </TextBlock>
 
-          <TextBlock bg="alpha800" p="8">
+          <TextBlock bg="alpha800" px="8">
             <Text as="strong">
               We are on the lookout for organizations, associations, affinity
               groups and squads to come on chain and cultivate this recursive
