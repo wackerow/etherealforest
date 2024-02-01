@@ -51,7 +51,7 @@ const overrides = {
       p: {
         mb: 6,
         letterSpacing: "wide",
-        lineHeight: .75,
+        lineHeight: "base",
       },
       strong: {
         fontWeight: "extrabold",
