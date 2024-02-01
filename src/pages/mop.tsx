@@ -95,11 +95,11 @@ const Home = () => {
               Ministry of Propaganda
             </Heading>
           </Container>
-        </Flex>x
+        </Flex>
 
         <Container>
           <TextBlock>
-            TEST
+            <img src={"/assets/1.png"}></img>
           </TextBlock>
         </Container>
       </Box>
