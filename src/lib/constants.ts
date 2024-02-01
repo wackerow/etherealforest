@@ -9,3 +9,5 @@ export const NAV_LINKS: NavLink[] = [
   { name: "Newsletter", href: "https://paragraph.xyz/@etherealforest" },
   { name: "ILL", href: "#ill" },
 ]
+
+export const BLOG_POSTS_DIR = "src/posts"

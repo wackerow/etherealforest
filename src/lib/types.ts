@@ -16,3 +16,9 @@ export type NavLink = {
   name: string
   href: string
 }
+
+// Markdown
+export type Frontmatter = {
+  title: string
+  // publishDate: string
+}
