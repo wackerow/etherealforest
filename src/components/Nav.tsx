@@ -1,44 +1,44 @@
-import { Link } from "@/components/Link"
+import { useEffect, useRef, useState } from "react"
+import { HamburgerIcon, SunIcon, MoonIcon } from "@chakra-ui/icons"
 import {
   Flex,
   type FlexProps,
   IconButton,
   useColorMode,
   useColorModeValue,
-  useToken,
   Box,
+  useDisclosure,
 } from "@chakra-ui/react"
-import { SunIcon, MoonIcon } from "@chakra-ui/icons"
+import { useScroll } from "framer-motion"
+
+import { Link } from "@/components/Link"
+
 import { NavLink } from "@/lib/types"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+import { MobileMenu } from "./MobileMenu"
 
 export type NavProps = FlexProps & {
   items: NavLink[]
 }
 export const Nav = ({ items, ...props }: NavProps) => {
+  const { asPath } = useRouter()
   const { toggleColorMode } = useColorMode()
   const icon = useColorModeValue(<MoonIcon />, <SunIcon />)
-  const insetInlineEnd = useToken("space", "4")
+
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const mobileDisclosures = useDisclosure()
 
   const { scrollY } = useScroll()
   const [hidden, setHidden] = useState(true)
-  useEffect(() => {
-    addEventListener(
-      "scroll",
-      () => {
-        setHidden(scrollY.get() === 0)
-      },
-      { passive: true }
-    )
-    // remove event listener on return
-    return () =>
-      removeEventListener("scroll", () => {
-        setHidden(scrollY.get() === 0)
-      })
-  }, [scrollY])
 
-  const titleOpacity = useTransform(scrollY, [72, 96], [0, 1])
+  const isHomepage = asPath.replace(/[?#].*$/, "") === "/"
+  useEffect(() => {
+    const hideTitleAbove = 72
+    const callback = () =>
+      setHidden(scrollY.get() < hideTitleAbove && isHomepage)
+    addEventListener("scroll", callback, { passive: true })
+    return () => removeEventListener("scroll", callback)
+  }, [scrollY, isHomepage])
 
   return (
     <Box
@@ -59,33 +59,44 @@ export const Nav = ({ items, ...props }: NavProps) => {
       zIndex="sticky"
     >
       <Flex
-        position="sticky"
-        top="0"
-        justify="space-between"
+        position="relative"
         alignItems="center"
         maxW="container.lg"
         mx="auto"
+        p="4"
         {...props}
       >
-        <motion.div style={{ opacity: titleOpacity }}>
-          <Link href="/" color="body" display={hidden ? "none" : "block"}>
-            Ethereal Forest
-          </Link>
-        </motion.div>
-        <Flex alignItems="center" gap="8" p="4">
-          {items.map(({ name, href }) => (
-            <Link key={href} href={href} color="body">
-              {name}
-            </Link>
-          ))}
+        <Link href="/" color="body" display={hidden ? "none" : "block"}>
+          Ethereal Forest
+        </Link>
+        <Flex alignItems="center" ms="auto">
+          {/* Desktop nav items */}
+          <Flex alignItems="center" gap="8" hideBelow="md" mx="8">
+            {items.map(({ name, href }) => (
+              <Link key={href} href={href} color="body">
+                {name}
+              </Link>
+            ))}
+          </Flex>
+
+          {/* Color mode toggle */}
           <IconButton
-            style={{ insetInlineEnd }}
-            w="fit-content"
             icon={icon}
             variant="ghost"
             onClick={toggleColorMode}
             aria-label="Toggle color mode"
           />
+
+          {/* Mobile nav hamburger menu */}
+          <IconButton
+            ref={hamburgerRef}
+            hideFrom="md"
+            icon={<HamburgerIcon />}
+            variant="ghost"
+            onClick={mobileDisclosures.onOpen}
+            aria-label="Open navigation menu"
+          />
+          <MobileMenu items={items} disclosures={mobileDisclosures} />
         </Flex>
       </Flex>
     </Box>

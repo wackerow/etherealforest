@@ -21,7 +21,7 @@ export const PageMetadata = ({
   const desc = description || "Ethereal Forest - PDX DAO"
   const siteTitle = "Ethereal Forest"
   const fullTitle = `${title} | ${siteTitle}`
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL // TODO: Remove .env var usage after launch
+  const origin = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL
 
   // Remove any query params (?) or hash links (#)
   const path = asPath.replace(/[\?\#].*/, "")

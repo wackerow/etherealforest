@@ -15,6 +15,7 @@ import {
   Button,
   VisuallyHidden,
   Icon,
+  Divider,
 } from "@chakra-ui/react"
 import { ImNewspaper } from "react-icons/im"
 import { FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa"
@@ -44,7 +45,7 @@ const WideImage = ({ src, alt, ...props }: WideImageProps) => (
 )
 
 const TextBlock = (props: TextProps) => {
-  return <Text my="16" fontSize="lg" lineHeight="tall" {...props} />
+  return <Text mb="6" fontSize="lg" lineHeight="short" {...props} />
 }
 
 const Container = (props: BoxProps) => (
@@ -98,7 +99,7 @@ const Home = () => {
         </Flex>
 
         <Container>
-          <TextBlock fontSize="2xl" lineHeight="short" mb="8">
+          <TextBlock fontSize="2xl" lineHeight="short" mt="8">
             We are a Portland, Oregon based workgroup focused on{" "}
             <Text as="strong">
               localist applications of the decentralized web
@@ -123,11 +124,12 @@ const Home = () => {
             border="2px"
             px="6"
             py="4"
+            mb="12"
             whiteSpace="break-spaces"
             h="fit-content"
             borderColor="primary"
           >
-            Follow our cosmolocal misadventures
+            Subscribe to Our Newsletter
           </Button>
 
           <TextBlock>
@@ -196,11 +198,7 @@ const Home = () => {
           </TextBlock>
         </Container> */}
 
-        <WideImage
-          src="assets/mycelial-rainbow.png"
-          alt="Illustration of colorful mushrooms blanketing a forest floor"
-          objectPosition="bottom"
-        />
+        <Divider my="16" bgColor="body" />
 
         <Container>
           <Heading
@@ -234,7 +232,7 @@ const Home = () => {
             follows:
           </TextBlock>
 
-          <TextBlock bg="alpha800" p="8">
+          <TextBlock px="8" py="4">
             <Text as="strong">
               We are on the lookout for organizations, associations, affinity
               groups and squads to come on chain and cultivate this recursive
@@ -248,6 +246,10 @@ const Home = () => {
             The city is a furnace for social, cultural and economic
             experimentation. PDX DAO can be a catalyst for that creative{" "}
             <Text as="strong">becoming. Join us! ✊</Text>
+          </TextBlock>
+
+          <TextBlock mb="8">
+            Are a DAO or interested in building a DAO?
           </TextBlock>
 
           <Button
@@ -274,11 +276,11 @@ const Home = () => {
             maxW="100%"
           >
             {/* Would make a "Reach out" CTA, pull copy up */}
-            Contact us if you are a DAO or interested in building a DAO
+            Contact us
           </Button>
         </Container>
 
-        <WideImage src="assets/forest-ground.png" alt="Illustration" />
+        <Divider my="16" bgColor="body" />
 
         <Container>
           <VisuallyHidden>
@@ -328,7 +330,7 @@ const Home = () => {
           </UnorderedList>
         </Container>
 
-        <WideImage src="assets/forest-ground.png" alt="Illustration" />
+        <Divider mt="16" mb="8" bgColor="body" />
 
         <Container>
           {/* <Heading
