@@ -198,7 +198,7 @@ const Home = () => {
           </TextBlock>
         </Container> */}
 
-        <Divider py="8" />
+        <Divider my="16" bgColor="body" />
 
         <Container>
           <Heading
@@ -232,7 +232,7 @@ const Home = () => {
             follows:
           </TextBlock>
 
-          <TextBlock bg="alpha800" px="8">
+          <TextBlock px="8" py="4">
             <Text as="strong">
               We are on the lookout for organizations, associations, affinity
               groups and squads to come on chain and cultivate this recursive
@@ -279,6 +279,8 @@ const Home = () => {
             Contact us
           </Button>
         </Container>
+
+        <Divider my="16" bgColor="body" />
 
         <Container>
           <VisuallyHidden>
@@ -327,6 +329,8 @@ const Home = () => {
             </ListItem>
           </UnorderedList>
         </Container>
+
+        <Divider mt="16" mb="8" bgColor="body" />
 
         <Container>
           {/* <Heading

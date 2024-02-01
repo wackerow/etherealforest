@@ -71,6 +71,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           background: background,
           backgroundSize: "cover",
         }}
+        pb="16"
       >
         <Flex
           bg=""
