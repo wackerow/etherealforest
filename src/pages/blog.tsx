@@ -50,7 +50,7 @@ export const getStaticProps = (async () => {
   }
 }) satisfies GetStaticProps<Props>
 
-const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const background = useColorModeValue(
     "url(assets/bg10.png)",
     "url(assets/bg5.png)"
@@ -131,4 +131,4 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   )
 }
 
-export default Home
+export default Blog
