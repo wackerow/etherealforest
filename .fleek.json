@@ -1,0 +1,7 @@
+{
+  "build": {
+    "image": "node:lts-hydrogen",
+    "command": "yarn && yarn build && yarn export",
+    "publicDir": "out"
+  }
+}
