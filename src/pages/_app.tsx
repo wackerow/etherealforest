@@ -1,5 +1,10 @@
 import type { FC } from "react"
-import { ChakraProvider, localStorageManager } from "@chakra-ui/react"
+import {
+  Box,
+  ChakraProvider,
+  localStorageManager,
+  useColorModeValue,
+} from "@chakra-ui/react"
 import type { AppProps as NextAppProps } from "next/app"
 import theme from "@/theme"
 
@@ -11,11 +16,27 @@ type AppProps = Omit<NextAppProps, "Component"> & {
   Component: FC<NextAppProps>
 }
 export default function App({ Component, pageProps }: AppProps) {
+  const background = useColorModeValue(
+    "url(/assets/bg10.png)",
+    "url(/assets/bg5.png)"
+  )
+
   return (
     <ChakraProvider theme={theme} colorModeManager={localStorageManager}>
       <Fonts />
-      <Nav items={NAV_LINKS} />
-      <Component {...pageProps} />
+      <Box
+        _after={{
+          content: '""',
+          position: "fixed",
+          inset: 0,
+          zIndex: -1,
+          background: background,
+          backgroundSize: "cover",
+        }}
+      >
+        <Nav items={NAV_LINKS} />
+        <Component {...pageProps} />
+      </Box>
     </ChakraProvider>
   )
 }

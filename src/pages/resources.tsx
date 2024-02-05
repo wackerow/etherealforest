@@ -4,7 +4,6 @@ import {
   Container as ChakraContainer,
   Heading,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react"
 
 import { PageMetadata } from "@/components/PageMetadata"
@@ -14,27 +13,11 @@ const Container = (props: BoxProps) => (
 )
 
 const Resources = () => {
-  const background = useColorModeValue(
-    "url(assets/bg10.png)",
-    "url(assets/bg5.png)"
-  )
   return (
     <>
       <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
 
-      <Box
-        as="main"
-        maxW="container.lg"
-        mx="auto"
-        _after={{
-          content: '""',
-          position: "fixed",
-          inset: 0,
-          zIndex: -1,
-          background: background,
-          backgroundSize: "cover",
-        }}
-      >
+      <Box as="main" maxW="container.lg" mx="auto">
         <Container>
           <Heading
             as="h1"

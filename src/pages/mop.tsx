@@ -5,7 +5,6 @@ import {
   Flex,
   Heading,
   Image,
-  useColorModeValue,
   ButtonGroup,
   Button,
 } from "@chakra-ui/react"
@@ -18,10 +17,6 @@ const Container = (props: BoxProps) => (
 )
 
 const Mop = () => {
-  const background = useColorModeValue(
-    "url(assets/bg10.png)",
-    "url(assets/bg5.png)"
-  )
   return (
     <>
       <PageMetadata
@@ -29,19 +24,7 @@ const Mop = () => {
         description="Homepage for the Ethereal Forest Ministry of Propaganda"
       />
 
-      <Box
-        as="main"
-        maxW="container.lg"
-        mx="auto"
-        _after={{
-          content: '""',
-          position: "fixed",
-          inset: 0,
-          zIndex: -1,
-          background: background,
-          backgroundSize: "cover",
-        }}
-      >
+      <Box as="main" maxW="container.lg" mx="auto">
         <Flex bg="" bgSize="">
           <Container>
             <Heading

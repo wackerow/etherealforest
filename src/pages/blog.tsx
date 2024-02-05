@@ -11,7 +11,6 @@ import {
   Container as ChakraContainer,
   Flex,
   Heading,
-  useColorModeValue,
   Divider,
 } from "@chakra-ui/react"
 
@@ -51,28 +50,11 @@ export const getStaticProps = (async () => {
 }) satisfies GetStaticProps<Props>
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const background = useColorModeValue(
-    "url(assets/bg10.png)",
-    "url(assets/bg5.png)"
-  )
   return (
     <>
       <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
 
-      <Box
-        as="main"
-        maxW="container.lg"
-        mx="auto"
-        _after={{
-          content: '""',
-          position: "fixed",
-          inset: 0,
-          zIndex: -1,
-          background: background,
-          backgroundSize: "cover",
-        }}
-        pb="16"
-      >
+      <Box as="main" maxW="container.lg" mx="auto" pb="16">
         <Flex
           bg=""
           bgSize=""
