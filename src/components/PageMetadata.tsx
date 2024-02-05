@@ -61,6 +61,7 @@ export const PageMetadata = ({
         />
       ))}
       <link rel="canonical" key={url} href={url} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
   )
 }

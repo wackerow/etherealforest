@@ -108,10 +108,11 @@ const Home = () => {
 
           <Button
             as={Link}
-            href="#"
+            href="https://paragraph.xyz/@etherealforest"
             rightIcon={<ImNewspaper />}
             variant="outline"
             borderRadius="none"
+            hideIcon
             _hover={{
               textDecoration: "none",
               bg: "primaryLight",
@@ -137,7 +138,11 @@ const Home = () => {
             tools and strategies from the DLT and p2p toolkit to help make the
             city a more open, pluralistic and peaceful place. This synergy
             between global peer production strategies and local implementation
-            has been called <Text as="strong">cosmo-localism</Text>.
+            has been called{" "}
+            <Link href="https://wiki.p2pfoundation.net/Cosmo-Localism">
+              cosmo-localism
+            </Link>
+            .
           </TextBlock>
 
           <TextBlock>
@@ -221,15 +226,13 @@ const Home = () => {
 
           <TextBlock>
             As a DAO of DAOs, PDX DAO will be a democratic confederation suited
-            to reflect and dynamically change with a growing ecosystem. That
-            coalition currently includes:
+            to reflect and dynamically change with a growing ecosystem.
           </TextBlock>
 
           <TextBlock>
             As Ethereal Forest works to seed and discover local DAOs, we are
             building out a participatory infrastructure that will allow PDX DAO
-            to function as a pluralistic confederation. The basic shape is as
-            follows:
+            to function as a pluralistic confederation.
           </TextBlock>
 
           <TextBlock px="8" py="4">
@@ -254,8 +257,9 @@ const Home = () => {
 
           <Button
             as={Link}
-            href="#"
+            href="https://fhg09u9s2on.typeform.com/to/NzuISCXV"
             rightIcon={<CgHello />}
+            hideIcon
             variant="outline"
             borderRadius="none"
             _hover={{
@@ -300,7 +304,8 @@ const Home = () => {
           <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
             <ListItem>
               <ListIcon as={FaRegCalendar} mb="0.5" />
-              Second Tuesday of every month - Onboarding Hours (Bridgespace, SE Portland)
+              Second Tuesday of every month - Onboarding Hours (Bridgespace, SE
+              Portland)
             </ListItem>
             <ListItem>
               <ListIcon as={FaRegCalendar} mb="0.5" />
@@ -347,7 +352,10 @@ const Home = () => {
 
         <br />
         <Container>
-          <Image src={"/assets/gfel-end.png"} alt="General Forum on Ethereum Localism end" />
+          <Image
+            src={"/assets/gfel-end.png"}
+            alt="General Forum on Ethereum Localism end"
+          />
         </Container>
 
         <Divider mt="16" mb="8" bgColor="body" />
