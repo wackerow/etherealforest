@@ -69,7 +69,7 @@ const Mop = () => {
               h="fit-content"
               borderColor="primary"
             >
-              Black and white
+              B&W
             </Button>
             <Button
               as={Link}
@@ -109,6 +109,7 @@ const Mop = () => {
             <Button
               as={Link}
               href="/assets/democracyiseatingfinance_bw.png"
+              rightIcon={<FaFilePdf />}
               variant="outline"
               borderRadius="none"
               hideIcon
@@ -129,11 +130,12 @@ const Mop = () => {
               h="fit-content"
               borderColor="primary"
             >
-              Black and white
+              B&W
             </Button>
             <Button
               as={Link}
               href="/assets/democracyiseatingfinance_color.png"
+              rightIcon={<FaFilePdf />}
               variant="outline"
               borderRadius="none"
               hideIcon
