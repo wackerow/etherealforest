@@ -53,10 +53,6 @@ const Container = (props: BoxProps) => (
 )
 
 const Home = () => {
-  const background = useColorModeValue(
-    "url(assets/bg10.png)",
-    "url(assets/bg5.png)"
-  )
   return (
     <>
       <PageMetadata
@@ -64,19 +60,7 @@ const Home = () => {
         description="Homepage for Ethereal Forest"
       />
 
-      <Box
-        as="main"
-        maxW="container.lg"
-        mx="auto"
-        _after={{
-          content: '""',
-          position: "fixed",
-          inset: 0,
-          zIndex: -1,
-          background: background,
-          backgroundSize: "cover",
-        }}
-      >
+      <Box as="main" maxW="container.lg" mx="auto">
         <Flex
           bg="url(assets/hero.png)"
           bgSize="cover"
