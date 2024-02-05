@@ -82,12 +82,12 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <Heading
               as="h1"
               fontSize="4xl"
-              fontWeight="normal"
+              fontWeight="bold"
               letterSpacing="wide"
               textTransform="uppercase"
               color="body"
               pt={{ base: "8", md: "12" }}
-              pb={{ base: "24", md: "24" }}
+              pb={{ base: "24", md: "12" }}
             >
               Blog
             </Heading>

@@ -61,7 +61,7 @@ const Home = () => {
     <>
       <PageMetadata
         title="Ethereal Forest"
-        description="Homepage for Ethereal Forest and PDX DAO"
+        description="Homepage for Ethereal Forest"
       />
 
       <Box
@@ -86,7 +86,7 @@ const Home = () => {
             <Heading
               as="h1"
               fontSize="4xl"
-              fontWeight="normal"
+              fontWeight="bold"
               letterSpacing="wide"
               textTransform="uppercase"
               color="whiteAlpha.900"
@@ -206,7 +206,7 @@ const Home = () => {
             textAlign="center"
             mb="8"
             mt="16"
-            fontWeight="regular"
+            fontWeight="bold"
             letterSpacing="wide"
           >
             PDX DAO
@@ -292,7 +292,7 @@ const Home = () => {
             textAlign="center"
             mt="16"
             mb="8"
-            fontWeight="normal"
+            fontWeight="bold"
             letterSpacing="wide"
           >
             Upcoming Events
@@ -300,7 +300,22 @@ const Home = () => {
           <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
             <ListItem>
               <ListIcon as={FaRegCalendar} mb="0.5" />
-              February 28, 2024 - ETH Denver Side Event: DAO Localism
+              Second Tuesday of every month - Onboarding Hours (Bridgespace, SE Portland)
+            </ListItem>
+            <ListItem>
+              <ListIcon as={FaRegCalendar} mb="0.5" />
+              TBD of every month - Web3 Localism Call (Zoom)
+            </ListItem>
+          </UnorderedList>
+
+          <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
+            <ListItem>
+              <ListIcon as={FaRegCalendar} mb="0.5" />
+              March 1, 2024 - ETH Denver Side Event: DAO Localism
+            </ListItem>
+            <ListItem>
+              <ListIcon as={FaRegCalendar} mb="0.5" />
+              September 13-15, 2024 - General Forum on Ethereum Localism
             </ListItem>
           </UnorderedList>
           <Heading
@@ -309,7 +324,7 @@ const Home = () => {
             textAlign="center"
             mb="8"
             mt="16"
-            fontWeight="normal"
+            fontWeight="bold"
             letterSpacing="wide"
           >
             Past events
@@ -328,6 +343,11 @@ const Home = () => {
               March 31, 2023 - Talk on Ethereum Fundamentals
             </ListItem>
           </UnorderedList>
+        </Container>
+
+        <br />
+        <Container>
+          <Image src={"/assets/gfel-end.png"} alt="General Forum on Ethereum Localism end" />
         </Container>
 
         <Divider mt="16" mb="8" bgColor="body" />

@@ -44,12 +44,12 @@ const Mop = () => {
             <Heading
               as="h1"
               fontSize="4xl"
-              fontWeight="normal"
+              fontWeight="bold"
               letterSpacing="wide"
               textTransform="uppercase"
               color="body"
               pt={{ base: "8", md: "12" }}
-              pb={{ base: "24", md: "24" }}
+              pb={{ base: "24", md: "12" }}
             >
               Ministry of Propaganda
             </Heading>
@@ -59,6 +59,11 @@ const Mop = () => {
         <Container>
           <Image src={"/assets/1.png"} alt="The city is a cypher poster" />
         </Container>
+        <br />
+        <Container>
+          <Image src={"/assets/democracyiseatingfinance_color.png"} alt="Democracy is eating finance at web3 poster" />
+        </Container>
+        <br />
       </Box>
     </>
   )
