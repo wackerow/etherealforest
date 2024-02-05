@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react"
 
 import * as url from "@/lib/utils/url"
+import { FaFilePdf } from "react-icons/fa"
 
 type BaseProps = {
   href: string
@@ -36,13 +37,7 @@ export type LinkProps = BaseProps & NextLinkProps
  * e.g. <Link href="/eth-whitepaper.pdf">
  */
 export const BaseLink = forwardRef(function Link(
-  {
-    href,
-    children,
-    hideIcon,
-    isPartiallyActive = true,
-    ...props
-  }: LinkProps,
+  { href, children, hideIcon, isPartiallyActive = true, ...props }: LinkProps,
   ref
 ) {
   const { asPath } = useRouter()
@@ -61,7 +56,18 @@ export const BaseLink = forwardRef(function Link(
       <ChakraLink {...commonProps}>
         {children}
         <VisuallyHidden>(opens with email provider)</VisuallyHidden>
-        {!hideIcon && <Icon as={TbMailForward} boxSize="6" p="1" verticalAlign="middle" />}
+        {!hideIcon && (
+          <Icon as={TbMailForward} boxSize="6" p="1" verticalAlign="middle" />
+        )}
+      </ChakraLink>
+    )
+  }
+
+  if (url.isPdf(href)) {
+    return (
+      <ChakraLink isExternal {...commonProps}>
+        {children}
+        <VisuallyHidden>(opens PDF in separate tab)</VisuallyHidden>
       </ChakraLink>
     )
   }
@@ -91,5 +97,11 @@ export const BaseLink = forwardRef(function Link(
 })
 
 export const Link = forwardRef((props: LinkProps, ref) => (
-  <BaseLink data-inline-link ref={ref} color="primary" _hover={{ color: "primary", textDecoration: "underline" }} {...props} />
+  <BaseLink
+    data-inline-link
+    ref={ref}
+    color="primary"
+    _hover={{ color: "primary", textDecoration: "underline" }}
+    {...props}
+  />
 ))
