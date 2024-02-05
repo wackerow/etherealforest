@@ -6,8 +6,7 @@ class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/* <link rel="icon" href="/favicon.ico" /> */}
+          <link rel="icon" href="assets/favicon.ico" />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
