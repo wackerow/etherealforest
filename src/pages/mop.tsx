@@ -124,7 +124,6 @@ const Mop = () => {
             <Button
               as={Link}
               href="/assets/democracyiseatingfinance_bw.png"
-              rightIcon={<FaFilePdf />}
               variant="outline"
               borderRadius="none"
               hideIcon
@@ -150,7 +149,6 @@ const Mop = () => {
             <Button
               as={Link}
               href="/assets/democracyiseatingfinance_color.png"
-              rightIcon={<FaFilePdf />}
               variant="outline"
               borderRadius="none"
               hideIcon
