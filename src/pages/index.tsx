@@ -316,7 +316,7 @@ const Home = () => {
             fontWeight="bold"
             letterSpacing="wide"
           >
-            Past Events
+            Past events
           </Heading>
           <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
             <ListItem>
@@ -340,17 +340,6 @@ const Home = () => {
             src={"/assets/gfel-end.png"}
             alt="General Forum on Ethereum Localism end"
           />
-          <Text
-            as=""
-            fontSize="medium"
-            textAlign="center"
-            mb="8"
-            mt="2"
-            fontWeight="thin"
-            letterSpacing="normal"
-          >
-          A General Forum on Ethereum Localism 2023
-          </Text>
         </Container>
 
         <Divider mt="16" mb="8" bgColor="body" />
