@@ -341,7 +341,6 @@ const Home = () => {
             alt="General Forum on Ethereum Localism end"
           />
           <Text
-            as=""
             fontSize="medium"
             textAlign="center"
             mb="8"
