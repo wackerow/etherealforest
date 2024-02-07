@@ -20,5 +20,5 @@ export type NavLink = {
 // Markdown
 export type Frontmatter = {
   title: string
-  // publishDate: string
+  publishDate: string
 }
