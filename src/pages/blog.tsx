@@ -34,14 +34,19 @@ type PostData = {
 type Props = { posts: PostData[] }
 
 export const getStaticProps = (async () => {
-  const files = fs.readdirSync(BLOG_POSTS_DIR) // .sort().reverse()
+  const files = fs.readdirSync(BLOG_POSTS_DIR)
   const posts = files.map((filename) => {
     const filePath = path.join(BLOG_POSTS_DIR, filename)
     const file = fs.readFileSync(filePath, "utf-8")
     const { data: frontmatter, content } = matter(file)
-    // data.frontmatter.publishDate = new Date(
-    //   data.frontmatter.publishDate
-    // ).toISOString()
+    if (new Date(frontmatter.publishDate).toString() === "Invalid Date")
+      throw new Error(
+        `Invalid publishDate in frontmatter for file: ${filePath} - ${
+          !!frontmatter.publishDate
+            ? "format not recognized: " + frontmatter.publishDate
+            : "publishDate front matter field is required"
+        }`
+      )
     return { frontmatter, content } as PostData
   })
   return {
@@ -50,6 +55,11 @@ export const getStaticProps = (async () => {
 }) satisfies GetStaticProps<Props>
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  // Sort newest posts to the top
+  const handleSort = (a: PostData, b: PostData) =>
+    new Date(b.frontmatter.publishDate).getTime() -
+    new Date(a.frontmatter.publishDate).getTime()
+
   return (
     <>
       <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
@@ -76,39 +86,29 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           </Container>
         </Flex>
         {posts
-          .reverse()
-          // .sort(
-          //   (a, b) =>
-          //     new Date(b.frontmatter.publishDate).getTime() -
-          //     new Date(a.frontmatter.publishDate).getTime()
-          // )
-          .map(
-            (
-              { frontmatter: { title /* , publishDate */ }, content },
-              index
-            ) => (
-              <Fragment key={index}>
-                <Container>
-                  <Heading
-                    as="h2"
-                    mt={{ base: 12, md: 16 }}
-                    mb={{ base: 4, md: 6 }}
-                    fontWeight="normal"
-                  >
-                    {title}
-                  </Heading>
-                  {/* <Text fontSize="sm">{new Date(publishDate).toDateString()}</Text> */}
-                  <ReactMarkdown
-                    components={ChakraUIRenderer(MdComponents)}
-                    remarkPlugins={[gfm]}
-                  >
-                    {content}
-                  </ReactMarkdown>
-                </Container>
-                {index < posts.length - 1 && <Divider my="16" />}
-              </Fragment>
-            )
-          )}
+          .sort(handleSort)
+          .map(({ frontmatter: { title }, content }, index) => (
+            <Fragment key={index}>
+              <Container>
+                <Heading
+                  as="h2"
+                  mt={{ base: 12, md: 16 }}
+                  mb={{ base: 4, md: 6 }}
+                  fontWeight="normal"
+                >
+                  {title}
+                </Heading>
+                {/* <Text fontSize="sm">{new Date(publishDate).toDateString()}</Text> */}
+                <ReactMarkdown
+                  components={ChakraUIRenderer(MdComponents)}
+                  remarkPlugins={[gfm]}
+                >
+                  {content}
+                </ReactMarkdown>
+              </Container>
+              {index < posts.length - 1 && <Divider my="16" />}
+            </Fragment>
+          ))}
       </Box>
     </>
   )
