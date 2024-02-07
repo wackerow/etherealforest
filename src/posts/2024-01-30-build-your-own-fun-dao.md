@@ -1,6 +1,6 @@
 ---
 title: Build your own Fun DAO
-# publishDate: Jan 30, 2024
+publishDate: January 30, 2024
 ---
 
 Jan 30, 2024

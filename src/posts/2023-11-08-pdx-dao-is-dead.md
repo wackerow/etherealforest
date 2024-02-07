@@ -1,6 +1,6 @@
 ---
 title: PDX DAO is Dead
-# publishDate: November 8th, 2023
+publishDate: November 8, 2023
 ---
 
 November 8th, 2023
