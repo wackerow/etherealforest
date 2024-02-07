@@ -1,26 +1,101 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+To get set up locally, first confirm you have NodeJS installed. If not, you can download it [here](https://nodejs.org/en/download/).
+
+Make sure you are using the version noted in [.nvmrc](.nvmrc). If you have `nvm` installed, you can run `nvm use` to switch to the correct version.
+
+Next, install the dependencies. We use `yarn`, which you can install with `npm install -g yarn` if you don't already have it.
 
 ```bash
-npm run dev
-# or
+yarn
+```
+
+To run the site locally, spin-up a development server:
+
+```bash
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+You can start modifying pages found in `/pages/*.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Adding blog posts
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To add a new blog post, create a new markdown file in the `posts` directory. The file must by **markdown** file ending in `.md` and is recommended to use the following format: `YYYY-MM-DD-title-of-post.md`. The file must also include the following frontmatter:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```yaml
+---
+title: Title of the post
+publishDate: Month D, YYYY
+---
+```
+
+For example:
+
+```yaml
+---
+title: PDX DAO is Dead
+publishDate: November 8, 2023
+---
+```
+
+The `title` field will be rendered at the top of the post, followed by the body of markdown content. For more information on how to write markdown, see [this guide](https://www.markdownguide.org/).
+
+### Launching post
+
+For a post to be live, these changes must make it to the `main` branch.
+
+- First, commit changes, open a PR against the `dev` branch, and merge
+- Deploy the site by opening a PR from `dev` branch into `main`
+- Once PR is open, confirm the Vercel checks pass, and the build preview looks the way you expect
+- Merge the PR
+
+## Chakra-UI Components
+
+This project uses [Chakra-UI](https://chakra-ui.com/) for styling. You can find the documentation for the components [here](https://chakra-ui.com/docs/getting-started).
+
+Chakra-UI components can be imported from `@chakra-ui/react`. For example:
+
+```tsx
+import { Box, Text } from '@chakra-ui/react';
+```
+
+These can be styled using "style props" which resemble css properties, but are passed as props to the component, using "camel case" (ie. `lowerFirstThenUpper`). For example:
+
+Instead of writing:
+
+```css
+.box {
+  background-color: red;
+  padding: 20px;
+}
+.big {
+  font-size: 24px;
+}
+```
+```tsx
+<div className="box">
+  <p className="big">Hello, world!</p>
+</div>
+```
+
+You would write:
+
+```tsx
+<Box backgroundColor="red" padding="20px">
+  <Text fontSize="24px">Hello, world!</Text>
+</Box>
+```
+
+Or, you could use the Chakra-UI shorthand tokens and abbreviated prop names:
+
+```tsx
+<Box bgColor="red" p="5">
+  <Text fontSize="2xl">Hello, world!</Text>
+</Box>
+```
+
 
 ## Learn More
 
@@ -29,10 +104,4 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/)
