@@ -89,7 +89,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
             ) => (
               <Fragment key={index}>
                 <Container>
-                  <div id={index} />
+                  <div id={String(index)} />
                   <Heading
                     as="h2"
                     mt={{ base: 12, md: 16 }}
