@@ -5,12 +5,18 @@ import {
   Flex,
   Heading,
   Image,
+  Text,
+  type TextProps,
   ButtonGroup,
   Button,
 } from "@chakra-ui/react"
 import { Link } from "@/components/Link"
 import { PageMetadata } from "@/components/PageMetadata"
 import { FaFilePdf } from "react-icons/fa"
+
+const TextBlock = (props: TextProps) => {
+  return <Text mb="9" fontSize="lg" lineHeight="short" {...props} />
+}
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
@@ -43,6 +49,15 @@ const Mop = () => {
         </Flex>
 
         <Container>
+          <TextBlock>
+          Ministry of Propaganda is Ethereal Forest’s visual media contingent.
+          All media is created for the benefit of the ecosystem;
+          as we grow this library, please feel free to make use of its
+          materials to whatever purposes you see fit.
+          </TextBlock>
+        </Container>
+
+        <Container>
           <Image src={"/assets/1.png"} alt="The city is a cypher poster" />
           <ButtonGroup mt="4">
             <Button
@@ -69,7 +84,7 @@ const Mop = () => {
               h="fit-content"
               borderColor="primary"
             >
-              Black and white
+              B&W
             </Button>
             <Button
               as={Link}
@@ -129,7 +144,7 @@ const Mop = () => {
               h="fit-content"
               borderColor="primary"
             >
-              Black and white
+              B&W
             </Button>
             <Button
               as={Link}
