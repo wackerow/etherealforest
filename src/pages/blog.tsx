@@ -4,6 +4,7 @@ import path from "path"
 import matter from "gray-matter"
 import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 import gfm from "remark-gfm"
+import { IoMdLink } from "react-icons/io"
 
 import {
   Box,
@@ -12,6 +13,7 @@ import {
   Flex,
   Heading,
   Divider,
+  Icon,
 } from "@chakra-ui/react"
 
 import { PageMetadata } from "@/components/PageMetadata"
@@ -21,6 +23,8 @@ import { Frontmatter } from "@/lib/types"
 import { Fragment } from "react"
 import { MdComponents } from "@/components/MdComponents"
 import ReactMarkdown from "react-markdown"
+import { slugify } from "@/lib/utils/slugify"
+import { IdAnchor } from "@/components/IdAnchor"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
@@ -87,28 +91,35 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         </Flex>
         {posts
           .sort(handleSort)
-          .map(({ frontmatter: { title }, content }, index) => (
-            <Fragment key={index}>
-              <Container>
-                <Heading
-                  as="h2"
-                  mt={{ base: 12, md: 16 }}
-                  mb={{ base: 4, md: 6 }}
-                  fontWeight="normal"
-                >
-                  {title}
-                </Heading>
-                {/* <Text fontSize="sm">{new Date(publishDate).toDateString()}</Text> */}
-                <ReactMarkdown
-                  components={ChakraUIRenderer(MdComponents)}
-                  remarkPlugins={[gfm]}
-                >
-                  {content}
-                </ReactMarkdown>
-              </Container>
-              {index < posts.length - 1 && <Divider my="16" />}
-            </Fragment>
-          ))}
+          .map(({ frontmatter: { title }, content }, index) => {
+            const id = slugify(title)
+            return (
+              <Fragment key={index}>
+                <Container>
+                  <Heading
+                    as="h2"
+                    id={id}
+                    mt={{ base: 12, md: 16 }}
+                    mb={{ base: 4, md: 6 }}
+                    fontWeight="normal"
+                    data-group
+                    scrollMarginTop={28}
+                    position="relative"
+                  >
+                    <IdAnchor id={id} />
+                    {title}
+                  </Heading>
+                  <ReactMarkdown
+                    components={ChakraUIRenderer(MdComponents)}
+                    remarkPlugins={[gfm]}
+                  >
+                    {content}
+                  </ReactMarkdown>
+                </Container>
+                {index < posts.length - 1 && <Divider my="16" />}
+              </Fragment>
+            )
+          })}
       </Box>
     </>
   )
