@@ -25,6 +25,7 @@ import { MdComponents } from "@/components/MdComponents"
 import ReactMarkdown from "react-markdown"
 import { slugify } from "@/lib/utils/slugify"
 import { IdAnchor } from "@/components/IdAnchor"
+import EtherealText from "@/components/EtherealText"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
@@ -85,7 +86,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
               pt={{ base: "8", md: "12" }}
               pb={{ base: "24", md: "12" }}
             >
-              Blog
+              <EtherealText>Blog</EtherealText>
             </Heading>
           </Container>
         </Flex>

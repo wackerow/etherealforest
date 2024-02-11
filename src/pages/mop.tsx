@@ -13,6 +13,7 @@ import {
 import { Link } from "@/components/Link"
 import { PageMetadata } from "@/components/PageMetadata"
 import { FaFilePdf } from "react-icons/fa"
+import EtherealText from "@/components/EtherealText"
 
 const TextBlock = (props: TextProps) => {
   return <Text mb="9" fontSize="lg" lineHeight="short" {...props} />
@@ -43,7 +44,7 @@ const Mop = () => {
               pt={{ base: "8", md: "12" }}
               pb={{ base: "24", md: "12" }}
             >
-              Ministry of Propaganda
+              <EtherealText>Ministry of Propaganda</EtherealText>
             </Heading>
           </Container>
         </Flex>
