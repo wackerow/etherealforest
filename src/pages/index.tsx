@@ -24,6 +24,7 @@ import { PageMetadata } from "@/components/PageMetadata"
 import { Link } from "@/components/Link"
 import { TbBrandTwitter, TbMailForward } from "react-icons/tb"
 import { CgHello } from "react-icons/cg"
+import EtherealText from "@/components/EtherealText"
 
 type WideImageProps = Omit<ImageProps, "alt" | "src"> & {
   src: string
@@ -77,7 +78,7 @@ const Home = () => {
               pt={{ base: "8", md: "12" }}
               pb={{ base: "24", md: "24" }}
             >
-              Ethereal Forest
+              <EtherealText>Ethereal Forest</EtherealText>
             </Heading>
           </Container>
         </Flex>
