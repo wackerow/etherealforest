@@ -1,3 +1,5 @@
+import { ImageProps } from "next/image"
+
 // Page metadata
 export type NameMeta = {
   name: string
@@ -22,3 +24,12 @@ export type Frontmatter = {
   title: string
   publishDate: string
 }
+
+// Ministry of Propaganda images
+export type MopItem = {
+  title: string
+  src: ImageProps["src"]
+} & (
+  | { grayUrl: string; colorUrl?: string }
+  | { colorUrl: string; grayUrl?: string }
+)
