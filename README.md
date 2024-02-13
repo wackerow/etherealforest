@@ -42,14 +42,41 @@ publishDate: November 8, 2023
 
 The `title` field will be rendered at the top of the post, followed by the body of markdown content. For more information on how to write markdown, see [this guide](https://www.markdownguide.org/).
 
-### Launching post
+## Adding a MoP asset
+
+The list of MoP assets to be rendered on `/mop` is found in `src/data/mop.ts`. Each item has the following format:
+
+```ts
+{
+  title: "Title of the asset",
+  src: NewAsset,
+  grayUrl: "/assets/mop/a-new-mop-image-asset-bw.pdf"
+  colorUrl: "/assets/mop/a-new-mop-image-asset-color.pdf"
+}
+```
+
+The `grayUrl` and `colorUrl` are the public paths to the black and white and color versions of the asset, respectively. These can be images, or PDFs, but the imported image (previewed on the page) cannot be a PDF. Must have at least one of grayUrl or colorUrl.
+
+The `NewAsset` is the image asset to be shown on the page imported as a component. This should be done at the top of the `src/data/mop.ts` file:
+
+```ts
+import NewAsset from "@/../public/assets/mop/a-new-mop-image-asset.png"
+```
+
+To add an asset:
+
+1. Add the image or PDF assets to the `public/assets/mop` directory
+1. Import the display image as a component at the top of `src/data/mop.ts`
+1. Add a new item to the `mop` array in `src/data/mop.ts` with the `title`, `src`, `grayUrl`, and `colorUrl` fields as shown above (or similar to existing arra yitems)
+
+## Launching changes
 
 For a post to be live, these changes must make it to the `main` branch.
 
 - First, commit changes, open a PR against the `dev` branch, and merge
 - Deploy the site by opening a PR from `dev` branch into `main`
 - Once PR is open, confirm the Vercel checks pass, and the build preview looks the way you expect
-- Merge the PR
+- Contact admin to merge the PR
 
 ## Chakra-UI Components
 
