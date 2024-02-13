@@ -1,18 +1,22 @@
+import NextImage from "next/image"
 import {
   Box,
   type BoxProps,
   Container as ChakraContainer,
   Flex,
   Heading,
-  Image,
   Text,
   type TextProps,
   ButtonGroup,
   Button,
 } from "@chakra-ui/react"
+import { FaFilePdf } from "react-icons/fa"
+
 import { Link } from "@/components/Link"
 import { PageMetadata } from "@/components/PageMetadata"
-import { FaFilePdf } from "react-icons/fa"
+
+import assetData from "@/data/mop"
+import * as url from "@/lib/utils/url"
 
 const TextBlock = (props: TextProps) => {
   return <Text mb="9" fontSize="lg" lineHeight="short" {...props} />
@@ -50,130 +54,64 @@ const Mop = () => {
 
         <Container>
           <TextBlock>
-          Ministry of Propaganda is Ethereal Forest’s visual media contingent.
-          All media is created for the benefit of the ecosystem;
-          as we grow this library, please feel free to make use of its
-          materials to whatever purposes you see fit.
+            Ministry of Propaganda is Ethereal Forest’s visual media contingent.
+            All media is created for the benefit of the ecosystem; as we grow
+            this library, please feel free to make use of its materials to
+            whatever purposes you see fit.
           </TextBlock>
         </Container>
 
-        <Container>
-          <Image src={"/assets/1.png"} alt="The city is a cypher poster" />
-          <ButtonGroup mt="4">
-            <Button
-              as={Link}
-              href="/assets/cypher-bw.pdf"
-              rightIcon={<FaFilePdf />}
-              variant="outline"
-              borderRadius="none"
-              hideIcon
-              _hover={{
-                textDecoration: "none",
-                bg: "primaryLight",
-              }}
-              _active={{
-                borderColor: "primaryHover",
-                bg: "primaryHover",
-              }}
-              textDecoration="none"
-              border="2px"
-              px="6"
-              py="4"
-              mb="12"
-              whiteSpace="break-spaces"
-              h="fit-content"
-              borderColor="primary"
-            >
-              B&W
-            </Button>
-            <Button
-              as={Link}
-              href="/assets/cypher-color.pdf"
-              rightIcon={<FaFilePdf />}
-              variant="outline"
-              borderRadius="none"
-              hideIcon
-              _hover={{
-                textDecoration: "none",
-                bg: "primaryLight",
-              }}
-              _active={{
-                borderColor: "primaryHover",
-                bg: "primaryHover",
-              }}
-              textDecoration="none"
-              border="2px"
-              px="6"
-              py="4"
-              mb="12"
-              whiteSpace="break-spaces"
-              h="fit-content"
-              borderColor="primary"
-            >
-              Color
-            </Button>
-          </ButtonGroup>
-        </Container>
-        <br />
-        <Container>
-          <Image
-            src={"/assets/democracyiseatingfinance_color.png"}
-            alt="Democracy is eating finance at web3 poster"
-          />{" "}
-          <ButtonGroup mt="4">
-            <Button
-              as={Link}
-              href="/assets/democracyiseatingfinance_bw.png"
-              variant="outline"
-              borderRadius="none"
-              hideIcon
-              _hover={{
-                textDecoration: "none",
-                bg: "primaryLight",
-              }}
-              _active={{
-                borderColor: "primaryHover",
-                bg: "primaryHover",
-              }}
-              textDecoration="none"
-              border="2px"
-              px="6"
-              py="4"
-              mb="12"
-              whiteSpace="break-spaces"
-              h="fit-content"
-              borderColor="primary"
-            >
-              B&W
-            </Button>
-            <Button
-              as={Link}
-              href="/assets/democracyiseatingfinance_color.png"
-              variant="outline"
-              borderRadius="none"
-              hideIcon
-              _hover={{
-                textDecoration: "none",
-                bg: "primaryLight",
-              }}
-              _active={{
-                borderColor: "primaryHover",
-                bg: "primaryHover",
-              }}
-              textDecoration="none"
-              border="2px"
-              px="6"
-              py="4"
-              mb="12"
-              whiteSpace="break-spaces"
-              h="fit-content"
-              borderColor="primary"
-            >
-              Color
-            </Button>
-          </ButtonGroup>
-        </Container>
-        <br />
+        {assetData.map(({ title, src, grayUrl, colorUrl }, index) => {
+          const buttons = [
+            { href: grayUrl, label: "B&W" },
+            { href: colorUrl, label: "Color" },
+          ]
+          return (
+            <Container key={title} mb="4">
+              <NextImage
+                src={src}
+                alt={title}
+                placeholder="blur"
+                priority={index === 0}
+              />
+              <ButtonGroup mt="4">
+                {buttons.map(
+                  ({ href, label }) =>
+                    href && (
+                      <Button
+                        key={title + label}
+                        as={Link}
+                        href={href}
+                        rightIcon={url.isPdf(href) ? <FaFilePdf /> : undefined}
+                        variant="outline"
+                        borderRadius="none"
+                        hideIcon
+                        isExternal
+                        _hover={{
+                          textDecoration: "none",
+                          bg: "primaryLight",
+                        }}
+                        _active={{
+                          borderColor: "primaryHover",
+                          bg: "primaryHover",
+                        }}
+                        textDecoration="none"
+                        border="2px"
+                        px="6"
+                        py="4"
+                        mb="12"
+                        whiteSpace="break-spaces"
+                        h="fit-content"
+                        borderColor="primary"
+                      >
+                        {label}
+                      </Button>
+                    )
+                )}
+              </ButtonGroup>
+            </Container>
+          )
+        })}
       </Box>
     </>
   )
