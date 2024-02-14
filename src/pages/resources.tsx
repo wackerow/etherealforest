@@ -1,21 +1,44 @@
+import fs from "fs"
+import path from "path"
+
+import ChakraUIRenderer from "chakra-ui-markdown-renderer"
+import type { GetStaticProps, InferGetStaticPropsType } from "next"
+import matter from "gray-matter"
+import gfm from "remark-gfm"
+import ReactMarkdown from "react-markdown"
 import {
   Box,
   type BoxProps,
   Container as ChakraContainer,
   Heading,
-  Text,
 } from "@chakra-ui/react"
 
 import { PageMetadata } from "@/components/PageMetadata"
+import { MdComponents } from "@/components/MdComponents"
+
+import { RESOURCES_MARKDOWN_PATH } from "@/lib/constants"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
 )
 
-const Resources = () => {
+type Props = { content: string }
+
+export const getStaticProps = (async () => {
+  const contentPath = path.join(process.cwd(), RESOURCES_MARKDOWN_PATH)
+  if (!fs.existsSync(contentPath))
+    throw new Error("Resources markdown file not found")
+  const file = fs.readFileSync(contentPath, "utf-8")
+  const { content } = matter(file)
+  return { props: { content } }
+}) satisfies GetStaticProps<Props>
+
+const Resources = ({
+  content,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
+      <PageMetadata title="Resources" description="Informational resources related to Ethereal Forest" />
 
       <Box as="main" maxW="container.lg" mx="auto">
         <Container>
@@ -27,21 +50,16 @@ const Resources = () => {
             textTransform="uppercase"
             color="body"
             pt={{ base: "8", md: "12" }}
-            pb={{ base: "24", md: "12" }}
           >
             Resources
           </Heading>
-          <Text>
-            Regenerative Agriculture Regenerative Finance Open Hardware Crypto
-            How-to guides Aligned Philosophy P2p Organizational Tools Knowledge
-            Commons Solidarity Economy Participatory Budgeting Systems
-            Thinking/Cybernetics Portland Projects Hackerspaces Reuse and Repair
-            Mutual Aid DeSci DeCiv
-          </Text>
-        </Container>
 
-        <Container>
-          <Text>Resources for Local DAOs</Text>
+          <ReactMarkdown
+            components={ChakraUIRenderer(MdComponents)}
+            remarkPlugins={[gfm]}
+          >
+            {content}
+          </ReactMarkdown>
         </Container>
       </Box>
     </>

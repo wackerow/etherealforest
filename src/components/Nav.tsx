@@ -71,7 +71,7 @@ export const Nav = ({ items, ...props }: NavProps) => {
         </Link>
         <Flex alignItems="center" ms="auto">
           {/* Desktop nav items */}
-          <Flex alignItems="center" gap="8" hideBelow="md" mx="8">
+          <Flex alignItems="center" gap={{ base: "4", lg: "8" }} hideBelow="md" mx="8">
             {items.map(({ name, href }) => (
               <Link key={href} href={href} color="body">
                 {name}
