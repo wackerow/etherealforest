@@ -33,8 +33,6 @@ Blockchain Socialist [ep. On Collaborative Finance](https://www.youtube.com/watc
 
 What is [ReFi](https://hackernoon.com/an-introduction-to-regenerative-finance-refi)?
 What are the [eight forms of capital](https://wiki.p2pfoundation.net/Eight_Forms_of_Capital)?
-<!-- What is impact tracking? -->
-<!-- What are ecocredits? -->
 
 ### Further reading
 
