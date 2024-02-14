@@ -19,7 +19,7 @@ import { Link } from "@/components/Link"
 
 export const MdComponents = {
   p: ({ children }: Pick<TextProps, "children">) => (
-    <Text fontSize="lg" lineHeight="150%" mb={{ base: 4, md: 6 }}>
+    <Text fontSize="lg" lineHeight="150%" mb={{ base: 4, md: 6 }} whiteSpace="pre-wrap">
       {children}
     </Text>
   ),
