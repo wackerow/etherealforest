@@ -1,11 +1,8 @@
 import fs from "fs"
 import path from "path"
 
-import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 import type { GetStaticProps, InferGetStaticPropsType } from "next"
 import matter from "gray-matter"
-import gfm from "remark-gfm"
-import ReactMarkdown from "react-markdown"
 import {
   Box,
   type BoxProps,
@@ -14,9 +11,9 @@ import {
 } from "@chakra-ui/react"
 
 import { PageMetadata } from "@/components/PageMetadata"
-import { MdComponents } from "@/components/MdComponents"
 
 import { RESOURCES_MARKDOWN_PATH } from "@/lib/constants"
+import { MarkdownProvider } from "@/components/MarkdownProvider"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
@@ -38,7 +35,10 @@ const Resources = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <PageMetadata title="Resources" description="Informational resources related to Ethereal Forest" />
+      <PageMetadata
+        title="Resources"
+        description="Informational resources related to Ethereal Forest"
+      />
 
       <Box as="main" maxW="container.lg" mx="auto">
         <Container>
@@ -54,12 +54,7 @@ const Resources = ({
             Resources
           </Heading>
 
-          <ReactMarkdown
-            components={ChakraUIRenderer(MdComponents)}
-            remarkPlugins={[gfm]}
-          >
-            {content}
-          </ReactMarkdown>
+          <MarkdownProvider>{content}</MarkdownProvider>
         </Container>
       </Box>
     </>
