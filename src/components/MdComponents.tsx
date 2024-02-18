@@ -14,11 +14,17 @@ import {
   type TextProps,
   UnorderedList,
   Box,
+  Thead,
+  Th,
+  Td,
+  Tr,
+  Tbody,
 } from "@chakra-ui/react"
 
 import "katex/dist/katex.min.css"
 
 import { Link } from "@/components/Link"
+import { markdownTableComponents, Table } from "@/components/Table"
 
 export const MdComponents = {
   p: ({ children }: Pick<TextProps, "children">) => (
@@ -128,4 +134,5 @@ export const MdComponents = {
       {...props}
     />
   ),
+  ...markdownTableComponents,
 }
