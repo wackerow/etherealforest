@@ -16,6 +16,8 @@ import {
   Box,
 } from "@chakra-ui/react"
 
+import "katex/dist/katex.min.css"
+
 import { Link } from "@/components/Link"
 
 export const MdComponents = {

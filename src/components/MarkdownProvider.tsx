@@ -5,14 +5,16 @@ import remarkBreaks from "remark-breaks"
 import gfm from "remark-gfm"
 import removeComments from "remark-remove-comments"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import remarkMath from "remark-math"
+import rehypeKatex from "rehype-katex"
 
 import { MdComponents } from "./MdComponents"
 
 export const MarkdownProvider = (props: { children: string }) => (
   <ReactMarkdown
     components={ChakraUIRenderer(MdComponents)}
-    remarkPlugins={[gfm, remarkBreaks, removeComments]}
-    rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]}
+    remarkPlugins={[remarkMath, gfm, remarkBreaks, removeComments]}
+    rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeKatex]}
     {...props}
   />
 )
