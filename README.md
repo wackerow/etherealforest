@@ -42,6 +42,88 @@ publishDate: November 8, 2023
 
 The `title` field will be rendered at the top of the post, followed by the body of markdown content. For more information on how to write markdown, see [this guide](https://www.markdownguide.org/).
 
+### Markdown support
+
+The following markdown features are supported:
+
+- Bold/strong
+  - Wrap text in `**`
+  - ie `**bold me**`
+  - **bold me**
+- Italics/emphasis
+  - Wrap text in `_`
+  - ie `_italicize me_`
+  - _italicize me_
+- Strikethrough
+  - Wrap text in `~~`
+  - ie `~~strike me~~`
+  - ~~strike me~~
+- Links
+  - Wrap text label in `[]` followed by URL in `()`
+  - ie `[link me](https://some.url)`
+  - [link me](https://some.url)
+- Lists (Ordered and unordered)
+  - Begin lines with `1.` for an ordered list
+  - Begin lines with `-` for a bulleted list
+  - Indent with 2 spaces per level to nest lists
+  - ie `1. This is an ordered list item`
+- Tables - See below for more information
+- KaTeX mathematical expressions - See below for more information
+- Blockquotes
+  - Begin line with `>`
+  - ie `> This is placed into a callout box`
+  - > This is placed into a callout box
+
+#### Table support
+
+Tables are supported in markdown. They can be created using the following syntax:
+
+```markdown
+| Header 1 | Header 2 | Header 3 |
+| -------- | -------- | -------- |
+| Data 1   | Data 2   | Data 3   |
+```
+
+Text alignment can be assigned using colons below the header as follows (text position inside cells does not matter):
+
+```markdown
+| Left aligned      | Centered | Right aligned |
+| :---------------- | :------: | ------------: | 
+| Regular text      |    🙂    |       1234.56 |
+| More regular text |    🎉    |         78.90 |
+```
+
+...displays as:
+
+| Left aligned      | Centered | Right aligned |
+| :---------------- | :------: | ------------: |
+| Regular text      |    🙂    |       1234.56 |
+| More regular text |    🎉    |         78.90 |
+
+#### KaTeX mathematical expressions support
+
+KaTeX mathematical expressions are supported. They look something like this when written:
+
+Inline: `$f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$`
+
+...displays as: $f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$
+
+Block:
+
+```
+$$
+f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+$$
+```
+
+...displays as:
+
+$$
+f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+$$
+
+[Learn more about supported KaTeX mathematical expressions](https://katex.org/docs/supported)
+
 ## Adding a MoP asset
 
 The list of MoP assets to be rendered on `/mop` is found in `src/data/mop.ts`. Each item has the following format:
@@ -85,7 +167,7 @@ This project uses [Chakra-UI](https://chakra-ui.com/) for styling. You can find 
 Chakra-UI components can be imported from `@chakra-ui/react`. For example:
 
 ```tsx
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text } from "@chakra-ui/react"
 ```
 
 These can be styled using "style props" which resemble css properties, but are passed as props to the component, using "camel case" (ie. `lowerFirstThenUpper`). For example:
@@ -101,6 +183,7 @@ Instead of writing:
   font-size: 24px;
 }
 ```
+
 ```tsx
 <div className="box">
   <p className="big">Hello, world!</p>
@@ -122,7 +205,6 @@ Or, you could use the Chakra-UI shorthand tokens and abbreviated prop names:
   <Text fontSize="2xl">Hello, world!</Text>
 </Box>
 ```
-
 
 ## Learn More
 

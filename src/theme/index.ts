@@ -75,6 +75,7 @@ const overrides = {
       alpha900: { _light: "whiteAlpha.900", _dark: "blackAlpha.900" },
       alpha800: { _light: "whiteAlpha.800", _dark: "blackAlpha.800" },
       alpha700: { _light: "whiteAlpha.700", _dark: "blackAlpha.700" },
+      alphaInvert100: { _light: "blackAlpha.100", _dark: "whiteAlpha.100" },
     },
   },
 }

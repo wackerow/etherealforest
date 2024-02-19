@@ -30,4 +30,4 @@ All in all, this first cycle onboarded a handful of community members to self-cu
 
 If you have a radical new coordination tool you’d like Fun DAO PDX to try, hop into the DAO’s [telegram](https://t.me/+JWW2M-eq9yxjNjAx) to let us know about it. If you’d like to join, you can do the same or simply show up to learn more at the monthly [EthPDX](https://twitter.com/ethpdx) event.
 
-If you’d like to start your own Fun DAO,** fucking go for it**!
+If you’d like to start your own Fun DAO, **fucking go for it**!
