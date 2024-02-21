@@ -4,6 +4,7 @@ import {
   Heading,
   type HeadingProps,
   Image,
+  type LinkProps,
   ListItem,
   type ListItemProps,
   type ListProps,
@@ -12,14 +13,22 @@ import {
   Text,
   type TextProps,
   UnorderedList,
-  LinkProps,
+  Box,
+  Thead,
+  Th,
+  Td,
+  Tr,
+  Tbody,
 } from "@chakra-ui/react"
 
+import "katex/dist/katex.min.css"
+
 import { Link } from "@/components/Link"
+import { markdownTableComponents, Table } from "@/components/Table"
 
 export const MdComponents = {
   p: ({ children }: Pick<TextProps, "children">) => (
-    <Text fontSize="lg" lineHeight="150%" mb={{ base: 4, md: 6 }} whiteSpace="pre-wrap">
+    <Text fontSize="lg" lineHeight="150%" mb={{ base: 4, md: 6 }}>
       {children}
     </Text>
   ),
@@ -27,6 +36,20 @@ export const MdComponents = {
     <Link color="primary" href={href as string}>
       {children}
     </Link>
+  ),
+  h1: (props: Pick<HeadingProps, "children" | "id">) => (
+    // h1 rendered from page template using title
+    // Only one h1 per page; markdown h1's (#) will be rendered as h2's
+    <Heading
+      as="h2"
+      fontSize="3xl"
+      fontWeight="normal"
+      letterSpacing="wide"
+      color="body"
+      mt={{ base: 10, md: 14 }}
+      mb={{ base: 4, md: 6 }}
+      {...props}
+    />
   ),
   h2: (props: Pick<HeadingProps, "children" | "id">) => (
     <Heading
@@ -101,4 +124,15 @@ export const MdComponents = {
     <UnorderedList mb="6" {...props} />
   ),
   li: (props: Pick<ListItemProps, "children">) => <ListItem {...props} />,
+  blockquote: (props: Pick<BoxProps, "children">) => (
+    <Box
+      as="blockquote"
+      bg="alphaInvert100"
+      p="4"
+      sx={{ "p:last-of-type": { mb: 0 } }}
+      mb="8"
+      {...props}
+    />
+  ),
+  ...markdownTableComponents,
 }
