@@ -3,8 +3,6 @@ title: PDX DAO is Dead
 publishDate: November 8, 2023
 ---
 
-November 8th, 2023
-
 **Wherein we rid ourselves of the PDX DAO name, so that its ghost might possess us.**
 
 In the aftermath of the [General Forum on Ethereum Localism](https://x.com/omniharmonic/status/1713642215690617150?s=20), after taking a breath from our immersion in the web of new connections and entanglements, we’ve come to consider the event a wild success. A global community gathered to discuss (in [makerspaces](https://www.pastlives.space/) and [warehouses](https://opencollective.com/bridgespacecommonspdx), DIY saunas and [ecovillages](https://www.kailashecovillage.org/), and never without a joint on the loading dock) the enigma of localism, the hydra of its possibility - PAMMS and commons, quadratic lands and mycelial credit networks, neighbourhoods and substrates. The air was jovial - on the final night, a verdict came in: “trust me, it’s not going to be this good next year. _You only get this lucky once_.”
