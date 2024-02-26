@@ -1,8 +1,9 @@
 import fs from "fs"
 import path from "path"
 
+import { Fragment } from "react"
+import { GetStaticProps, InferGetStaticPropsType } from "next"
 import matter from "gray-matter"
-
 import {
   Box,
   type BoxProps,
@@ -13,13 +14,13 @@ import {
 } from "@chakra-ui/react"
 
 import { PageMetadata } from "@/components/PageMetadata"
-import { GetStaticProps, InferGetStaticPropsType } from "next"
-import { BLOG_POSTS_DIR } from "@/lib/constants"
-import { Frontmatter } from "@/lib/types"
-import { Fragment } from "react"
-import { slugify } from "@/lib/utils/slugify"
 import { IdAnchor } from "@/components/IdAnchor"
 import { MarkdownProvider } from "@/components/MarkdownProvider"
+import { MdComponents } from "@/components/MdComponents"
+
+import { BLOG_POSTS_DIR } from "@/lib/constants"
+import { Frontmatter } from "@/lib/types"
+import { slugify } from "@/lib/utils/slugify"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
@@ -86,8 +87,12 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         </Flex>
         {posts
           .sort(handleSort)
-          .map(({ frontmatter: { title }, content }, index) => {
+          .map(({ frontmatter: { title, publishDate }, content }, index) => {
             const id = slugify(title)
+            const dateString = Intl.DateTimeFormat("en", {
+              dateStyle: "long",
+              timeZone: "UTC",
+            }).format(new Date(publishDate))
             return (
               <Fragment key={index}>
                 <Container>
@@ -104,6 +109,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     <IdAnchor id={id} />
                     {title}
                   </Heading>
+                  <MdComponents.p>{dateString}</MdComponents.p>
                   <MarkdownProvider>{content}</MarkdownProvider>
                 </Container>
                 {index < posts.length - 1 && <Divider my="16" />}
