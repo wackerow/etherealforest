@@ -3,8 +3,6 @@ title: Build your own Fun DAO
 publishDate: January 30, 2024
 ---
 
-Jan 30, 2024
-
 At Ethereal Forest we take it as our duty to spread the twin ethos of decentralization and direct democracy, to energize people’s sense of the organizationally possible and to awaken people’s capacities for **coordination** and **commons self-management**. One of the best ways we can do this is by evangelizing the web3 tool of p2p-enabled, low-overhead spontaneous organizations that we call **DAOs** with their now vast library of composable inputs for radical democracy and participatory economics.
 
 In accordance with this [mission](https://mirror.xyz/ethpdx.eth/rdY7f1P0a7-nUm_DrMTFCYMLLAgU2G89up8h8uuGLJI), Ethereal Forest has seeded **Fun DAO PDX**, a low key onboarding project to give interested friends (and strangers) in the Portland community a chance to join a DAO, learn an ever revolving set of novel coordination tools, and meet some friends-in-affinity in the process.
