@@ -3,13 +3,22 @@ import matter from "gray-matter"
 import type { GetStaticPaths, InferGetStaticPropsType } from "next"
 import { BLOG_POSTS_DIR } from "@/lib/constants"
 import { getPostParamsFromFilename, getPostURL } from "@/lib/utils/posts"
-import { PostPath } from "@/lib/types"
+import type { PostPath } from "@/lib/types"
 import { ParsedUrlQuery } from "querystring"
-import { Container, Heading } from "@chakra-ui/react"
+import {
+  Button,
+  ButtonGroup,
+  Container,
+  Heading,
+  Spacer,
+} from "@chakra-ui/react"
 import { slugify } from "@/lib/utils/slugify"
 import { IdAnchor } from "@/components/IdAnchor"
 import { MdComponents } from "@/components/MdComponents"
 import { MarkdownProvider } from "@/components/MarkdownProvider"
+import { Link } from "@/components/Link"
+import { ButtonLink } from "@/components/ButtonLink"
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
 
 // Generate the paths for each blog post
 export const getStaticPaths: GetStaticPaths = () => {
@@ -45,12 +54,13 @@ export const getStaticProps = async (context: any) => {
           : "publishDate front matter field is required"
       }`
     )
+  const postPath = getPostURL(filePath)
 
   return {
     props: {
       frontmatter,
       content,
-      // postPath,
+      postPath,
       availableURLs: files.map((file) => getPostURL(file)),
     },
   }
@@ -59,10 +69,13 @@ export const getStaticProps = async (context: any) => {
 const BlogPost = ({
   frontmatter: { title, publishDate },
   content,
-  // postPath,
-  // availableURLs,
+  postPath,
+  availableURLs,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log({})
+  const index = availableURLs.findIndex((url) => postPath.includes(url))
+  const nextPostUrl =
+    index + 1 < availableURLs.length ? availableURLs[index + 1] : null
+  const prevPostUrl = index - 1 >= 0 ? availableURLs[index - 1] : null
 
   const id = slugify(title)
   const dateString = Intl.DateTimeFormat("en", {
@@ -87,6 +100,28 @@ const BlogPost = ({
       </Heading>
       <MdComponents.p>{dateString}</MdComponents.p>
       <MarkdownProvider>{content}</MarkdownProvider>
+      <ButtonGroup w="full" justifyContent="space-between">
+        {prevPostUrl ? (
+          <ButtonLink
+            href={"/blog" + prevPostUrl}
+            leftIcon={<ChevronLeftIcon />}
+          >
+            Newer
+          </ButtonLink>
+        ) : (
+          <Spacer />
+        )}
+        {nextPostUrl ? (
+          <ButtonLink
+            href={"/blog" + nextPostUrl}
+            rightIcon={<ChevronRightIcon />}
+          >
+            Older
+          </ButtonLink>
+        ) : (
+          <Spacer />
+        )}
+      </ButtonGroup>
     </Container>
   )
 }
