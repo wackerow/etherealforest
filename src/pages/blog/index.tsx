@@ -1,7 +1,6 @@
 import fs from "fs"
 import path from "path"
 
-import { Fragment } from "react"
 import { GetStaticProps, InferGetStaticPropsType } from "next"
 import matter from "gray-matter"
 import {
@@ -10,17 +9,19 @@ import {
   Container as ChakraContainer,
   Flex,
   Heading,
-  Divider,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react"
 
 import { PageMetadata } from "@/components/PageMetadata"
-import { IdAnchor } from "@/components/IdAnchor"
-import { MarkdownProvider } from "@/components/MarkdownProvider"
-import { MdComponents } from "@/components/MdComponents"
 
 import { BLOG_POSTS_DIR } from "@/lib/constants"
 import { Frontmatter } from "@/lib/types"
 import { slugify } from "@/lib/utils/slugify"
+import { MdComponents } from "@/components/MdComponents"
+import { Link } from "@/components/Link"
+import { getPostURL, sanitizePostPreviewContent } from "@/lib/utils/posts"
+import { MarkdownProvider } from "@/components/MarkdownProvider"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
@@ -29,6 +30,7 @@ const Container = (props: BoxProps) => (
 type PostData = {
   frontmatter: Frontmatter
   content: string
+  postPath: string
 }
 
 type Props = { posts: PostData[] }
@@ -47,7 +49,8 @@ export const getStaticProps = (async () => {
             : "publishDate front matter field is required"
         }`
       )
-    return { frontmatter, content } as PostData
+    const postPath = getPostURL(filename)
+    return { frontmatter, content, postPath } as PostData
   })
   return {
     props: { posts },
@@ -85,37 +88,48 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
             </Heading>
           </Container>
         </Flex>
-        {posts
-          .sort(handleSort)
-          .map(({ frontmatter: { title, publishDate }, content }, index) => {
-            const id = slugify(title)
-            const dateString = Intl.DateTimeFormat("en", {
-              dateStyle: "long",
-              timeZone: "UTC",
-            }).format(new Date(publishDate))
-            return (
-              <Fragment key={index}>
-                <Container>
-                  <Heading
-                    as="h2"
-                    id={id}
-                    mt={{ base: 12, md: 16 }}
-                    mb={{ base: 4, md: 6 }}
-                    fontWeight="normal"
-                    data-group
-                    scrollMarginTop={28}
-                    position="relative"
-                  >
-                    <IdAnchor id={id} />
-                    {title}
-                  </Heading>
-                  <MdComponents.p>{dateString}</MdComponents.p>
-                  <MarkdownProvider>{content}</MarkdownProvider>
-                </Container>
-                {index < posts.length - 1 && <Divider my="16" />}
-              </Fragment>
-            )
-          })}
+        <UnorderedList m="0">
+          {posts
+            .sort(handleSort)
+            .map(
+              (
+                { frontmatter: { title, publishDate }, content, postPath },
+                index
+              ) => {
+                const id = slugify(title)
+                const dateString = Intl.DateTimeFormat("en", {
+                  dateStyle: "long",
+                  timeZone: "UTC",
+                }).format(new Date(publishDate))
+                return (
+                  <ListItem listStyleType="none" key={index}>
+                    <Container>
+                      <Link href={"/blog/" + postPath} color="body" textDecoration="underline">
+                        <Heading
+                          as="h2"
+                          id={id}
+                          mt={{ base: 12, md: 16 }}
+                          // mb={{ base: 4, md: 6 }}
+                          fontWeight="normal"
+                          data-group
+                          scrollMarginTop={28}
+                          position="relative"
+                        >
+                          {/* <IdAnchor id={id} /> */}
+                          {title}
+                        </Heading>
+                      </Link>
+                      <MdComponents.p>{dateString}</MdComponents.p>
+                      <MarkdownProvider>
+                        {sanitizePostPreviewContent(content)}
+                      </MarkdownProvider>
+                    </Container>
+                    {/* {index < posts.length - 1 && <Divider my="16" />} */}
+                  </ListItem>
+                )
+              }
+            )}
+        </UnorderedList>
       </Box>
     </>
   )
