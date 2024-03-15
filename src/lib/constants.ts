@@ -16,3 +16,5 @@ export const NAV_LINKS: NavLink[] = [
 export const BLOG_POSTS_DIR = "src/posts"
 
 export const RESOURCES_MARKDOWN_PATH = "/public/content/resources.md"
+
+export const MAX_WORDS_PER_POST_PREVIEW = 80 as const
