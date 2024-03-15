@@ -5,18 +5,9 @@ import { BLOG_POSTS_DIR } from "@/lib/constants"
 import { getPostParamsFromFilename, getPostURL } from "@/lib/utils/posts"
 import type { PostPath } from "@/lib/types"
 import { ParsedUrlQuery } from "querystring"
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  Heading,
-  Spacer,
-} from "@chakra-ui/react"
-import { slugify } from "@/lib/utils/slugify"
-import { IdAnchor } from "@/components/IdAnchor"
+import { ButtonGroup, Container, Heading, Spacer } from "@chakra-ui/react"
 import { MdComponents } from "@/components/MdComponents"
 import { MarkdownProvider } from "@/components/MarkdownProvider"
-import { Link } from "@/components/Link"
 import { ButtonLink } from "@/components/ButtonLink"
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
 
@@ -77,7 +68,6 @@ const BlogPost = ({
     index + 1 < availableURLs.length ? availableURLs[index + 1] : null
   const prevPostUrl = index - 1 >= 0 ? availableURLs[index - 1] : null
 
-  const id = slugify(title)
   const dateString = Intl.DateTimeFormat("en", {
     dateStyle: "long",
     timeZone: "UTC",
@@ -87,7 +77,6 @@ const BlogPost = ({
     <Container>
       <Heading
         as="h2"
-        id={id}
         mt={{ base: 12, md: 16 }}
         mb={{ base: 4, md: 6 }}
         fontWeight="normal"
@@ -95,7 +84,6 @@ const BlogPost = ({
         scrollMarginTop={28}
         position="relative"
       >
-        <IdAnchor id={id} />
         {title}
       </Heading>
       <MdComponents.p>{dateString}</MdComponents.p>
