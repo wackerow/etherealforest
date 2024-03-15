@@ -33,3 +33,7 @@ export type MopItem = {
   | { grayUrl: string; colorUrl?: string }
   | { colorUrl: string; grayUrl?: string }
 )
+
+export type BlogParams = { post: string }
+
+export type PostPath = { params: BlogParams }
