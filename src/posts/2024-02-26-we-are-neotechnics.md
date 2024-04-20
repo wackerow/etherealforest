@@ -36,29 +36,3 @@ Portland is home to a robust underground infrastructure of local-scale productio
 ![pdxdmakermap2](https://hackmd.io/_uploads/SystE8q26.jpg)
 
 One thing we notice hanging out in these spaces is how familiar to the web3 spirit their members are. These renegade technologists tend to value horizontal organizing and the intergroup discipline of well-maintained commons, mixed with an unapologetic sense of individualism and non-negotiable autonomy. **They are neotechnics like us.** And yet, even though they are so close, many of these shops remain insulated from each other, surprisingly unaware of the other workshops around. (As one welder told us while building a cargo bike, 'when I have my head in a project, I'm not thinking about other people's shit.') They haven't bridged the gap from personal economy to political economy because they haven’t discovered the coordination infrastructure to scale. **Maybe that’s where web3 comes in.**
-
-**Neotechnics QF Round**
-
-This Spring, Ethereal Forest is initiating a quadratic funding round around the intersections of web3 and decentralized, neighborhood-level production technologies. Our goal is to **provoke research and development around the use of DeFi, regenerative finance, DAO tooling, on-chain mutual credit, public goods funding and other web3 protocols to construct and scale neighborhood production networks and local supply chains**.
-
-We think local and decentralized manufacturing infrastructure is not only a meaningful application of web3 tooling, but its alignment with the general decentralization thesis (not only as laid out in d/acc but in [principles of permaculture](https://permacultureprinciples.com/permaculture-principles/) and [appropriate technology](https://www.appropedia.org/Welcome_to_Appropedia)) makes it an important node in a holistic realization of the web3 worldview.
-
-To start the process, Ethereal Forest has pledged **500 DAI** to the matching pool as well as stewardship of the Grant Round. During our time at ETH Denver and in the coming month, we hope to get other organizations to pledge **matching amounts** so that we can begin **a round in April** with significant enough catalyst to provoke real creativity in this area.
-
-Although this round is addressed to the crypo-native community, we plan to start the process of engaging the maker community by staging and documenting a listening session before the QF round, with the hopes of gaining insight that might benefit research and development projects as they move forward.
-
-**Prompt**
-
-- **How can web3 tools extend the reach and viability of decentralized manufacturing technologies (e.g., 3d printing & CNC devices, makerspaces, open hardware, neighborhood- scale manufacturing operations, tool shares, reuse & repair, etc)?**
-- **How can web3 intervene on supply chains to help align the revenue evil curve with [Borsodi’s law](https://leanlogic.online/glossary/borsodis-law/)?**
-- **What are the respective roles of liquidity and credit in scaling neighborhood manufacturing?**
-- **What economic and municipal structures are needed to generate systematic collaboration between urban makerspaces, as well as other nodes of localized production?**
-
-This grant round is broadly open to research and development efforts along these lines, whether it's a pre-existing effort that fits the prompt, a newly conceived research project conceived just for this round, or even retroactive funding for significant work previously delivered.
-
-More details forthcoming - if you're interested in contributing to the matching round, please email us etherealforest.eth@protonmail.com. And remember to **~stay neotechnic~**!
-
-**Resources:**
-[A Primer on Quadratic Funding](https://www.wtfisqf.com)
-[How to launch your own grant round? ](https://www.gitcoin.co/grants-stack)
-[Overview of d/acc](https://www.youtube.com/watch?v=5FnRN7aiorI)
