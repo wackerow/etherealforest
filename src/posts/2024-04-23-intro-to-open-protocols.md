@@ -1,5 +1,5 @@
 ---
-title: Open Protocol Research Group Bulletin #!: An Introduction to Open Protocols
+title: "Open Protocol Research Group Bulletin #1: An Introduction to Open Protocols"
 publishDate: April 4, 2024
 ---
 
@@ -17,11 +17,13 @@ The conviction of the Open Protocol Research Group is that the open protocols th
 
 In our next posts, we hope to delve further into the two creative modes, using examples from our initial field research to distinguish social production (IRL) from peer production (web), as well as reflecting on our own impulses in building the network enterprises (or extitutions) in which we ourselves work. In the meantime, check out a glimpse of our living glossary, which defines the key concepts that currently frame our research.
 
-![workingdefinitions copy](https://hackmd.io/_uploads/Bk9VgZObC.png)
-
-
-
-
+|  |  |
+| --- | --- |
+| Extitutions | Organized, local deployments of open protocols which take the superficial form of traditional institutions, but are oriented primarily toward the production, propagation or protection of free, permissionless, nonstandardized knowledge and skill sets. If all institutions contain "an interplay between institutional and extitutional dynamics" (Schingler, de Filippi, et al), extitutions are those where the former is actively subjugated to the latter. The actions of extitutions may appear irrational or even incoherent from the perspective of traditional economic game theory because of the radically nonrivalrous nature of the open protocols they support. |
+| Open Protocols | Informally codified sets of practices, knowledge systems, and cultural norms that propagate horizontally across a community in a decentralized, permissionless manner. Open protocols represent emergent, intersubjectively determined "paths of least resistance" to accomplish a given outcome. For the purposes of our project, open protocols are distinguished from general social protocols by the cultural attitudes of defiance or willful ambivalence to institutional standards that animate them; that is, far from existing in a vacuum, those who participate in them tend to operate with self-awareness about their status as an alternative to institutional forms that employ closure, coercion or discipline. Open protocols are both products of and engines of social production. | 
+| Social Production & Peer Production | Distinctly voluntary and horizontally determined (emergent) processes of collaborative creation, typically of immaterial goods (social relationships, knowledge sets, etc). Social production eschews centralization and rigid hierarchy and is often pieced together by a fluid and shifting community of producers - hence the emphasis on protocolization. Though they are traditionally used interchangeably (see p2p foundation), for the purposes of our research social production refers to urban practices and peer production to web-native production processes. A theme of our research is how social production in urban environments mimics the abundance mindset of p2p, web-native environments by way of protocolization. |
+| Resource Environment | The context of revenue inputs (as well as other meaningful sources of value, eg. multicapital inputs) that an entity is embedded within and dependent upon. A resource environment can be thought of as an economic landscape colored by political-economic determinants. For the purposes of our project, resource environments are the primary instrument with which permissible forms of social organization and production are delimited. |
+| Formalization | The process of becoming broadly legible to or composable with a variety of standards beyond one's enclosed context community. For the purposes of this research, formalization is distinguished from standardization, legibility to or composability with dominant institutional standards. A theme of our work is the possibilities of formalization without standardization, i.e., mutual coherence between other bodies and embedded resource environments without capitulation to dominant institutional standards. |
 
 
 ---
