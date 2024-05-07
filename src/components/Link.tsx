@@ -40,14 +40,9 @@ export const BaseLink = forwardRef(function Link(
   { href, children, hideIcon, isPartiallyActive = true, ...props }: LinkProps,
   ref
 ) {
-  const { asPath } = useRouter()
-
-  const isActive = url.isHrefActive(href, asPath, isPartiallyActive)
-
   const commonProps = {
     ref,
     ...props,
-    isActive,
     href,
   }
 

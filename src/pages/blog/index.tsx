@@ -7,7 +7,6 @@ import {
   Box,
   type BoxProps,
   Container as ChakraContainer,
-  Flex,
   Heading,
   UnorderedList,
   ListItem,
@@ -68,26 +67,20 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
 
       <Box as="main" maxW="container.lg" mx="auto" pb="16">
-        <Flex
-          bg=""
-          bgSize=""
-          // h="256px"
-        >
-          <Container>
-            <Heading
-              as="h1"
-              fontSize="4xl"
-              fontWeight="bold"
-              letterSpacing="wide"
-              textTransform="uppercase"
-              color="body"
-              pt={{ base: "8", md: "12" }}
-              pb={{ base: "24", md: "12" }}
-            >
-              Blog
-            </Heading>
-          </Container>
-        </Flex>
+        <Container>
+          <Heading
+            as="h1"
+            fontSize="4xl"
+            fontWeight="bold"
+            letterSpacing="wide"
+            textTransform="uppercase"
+            color="body"
+            pt={{ base: "8", md: "12" }}
+            pb={{ base: "24", md: "12" }}
+          >
+            Blog
+          </Heading>
+        </Container>
         <UnorderedList m="0">
           {posts
             .sort(handleSort)
@@ -104,18 +97,20 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 return (
                   <ListItem listStyleType="none" key={index}>
                     <Container>
-                      <Link href={"/blog/" + postPath} color="body" textDecoration="underline">
+                      <Link
+                        href={path.join("blog", postPath)}
+                        color="body"
+                        textDecoration="underline"
+                      >
                         <Heading
                           as="h2"
                           id={id}
                           mt={{ base: 12, md: 16 }}
-                          // mb={{ base: 4, md: 6 }}
                           fontWeight="normal"
                           data-group
                           scrollMarginTop={28}
                           position="relative"
                         >
-                          {/* <IdAnchor id={id} /> */}
                           {title}
                         </Heading>
                       </Link>
@@ -124,7 +119,6 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                         {sanitizePostPreviewContent(content)}
                       </MarkdownProvider>
                     </Container>
-                    {/* {index < posts.length - 1 && <Divider my="16" />} */}
                   </ListItem>
                 )
               }
