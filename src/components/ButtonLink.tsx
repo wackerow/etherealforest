@@ -20,7 +20,6 @@ export const ButtonLink = ({ href, children, ...props }: ButtonLinkProps) => (
     border="2px"
     px="6"
     py="4"
-    // mb="12"
     whiteSpace="break-spaces"
     h="fit-content"
     borderColor="primary"

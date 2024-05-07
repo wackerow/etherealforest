@@ -21,6 +21,7 @@ import { MdComponents } from "@/components/MdComponents"
 import { Link } from "@/components/Link"
 import { getPostURL, sanitizePostPreviewContent } from "@/lib/utils/posts"
 import { MarkdownProvider } from "@/components/MarkdownProvider"
+import { Footer } from "@/components/Footer"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
@@ -66,7 +67,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <>
       <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
 
-      <Box as="main" maxW="container.lg" mx="auto" pb="16">
+      <Box as="main" maxW="container.lg" mx="auto">
         <Container>
           <Heading
             as="h1"
@@ -125,6 +126,8 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
             )}
         </UnorderedList>
       </Box>
+
+      <Footer />
     </>
   )
 }
