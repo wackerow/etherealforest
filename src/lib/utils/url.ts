@@ -3,18 +3,17 @@ export const isExternal = (href: string): boolean =>
   href.startsWith("mailto:") ||
   href.startsWith("ipfs")
 
+// remove any potential trailing slash to compare the paths correctly
+export const cleanHref = (href: string) => href.replace(/\/+$/, "")
+
 export const isHrefActive = (
   href: string,
   pathname: string,
   isPartiallyActive?: boolean
-) => {
-  // remove any potential trailing slash to compare the paths correctly
-  const cleanHref = href.replace(/\/+$/, "")
-
-  return isPartiallyActive
-    ? pathname.startsWith(cleanHref)
-    : pathname === cleanHref
-}
+) =>
+  isPartiallyActive
+    ? pathname.startsWith(cleanHref(href))
+    : pathname === cleanHref(href)
 
 export const isHash = (href: string): boolean => href.startsWith("#")
 
