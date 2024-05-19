@@ -7,3 +7,5 @@ node_modules
 
 # Static site export directory
 out
+
+.DS_Store
