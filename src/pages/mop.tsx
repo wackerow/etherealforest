@@ -18,6 +18,11 @@ import { PageMetadata } from "@/components/PageMetadata"
 import assetData from "@/data/mop"
 import * as url from "@/lib/utils/url"
 
+import TheYearIsBack from "@/../public/assets/mop/the-year-is-back.jpeg"
+import TheYearIsFront from "@/../public/assets/mop/the-year-is-front.jpeg"
+import WeAreTheNeotechnicsBack from "@/../public/assets/mop/we-are-the-neotechnics-back.jpeg"
+import WeAreTheNeotechnicsFront from "@/../public/assets/mop/we-are-the-neotechnics-front.jpeg"
+
 const TextBlock = (props: TextProps) => {
   return <Text mb="9" fontSize="lg" lineHeight="short" {...props} />
 }
@@ -61,6 +66,155 @@ const Mop = () => {
           </TextBlock>
         </Container>
 
+        <Container mb="4">
+          <Flex flexDir={{ base: "column", md: "row" }}>
+            <Box flex={1}>
+              <NextImage
+                src={TheYearIsFront}
+                alt="The Year Is (front)"
+                placeholder="blur"
+                priority
+              />
+            </Box>
+            <Box flex={1}>
+              <NextImage
+                src={TheYearIsBack}
+                alt="The Year Is (back)"
+                placeholder="blur"
+                priority
+              />
+            </Box>
+          </Flex>
+          <ButtonGroup mt="4">
+            <Button
+              as={Link}
+              href="/assets/mop/the-year-is-front.jpeg"
+              variant="outline"
+              borderRadius="none"
+              hideIcon
+              isExternal
+              _hover={{
+                textDecoration: "none",
+                bg: "primaryLight",
+              }}
+              _active={{
+                borderColor: "primaryHover",
+                bg: "primaryHover",
+              }}
+              textDecoration="none"
+              border="2px"
+              px="6"
+              py="4"
+              mb="12"
+              whiteSpace="break-spaces"
+              h="fit-content"
+              borderColor="primary"
+            >
+              Front
+            </Button>
+            <Button
+              as={Link}
+              href="/assets/mop/the-year-is.pdf"
+              rightIcon={<FaFilePdf />}
+              variant="outline"
+              borderRadius="none"
+              hideIcon
+              isExternal
+              _hover={{
+                textDecoration: "none",
+                bg: "primaryLight",
+              }}
+              _active={{
+                borderColor: "primaryHover",
+                bg: "primaryHover",
+              }}
+              textDecoration="none"
+              border="2px"
+              px="6"
+              py="4"
+              mb="12"
+              whiteSpace="break-spaces"
+              h="fit-content"
+              borderColor="primary"
+            >
+              Back
+            </Button>
+          </ButtonGroup>
+        </Container>
+
+        <Container mb="4">
+          <Flex flexDir={{ base: "column", md: "row" }}>
+            <Box flex={1}>
+              <NextImage
+                src={WeAreTheNeotechnicsFront}
+                alt="We Are The Neotechnics (front)"
+                placeholder="blur"
+              />
+            </Box>
+            <Box flex={1}>
+              <NextImage
+                src={WeAreTheNeotechnicsBack}
+                alt="We Are The Neotechnics (back)"
+                placeholder="blur"
+              />
+            </Box>
+          </Flex>
+          <ButtonGroup mt="4">
+            <Button
+              as={Link}
+              href="/assets/mop/we-are-the-neotechnics-front.jpeg"
+              variant="outline"
+              borderRadius="none"
+              hideIcon
+              isExternal
+              _hover={{
+                textDecoration: "none",
+                bg: "primaryLight",
+              }}
+              _active={{
+                borderColor: "primaryHover",
+                bg: "primaryHover",
+              }}
+              textDecoration="none"
+              border="2px"
+              px="6"
+              py="4"
+              mb="12"
+              whiteSpace="break-spaces"
+              h="fit-content"
+              borderColor="primary"
+            >
+              Front
+            </Button>
+            <Button
+              as={Link}
+              href="/assets/mop/we-are-the-neotechnics-back.jpeg"
+              variant="outline"
+              borderRadius="none"
+              hideIcon
+              isExternal
+              _hover={{
+                textDecoration: "none",
+                bg: "primaryLight",
+              }}
+              _active={{
+                borderColor: "primaryHover",
+                bg: "primaryHover",
+              }}
+              textDecoration="none"
+              border="2px"
+              px="6"
+              py="4"
+              mb="12"
+              whiteSpace="break-spaces"
+              h="fit-content"
+              borderColor="primary"
+            >
+              Back
+            </Button>
+          </ButtonGroup>
+        </Container>
+
         {assetData.map(({ title, src, grayUrl, colorUrl }, index) => {
           const buttons = [
             { href: grayUrl, label: "B&W" },
@@ -72,7 +226,7 @@ const Mop = () => {
                 src={src}
                 alt={title}
                 placeholder="blur"
-                priority={index === 0}
+                // priority={index === 0}
               />
               <ButtonGroup mt="4">
                 {buttons.map(
