@@ -3,6 +3,8 @@ title: Generative Ledgers as Decentralized State
 publishDate: May 26, 2024
 ---
 
+![Generative Ledgers as Decentralized State hero](/assets/blog/generative-ledgers-hero.jpeg)
+
 **This piece was published roughly two years ago under the Commons Technology Project (a core piece in the collab that later became Ethereal Forest). The premise of an organizational inspiration guided by “the material problem at hand, a heretic faith in the terrain” runs through Ethereal Forest and is a key theme in the project of the Open Protocol Research Group, a key element of our vision of Ethereum Localism. We are empiricists.**
 
 *Toadvine sat watching him as he made his notations in the ledger, holding the book toward the fire for the light, and he asked him what was his purpose in all this.
