@@ -5,12 +5,16 @@ publishDate: May 26, 2024
 
 ![Generative Ledgers as Decentralized State hero](/assets/blog/generative-ledgers-hero.jpeg)
 
-**This piece was published roughly two years ago under the Commons Technology Project (a core piece in the collab that later became Ethereal Forest). The premise of an organizational inspiration guided by “the material problem at hand, a heretic faith in the terrain” runs through Ethereal Forest and is a key theme in the project of the Open Protocol Research Group, a key element of our vision of Ethereum Localism. We are empiricists.**
+**This piece was published roughly two years ago under the Commons Technology Project, a core piece of the collaboration that would later become Ethereal Forest. The premise of an organizational inspiration guided by “the material problem at hand, a heretic faith in the terrain” runs through Ethereal Forest and is a key theme in the project of the Open Protocol Research Group, a key element of our vision of Ethereum Localism. We are, in the most literal sense, empiricists.**
+
+---
 
 *Toadvine sat watching him as he made his notations in the ledger, holding the book toward the fire for the light, and he asked him what was his purpose in all this.
 The judge’s quill ceased its scratching. He looked at Toadvine. Then he continued to write again.*
 
-Cormac McCarthy, *Blood Meridian, or The Evening Redness in the West*
+**Cormac McCarthy, *Blood Meridian, or The Evening Redness in the West***
+
+---
 
 **The tradition of the illegible teaches us that the state in which we live is not the only state.** They were witches and journeymen: benandanti and beguines, gothic masons and shamans, [ranters](https://libcom.org/article/shadow-glorious-though-strange-good-things-come-ranters-and-libertarian-communism-english) and levelers, upended commoners, guerillas, fugitives. Their works were recorded in incidental reports, the rare [testimony](https://ia801306.us.archive.org/34/items/TheMirrorsOfSimpleSouls/The%20Mirrors%20of%20Simple%20Souls.pdf), more often the records of enemies. Their rebel crafts, their ‘techniques of ecstasy’ and escape held open the door to other worlds, even as they were deprived of the power and voice to reproduce those worlds. Saidiya Hartman [writes](https://warwick.ac.uk/fac/arts/history/research/centres/blackstudies/venus_in_two_acts.pdf), investigating the sparse archives of black women in the Atlantic slave trade, “We only know what can be extrapolated from an analysis of the ledger or borrowed from the world of her captors and masters and applied to her.” For those women, as for so many others, the archive was the wall of impossibility, the dread impasse — “a death sentence.”
 
