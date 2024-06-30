@@ -10,6 +10,7 @@ import { MdComponents } from "@/components/MdComponents"
 import { MarkdownProvider } from "@/components/MarkdownProvider"
 import { ButtonLink } from "@/components/ButtonLink"
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
+import { Footer } from "@/components/Footer"
 
 // Generate the paths for each blog post
 export const getStaticPaths: GetStaticPaths = () => {
@@ -74,43 +75,47 @@ const BlogPost = ({
   }).format(new Date(publishDate))
 
   return (
-    <Container>
-      <Heading
-        as="h2"
-        mt={{ base: 12, md: 16 }}
-        mb={{ base: 4, md: 6 }}
-        fontWeight="normal"
-        data-group
-        scrollMarginTop={28}
-        position="relative"
-      >
-        {title}
-      </Heading>
-      <MdComponents.p>{dateString}</MdComponents.p>
-      <MarkdownProvider>{content}</MarkdownProvider>
-      <ButtonGroup w="full" justifyContent="space-between">
-        {prevPostUrl ? (
-          <ButtonLink
-            href={"/blog" + prevPostUrl}
-            leftIcon={<ChevronLeftIcon />}
-          >
-            Newer
-          </ButtonLink>
-        ) : (
-          <Spacer />
-        )}
-        {nextPostUrl ? (
-          <ButtonLink
-            href={"/blog" + nextPostUrl}
-            rightIcon={<ChevronRightIcon />}
-          >
-            Older
-          </ButtonLink>
-        ) : (
-          <Spacer />
-        )}
-      </ButtonGroup>
-    </Container>
+    <>
+      <Container mb="12">
+        <Heading
+          as="h2"
+          mt={{ base: 12, md: 16 }}
+          mb={{ base: 4, md: 6 }}
+          fontWeight="normal"
+          data-group
+          scrollMarginTop={28}
+          position="relative"
+        >
+          {title}
+        </Heading>
+        <MdComponents.p>{dateString}</MdComponents.p>
+        <MarkdownProvider>{content}</MarkdownProvider>
+        <ButtonGroup w="full" justifyContent="space-between">
+          {prevPostUrl ? (
+            <ButtonLink
+              href={"/blog" + prevPostUrl}
+              leftIcon={<ChevronLeftIcon />}
+            >
+              Newer
+            </ButtonLink>
+          ) : (
+            <Spacer />
+          )}
+          {nextPostUrl ? (
+            <ButtonLink
+              href={"/blog" + nextPostUrl}
+              rightIcon={<ChevronRightIcon />}
+            >
+              Older
+            </ButtonLink>
+          ) : (
+            <Spacer />
+          )}
+        </ButtonGroup>
+      </Container>
+
+      <Footer />
+    </>
   )
 }
 
