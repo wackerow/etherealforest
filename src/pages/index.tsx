@@ -236,7 +236,7 @@ const Home = () => {
           </TextBlock>
 
           <TextBlock mb="8">
-            Are a DAO or interested in building a DAO?
+            Are you a DAO or interested in building a DAO?
           </TextBlock>
 
           <Button
@@ -288,19 +288,7 @@ const Home = () => {
           <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
             <ListItem>
               <ListIcon as={FaRegCalendar} mb="0.5" />
-              Second Tuesday of every month - Onboarding Hours (Bridgespace, SE
-              Portland)
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FaRegCalendar} mb="0.5" />
-              TBD of every month - Web3 Localism Call (Zoom)
-            </ListItem>
-          </UnorderedList>
-
-          <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
-            <ListItem>
-              <ListIcon as={FaRegCalendar} mb="0.5" />
-              March 1, 2024 - ETH Denver Side Event: DAO Localism
+              July 15 - August 23rd - Local DAO Summer (Online Series)
             </ListItem>
             <ListItem>
               <ListIcon as={FaRegCalendar} mb="0.5" />
@@ -319,6 +307,10 @@ const Home = () => {
             Past Events
           </Heading>
           <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
+            <ListItem>
+              <ListIcon as={FaRegCalendarCheck} mb="0.5" />
+              May 9, 2024 - Imagination Circle
+            </ListItem>
             <ListItem>
               <ListIcon as={FaRegCalendarCheck} mb="0.5" />
               October 13-16, 2023 - General Forum on Ethereum Localism
