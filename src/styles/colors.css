@@ -1,0 +1,49 @@
+@tailwind base;
+
+@layer base {
+  :root {
+    --white-alpha-900: rgba(255, 255, 255, 0.9);
+    --white-alpha-800: rgba(255, 255, 255, 0.8);
+    --white-alpha-700: rgba(255, 255, 255, 0.7);
+    --white-alpha-600: rgba(255, 255, 255, 0.6);
+    --white-alpha-500: rgba(255, 255, 255, 0.5);
+    --white-alpha-400: rgba(255, 255, 255, 0.4);
+    --white-alpha-300: rgba(255, 255, 255, 0.3);
+    --white-alpha-200: rgba(255, 255, 255, 0.2);
+    --white-alpha-100: rgba(255, 255, 255, 0.1);
+    --white-alpha-50: rgba(255, 255, 255, 0.05);
+
+    --black-alpha-900: rgba(0, 0, 0, 0.9);
+    --black-alpha-800: rgba(0, 0, 0, 0.8);
+    --black-alpha-700: rgba(0, 0, 0, 0.7);
+    --black-alpha-600: rgba(0, 0, 0, 0.6);
+    --black-alpha-500: rgba(0, 0, 0, 0.5);
+    --black-alpha-400: rgba(0, 0, 0, 0.4);
+    --black-alpha-300: rgba(0, 0, 0, 0.3);
+    --black-alpha-200: rgba(0, 0, 0, 0.2);
+    --black-alpha-100: rgba(0, 0, 0, 0.1);
+    --black-alpha-50: rgba(0, 0, 0, 0.05);
+
+    --gray-50: #f7f7f7;
+    --gray-100: #ededed;
+    --gray-200: #e2e2e2;
+    --gray-300: #cbcbcb;
+    --gray-400: #a0a0a0;
+    --gray-500: #717171;
+    --gray-600: #4a4a4a;
+    --gray-700: #2d2d2d;
+    --gray-800: #1a1a1a;
+    --gray-900: #171717;
+
+    --fuchsia-50: #ffe2f9;
+    --fuchsia-100: #ffb1e2;
+    --fuchsia-200: #ff7ecc;
+    --fuchsia-300: #ff4cb6;
+    --fuchsia-400: #ff1aa1;
+    --fuchsia-500: #e60088;
+    --fuchsia-600: #b4006a;
+    --fuchsia-700: #82004b;
+    --fuchsia-800: #50002e;
+    --fuchsia-900: #200012;
+  }
+}

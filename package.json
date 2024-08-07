@@ -48,6 +48,7 @@
     "remark-gfm": "^3.0.1",
     "remark-math": "5.1.1",
     "remark-remove-comments": "^1.0.1",
+    "tailwindcss": "^3.4.7",
     "typescript": "4.9.4"
   }
 }
