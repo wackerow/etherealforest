@@ -10,7 +10,6 @@ import {
   Text,
   type TextProps,
   UnorderedList,
-  useColorModeValue,
   ListIcon,
   Button,
   VisuallyHidden,
@@ -292,7 +291,9 @@ const Home = () => {
             </ListItem>
             <ListItem>
               <ListIcon as={FaRegCalendar} mb="0.5" />
-              September 13-15, 2024 - General Forum on Ethereum Localism
+              <Link href="gfel">
+                September 13-15, 2024 - General Forum on Ethereum Localism
+              </Link>
             </ListItem>
           </UnorderedList>
           <Heading
@@ -340,7 +341,7 @@ const Home = () => {
             fontWeight="thin"
             letterSpacing="normal"
           >
-          A General Forum on Ethereum Localism 2023
+            A General Forum on Ethereum Localism 2023
           </Text>
         </Container>
 

@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        md: ["1rem", "1.6"], // [md, base]
+      },
       colors: {
         primary: "var(--primary)",
         "primary-hover": "var(--primary-hover)",
