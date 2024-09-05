@@ -66,7 +66,7 @@ const GFEL = () => {
           Alberta Park Trail, Portland, OR 97211
         </p>
         <p className="text-sm uppercase mb-6">
-          (2 blocks north, 2 blocks east from Alberta House)
+          (2 blocks north, 2 blocks west from Alberta House)
         </p>
 
         <h2 className="mb-4 first-letter:text-5xl first-letter:text-primary font-black">
