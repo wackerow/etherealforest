@@ -3,10 +3,9 @@ import { PageMetadata } from "@/components/PageMetadata"
 import { useClipboard } from "@chakra-ui/react"
 import { CheckIcon, CopyIcon } from "@chakra-ui/icons"
 
+const ALBERTA_ADDRESS = "5131 NE 23rd Ave, Portland, OR 97211"
 const GFEL = () => {
-  const { onCopy, hasCopied } = useClipboard(
-    "5131 NE 23rd Ave, Portland, OR 97211"
-  )
+  const { onCopy, hasCopied } = useClipboard(ALBERTA_ADDRESS)
   return (
     <>
       <PageMetadata
@@ -58,8 +57,7 @@ const GFEL = () => {
           className="text-primary text-sm uppercase hover:underline mb-6"
           onClick={onCopy}
         >
-          5131 NE 23rd Ave, Portland, OR 97211{" "}
-          {hasCopied ? <CheckIcon /> : <CopyIcon />}
+          {ALBERTA_ADDRESS} {hasCopied ? <CheckIcon /> : <CopyIcon />}
         </button>
         <p className="mb-2">Alberta Park</p>
         <p className="text-sm uppercase mb-2">
