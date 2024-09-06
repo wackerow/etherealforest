@@ -3,8 +3,12 @@ import { Link } from "@/components/Link"
 const SafetyPage = () => {
   return (
     <div className="container max-w-screen-lg pt-8">
-      <Link href="/gfel/" className="my-8 block">{"<"} Back to GFEL</Link>
-
+      <Link href="/gfel/" className="my-8 block">
+        {"<"} Back to GFEL
+      </Link>
+      <ul className="list-disc ps-6 pb-2 [&>li]:pb-2">
+        <li>Why doesn't this have list styling?</li>
+      </ul>
       <h1 className="md:mt-16 text-4xl">Safety and Code of Conduct</h1>
 
       <h2 className="mb-6 text-3xl mt-8" id="safety-best-practices">
@@ -20,7 +24,7 @@ const SafetyPage = () => {
       <h3 className="mt-4 mb-2 text-2xl" id="lost-or-stolen-items">
         Personal Belongings
       </h3>
-      <ul>
+      <ul className="list-disc ps-6 pb-2 [&>li]:pb-2">
         <li>
           Always be mindful of your personal belongings and aware of your
           surroundings.
@@ -36,30 +40,33 @@ const SafetyPage = () => {
       <h3 className="mt-4 mb-2 text-2xl" id="personal-safety">
         Personal Safety
       </h3>
-      <p>
-        While the surrounding neighborhood is generally safe, it's always a good
-        idea to walk in groups of two or more. Event volunteers are always happy
-        to walk with you to your transportation or the next event--just let us
-        know.
-      </p>
-      <p>
-        If you feel unsafe at any time you may return to the warehouse during
-        event hours, or move east towards Martin Luther King Jr. Blvd. (the
-        nearest busy street, three blocks from Bridgespace).
-      </p>
-      <p>
-        Being familiar with general de-escalation techniques and trauma-informed
-        responses is encouraged (speaking slowly and calmly to an agitated
-        person, reflecting their language to demonstrate understanding of their
-        point of view, and avoiding physically aggressive body postures).
-      </p>
-      <p>
-        We believe that in most cases, we can all fill our shared needs for
-        safety without involvement of the police, and it is also important to
-        note that police response times can be delayed. For many reasons, it is
-        best to deal with most situations by deescalating if possible and moving
-        to a safe place.
-      </p>
+      <ul className="list-disc ps-6 pb-2 [&>li]:pb-2">
+        <li>
+          While the surrounding neighborhood is generally safe, it's always a
+          good idea to walk in groups of two or more. Event volunteers are
+          always happy to walk with you to your transportation or the next
+          event--just let us know.
+        </li>
+        {/* <li>
+          If you feel unsafe at any time you may return to the warehouse during
+          event hours, or move east towards Martin Luther King Jr. Blvd. (the
+          nearest busy street, three blocks from Bridgespace).
+        </li> */}
+        <li>
+          Being familiar with general de-escalation techniques and
+          trauma-informed responses is encouraged (speaking slowly and calmly to
+          an agitated person, reflecting their language to demonstrate
+          understanding of their point of view, and avoiding physically
+          aggressive body postures).
+          <p>
+            We believe that in most cases, we can all fill our shared needs for
+            safety without involvement of the police, and it is also important
+            to note that police response times can be delayed. For many reasons,
+            it is best to deal with most situations by deescalating if possible
+            and moving to a safe place.
+          </p>
+        </li>
+      </ul>
 
       {/* <h3 className="mt-4 mb-2 text-2xl" id="venue">
         Venue
@@ -98,21 +105,23 @@ const SafetyPage = () => {
       <h3 className="mt-4 mb-2 text-2xl" id="covid-19-precautions">
         COVID-19 Precautions
       </h3>
-      <p>
-        We're following Federal guidelines for COVID, which are currently
-        'business as usual,' so please take the precautions that best suit your
-        personal risk level.
-      </p>
-      <p>
-        We'll keep airflow as open as possible to help keep conditions safe, and
-        will let folks know if weather or other conditions mean open airflow is
-        less accessible.
-      </p>
-      <p>Use of masks inside is not required.</p>
-      <p>
-        Being up-to-date on your Covid-19 vaccine and boosters is encouraged but
-        not required.
-      </p>
+      <ul className="list-disc ps-6 pb-2 [&>li]:pb-2">
+        <li>
+          We're following Federal guidelines for COVID, which are currently
+          'business as usual,' so please take the precautions that best suit
+          your personal risk level.
+        </li>
+        <li>
+          We'll keep airflow as open as possible to help keep conditions safe,
+          and will let folks know if weather or other conditions mean open
+          airflow is less accessible.
+        </li>
+        <li>Use of masks inside is not required.</li>
+        <li>
+          Being up-to-date on your Covid-19 vaccine and boosters is encouraged
+          but not required.
+        </li>
+      </ul>
 
       <h2 className="mb-6 text-3xl mt-8" id="code-of-conduct">
         Code of Conduct
@@ -131,36 +140,40 @@ const SafetyPage = () => {
           exception.
         </em>
       </p>
-      <p>
-        GFEL is a community gathering intended for collaboration and exchange of
-        ideas. All attendees will abide by a code of active and continual
-        consent in all affairs.
-      </p>
-      <p>
-        Attendees will refrain from harassment of any kind. Harassment includes
-        but is not limited to offensive verbal comments, or other offensive
-        activity, in person or online in the context of the conference related
-        to gender, sexual orientation, physical or mental ability, age,
-        socioeconomic status, ethnicity, physical appearance, race, religion,
-        sexual images, deliberate intimidation, stalking, inappropriate physical
-        contact, and unwelcome sexual attention.
-      </p>
-      <p>
-        Participants asked to stop any harassing behavior are expected to comply
-        immediately. If participants fail to comply they will be asked to leave
-        the event.
-      </p>
-      <p>
-        Be careful and mindful of the words that you choose. Please be aware
-        that sexist, racist, and other exclusionary comments can be offensive to
-        those around you and will not be tolerated at GFEL.
-      </p>
-      <p>
-        If a participant engages in behavior that violates this Code of Conduct,
-        the Organizers may take any action they deem appropriate, including
-        expulsion from current or future Ethereal Forest activities.
-      </p>
-      <Link href="/gfel/" className="my-8 block">{"<"} Back to GFEL</Link>
+      <ol className="list-decimal ps-6 pb-2 [&>li]:pb-2">
+        <li>
+          GFEL is a community gathering intended for collaboration and exchange
+          of ideas. All attendees will abide by a code of active and continual
+          consent in all affairs.
+        </li>
+        <li>
+          Attendees will refrain from harassment of any kind. Harassment
+          includes but is not limited to offensive verbal comments, or other
+          offensive activity, in person or online in the context of the
+          conference related to gender, sexual orientation, physical or mental
+          ability, age, socioeconomic status, ethnicity, physical appearance,
+          race, religion, sexual images, deliberate intimidation, stalking,
+          inappropriate physical contact, and unwelcome sexual attention.
+        </li>
+        <li>
+          Participants asked to stop any harassing behavior are expected to
+          comply immediately. If participants fail to comply they will be asked
+          to leave the event.
+        </li>
+        <li>
+          Be careful and mindful of the words that you choose. Please be aware
+          that sexist, racist, and other exclusionary comments can be offensive
+          to those around you and will not be tolerated at GFEL.
+        </li>
+        <li>
+          If a participant engages in behavior that violates this Code of
+          Conduct, the Organizers may take any action they deem appropriate,
+          including expulsion from current or future Ethereal Forest activities.
+        </li>
+      </ol>
+      <Link href="/gfel/" className="my-8 block">
+        {"<"} Back to GFEL
+      </Link>
     </div>
   )
 }
