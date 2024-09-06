@@ -6,9 +6,6 @@ const SafetyPage = () => {
       <Link href="/gfel/" className="my-8 block">
         {"<"} Back to GFEL
       </Link>
-      <ul className="list-disc ps-6 pb-2 [&>li]:pb-2">
-        <li>Why doesn't this have list styling?</li>
-      </ul>
       <h1 className="md:mt-16 text-4xl">Safety and Code of Conduct</h1>
 
       <h2 className="mb-6 text-3xl mt-8" id="safety-best-practices">
