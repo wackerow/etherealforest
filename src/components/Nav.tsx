@@ -73,7 +73,7 @@ export const Nav = ({ items, ...props }: NavProps) => {
           {/* Desktop nav items */}
           <Flex alignItems="center" gap={{ base: "4", lg: "8" }} hideBelow="md" mx="8">
             {items.map(({ name, href }) => (
-              <Link key={href} href={href} color="body">
+              <Link key={href} href={href} color="body" whiteSpace="nowrap">
                 {name}
               </Link>
             ))}
