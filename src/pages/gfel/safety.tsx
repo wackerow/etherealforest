@@ -58,7 +58,7 @@ const SafetyPage = () => {
           an agitated person, reflecting their language to demonstrate
           understanding of their point of view, and avoiding physically
           aggressive body postures).
-          <p>
+          <p className="m-0 p-0">
             We believe that in most cases, we can all fill our shared needs for
             safety without involvement of the police, and it is also important
             to note that police response times can be delayed. For many reasons,
@@ -68,30 +68,16 @@ const SafetyPage = () => {
         </li>
       </ul>
 
-      {/* <h3 className="mt-4 mb-2 text-2xl" id="venue">
+      <h3 className="mt-4 mb-2 text-2xl" id="venue">
         Venue
       </h3>
       <p>
-        <a href="https://opencollective.com/bridgespacecommonspdx">
-          Bridgespace Commons
-        </a>{" "}
-        is an industrial warehouse and community space in inner eastside
-        Portland. Its operations are split between two parties: Bridgespace LLC,
-        an affiliate of Seller Engine which owns the property and runs business
-        out of the basement, and Bridgespace Commons, a collectively run
-        community org which manages events and equitable use of the upstairs
-        area.
+        <Link href="https://www.albertahouse.org/">Historic Alberta House</Link>{" "}
+        in NE Portland is an event space intended for all, with a focus on
+        reaching and engaging voices from our community that have been
+        disproportionately impacted by social, economic, and or racial
+        injustices in oregon.
       </p>
-      <p>
-        Note: The basement of the warehouse is a daily operational business.
-        While our event and associated activity and noise is expected, we still
-        ask that you please be mindful of those working downstairs during
-        daytime hours.{" "}
-        <em>
-          Under no circumstances should attendees go downstairs without first
-          speaking to an organizer.
-        </em>
-      </p> */}
 
       <h3 className="mt-4 mb-2 text-2xl" id="event-contacts">
         Event Contacts
