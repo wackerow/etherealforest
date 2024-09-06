@@ -15,6 +15,8 @@ import { NAV_LINKS } from "@/lib/constants"
 import Bg10 from "@/../public/assets/bg10.png"
 import Bg5 from "@/../public/assets/bg5.png"
 
+import "../styles/global.css"
+
 type AppProps = Omit<NextAppProps, "Component"> & {
   Component: FC<NextAppProps>
 }

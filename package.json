@@ -20,15 +20,20 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "chakra-ui-markdown-renderer": "^4.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.6",
     "framer-motion": "^8.5.4",
+    "lucide-react": "^0.436.0",
     "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1",
     "rehype-raw": "^6.0.0",
-    "remove-markdown": "^0.5.0"
+    "remove-markdown": "^0.5.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "18.11.18",
@@ -36,8 +41,10 @@
     "@types/react-dom": "18.0.10",
     "@types/react-katex": "^3.0.4",
     "@types/remove-markdown": "^0.3.4",
+    "autoprefixer": "^10.4.20",
     "gray-matter": "^4.0.3",
     "html-comment-regex": "^1.1.2",
+    "postcss": "^8.4.41",
     "prettier": "^2.8.3",
     "react-katex": "^3.0.1",
     "react-markdown": "^8.0.7",
@@ -48,6 +55,7 @@
     "remark-gfm": "^3.0.1",
     "remark-math": "5.1.1",
     "remark-remove-comments": "^1.0.1",
+    "tailwindcss": "^3.4.10",
     "typescript": "4.9.4"
   }
 }
