@@ -54,7 +54,7 @@ const Home = () => {
         description="Homepage for Ethereal Forest"
       />
 
-      <Box as="main" maxW="container.lg" mx="auto">
+      <Box as="main" maxW="container.lg" mx="auto" bg="white">
         <Flex>
           <Container>
             <Heading
