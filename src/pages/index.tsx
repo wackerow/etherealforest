@@ -55,11 +55,7 @@ const Home = () => {
       />
 
       <Box as="main" maxW="container.lg" mx="auto">
-        <Flex
-          bg="url(assets/hero.png)"
-          bgSize="cover"
-          // h="256px"
-        >
+        <Flex>
           <Container>
             <Heading
               as="h1"
@@ -67,9 +63,8 @@ const Home = () => {
               fontWeight="bold"
               letterSpacing="wide"
               textTransform="uppercase"
-              color="whiteAlpha.900"
               pt={{ base: "8", md: "12" }}
-              pb={{ base: "24", md: "24" }}
+              pb={{ base: "12", md: "12" }}
             >
               Ethereal Forest
             </Heading>
@@ -145,41 +140,6 @@ const Home = () => {
             <Text as="strong">commons-oriented economics</Text>.
           </TextBlock>
         </Container>
-
-        {/* <Box
-          background="url(assets/mycelium-spirits.jpeg)"
-          py="16"
-          mb="12"
-          mx="0"
-          w="full"
-          backgroundSize="contain"
-        >
-          <Container bg="alpha800" p="8">
-            <TextBlock>
-              Our work takes the form of three main fronts,{" "}
-              <Text as="strong">research</Text>,{" "}
-              <Text as="strong">discovery</Text> and{" "}
-              <Text as="strong">place-making</Text>. The team researches exotic
-              social and economic forms that may embody or resonate with the
-              web3 toolkit, discovers examples of and use cases for those social
-              and economic technologies, and builds community and infrastructure
-              to support those experiments.
-            </TextBlock>
-          </Container>
-        </Box>
-
-        <Container>
-          <TextBlock>
-            We are a champion of localism and hope to build out infrastructure
-            to reflect the shared insights of localist, regenerative economic
-            thinking and the decentralized web space. It's under this shared
-            insight that we emphasize principles of{" "}
-            <Text as="strong">autonomy</Text> and fair self-determination,{" "}
-            <Text as="strong">decentralization</Text> as a sustainability
-            measure, <Text as="strong">financial pluralism</Text> and{" "}
-            <Text as="strong">commons-oriented economics</Text>.
-          </TextBlock>
-        </Container> */}
 
 
 
