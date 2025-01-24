@@ -66,7 +66,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <>
       <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
 
-      <Box as="main" maxW="container.lg" mx="auto" pb="16">
+      <Box as="main" maxW="container.lg" mx="auto" pb="16" bg="white">
         <Container>
           <Heading
             as="h1"

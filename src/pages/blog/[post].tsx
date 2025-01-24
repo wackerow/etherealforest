@@ -74,7 +74,7 @@ const BlogPost = ({
   }).format(new Date(publishDate))
 
   return (
-    <Container>
+    <Container bg="white">
       <Heading
         as="h2"
         mt={{ base: 12, md: 16 }}

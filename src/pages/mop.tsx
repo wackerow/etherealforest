@@ -39,7 +39,7 @@ const Mop = () => {
         description="Homepage for the Ethereal Forest Ministry of Propaganda"
       />
 
-      <Box as="main" maxW="container.lg" mx="auto">
+      <Box as="main" maxW="container.lg" mx="auto" bg="white">
         <Flex bg="" bgSize="">
           <Container>
             <Heading
