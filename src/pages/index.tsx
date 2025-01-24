@@ -6,18 +6,13 @@ import {
   Heading,
   Image,
   type ImageProps,
-  ListItem,
   Text,
   type TextProps,
-  UnorderedList,
-  ListIcon,
   Button,
-  VisuallyHidden,
   Icon,
   Divider,
 } from "@chakra-ui/react"
 import { ImNewspaper } from "react-icons/im"
-import { FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa"
 
 import { PageMetadata } from "@/components/PageMetadata"
 import { Link } from "@/components/Link"
