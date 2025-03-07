@@ -1,5 +1,5 @@
 ---
-title: Sketches Toward a Theory of the Protocol Underground
+title: OPRG Bulletin #2: Sketches Toward a Theory of the Protocol Underground
 publishDate: July 10, 2024
 ---
 
