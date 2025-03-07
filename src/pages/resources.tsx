@@ -13,7 +13,7 @@ import {
 import { PageMetadata } from "@/components/PageMetadata"
 
 import { RESOURCES_MARKDOWN_PATH } from "@/lib/constants"
-import { MarkdownProvider } from "@/components/MarkdownProvider"
+import { MarkdownProvider } from "@/components/Markdown/Provider"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />

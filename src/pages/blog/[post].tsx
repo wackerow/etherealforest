@@ -6,9 +6,9 @@ import { getPostParamsFromFilename, getPostURL } from "@/lib/utils/posts"
 import type { PostPath } from "@/lib/types"
 import { ParsedUrlQuery } from "querystring"
 import { ButtonGroup, Container, Heading, Spacer } from "@chakra-ui/react"
-import { MdComponents } from "@/components/MdComponents"
-import { MarkdownProvider } from "@/components/MarkdownProvider"
-import { ButtonLink } from "@/components/ButtonLink"
+import { MarkdownComponents } from "@/components/Markdown/Components"
+import { MarkdownProvider } from "@/components/Markdown/Provider"
+import { ButtonLink } from "@/components/ui/button"
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
 
 // Generate the paths for each blog post
@@ -86,25 +86,21 @@ const BlogPost = ({
       >
         {title}
       </Heading>
-      <MdComponents.p>{dateString}</MdComponents.p>
+      <MarkdownComponents.p>{dateString}</MarkdownComponents.p>
       <MarkdownProvider>{content}</MarkdownProvider>
       <ButtonGroup w="full" justifyContent="space-between">
         {prevPostUrl ? (
-          <ButtonLink
-            href={"/blog" + prevPostUrl}
-            leftIcon={<ChevronLeftIcon />}
-          >
+          <ButtonLink href={"/blog" + prevPostUrl}>
+            <ChevronLeftIcon />
             Newer
           </ButtonLink>
         ) : (
           <Spacer />
         )}
         {nextPostUrl ? (
-          <ButtonLink
-            href={"/blog" + nextPostUrl}
-            rightIcon={<ChevronRightIcon />}
-          >
+          <ButtonLink href={"/blog" + nextPostUrl}>
             Older
+            <ChevronRightIcon />
           </ButtonLink>
         ) : (
           <Spacer />

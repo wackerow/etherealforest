@@ -17,10 +17,10 @@ import { PageMetadata } from "@/components/PageMetadata"
 import { BLOG_POSTS_DIR } from "@/lib/constants"
 import { Frontmatter } from "@/lib/types"
 import { slugify } from "@/lib/utils/slugify"
-import { MdComponents } from "@/components/MdComponents"
+import { MarkdownComponents } from "@/components/Markdown/Components"
 import { Link } from "@/components/Link"
 import { getPostURL, sanitizePostPreviewContent } from "@/lib/utils/posts"
-import { MarkdownProvider } from "@/components/MarkdownProvider"
+import { MarkdownProvider } from "@/components/Markdown/Provider"
 
 const Container = (props: BoxProps) => (
   <ChakraContainer maxW="container.md" {...props} />
@@ -114,7 +114,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                           {title}
                         </Heading>
                       </Link>
-                      <MdComponents.p>{dateString}</MdComponents.p>
+                      <MarkdownComponents.p>{dateString}</MarkdownComponents.p>
                       <MarkdownProvider>
                         {sanitizePostPreviewContent(content)}
                       </MarkdownProvider>
