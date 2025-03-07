@@ -1,5 +1,5 @@
 ---
-title: OPRG Bulletin #4: The Inverted City: Speculative P2P and the Urban Protocol Underground
+title: "OPRG Bulletin #4: The Inverted City: Speculative P2P and the Urban Protocol Underground"
 publishDate: February 21, 2025
 ---
 
