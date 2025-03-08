@@ -2,6 +2,7 @@ import NextImage from "next/image"
 import { PageMetadata } from "@/components/PageMetadata"
 import { Link } from "@/components/Link"
 import { Calendar, CalendarCheck, Newspaper } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 import CgHello from "@/components/svg/CgHello.svg"
 import TbMailForward from "@/components/svg/TbMailForward.svg"
@@ -28,7 +29,7 @@ const TextBlock = ({
   ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) => {
   return (
-    <p className={`mb-6 text-lg leading-snug ${className || ""}`} {...props} />
+    <p className={cn("mb-6 text-lg leading-snug", className)} {...props} />
   )
 }
 
@@ -36,7 +37,7 @@ const Container = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={`max-w-3xl mx-auto ${className || ""}`} {...props} />
+  <div className={cn("max-w-xl mx-auto", className)} {...props} />
 )
 
 const Divider = () => <hr className="my-16 bg-body" />
