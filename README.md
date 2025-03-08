@@ -160,51 +160,13 @@ For a post to be live, these changes must make it to the `main` branch.
 - Once PR is open, confirm the Vercel checks pass, and the build preview looks the way you expect
 - Contact admin to merge the PR
 
-## Chakra-UI Components
+## UI Components with shadcn/ui
 
-This project uses [Chakra-UI](https://chakra-ui.com/) for styling. You can find the documentation for the components [here](https://chakra-ui.com/docs/getting-started).
+This project uses [shadcn/ui](https://ui.shadcn.com/) for UI components with Tailwind CSS. These are not installed as a package, but instead copied directly into the project in the `components/ui` directory.
 
-Chakra-UI components can be imported from `@chakra-ui/react`. For example:
+### Using components
 
-```tsx
-import { Box, Text } from "@chakra-ui/react"
-```
-
-These can be styled using "style props" which resemble css properties, but are passed as props to the component, using "camel case" (ie. `lowerFirstThenUpper`). For example:
-
-Instead of writing:
-
-```css
-.box {
-  background-color: red;
-  padding: 20px;
-}
-.big {
-  font-size: 24px;
-}
-```
-
-```tsx
-<div className="box">
-  <p className="big">Hello, world!</p>
-</div>
-```
-
-You would write:
-
-```tsx
-<Box backgroundColor="red" padding="20px">
-  <Text fontSize="24px">Hello, world!</Text>
-</Box>
-```
-
-Or, you could use the Chakra-UI shorthand tokens and abbreviated prop names:
-
-```tsx
-<Box bgColor="red" p="5">
-  <Text fontSize="2xl">Hello, world!</Text>
-</Box>
-```
+Components can be imported directly from the components directory:
 
 ## Learn More
 
