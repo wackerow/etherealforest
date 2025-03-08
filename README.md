@@ -149,7 +149,7 @@ To add an asset:
 
 1. Add the image or PDF assets to the `public/assets/mop` directory
 1. Import the display image as a component at the top of `src/data/mop.ts`
-1. Add a new item to the `mop` array in `src/data/mop.ts` with the `title`, `src`, `grayUrl`, and `colorUrl` fields as shown above (or similar to existing arra yitems)
+1. Add a new item to the `mop` array in `src/data/mop.ts` with the `title`, `src`, `grayUrl`, and `colorUrl` fields as shown above (or similar to existing array items)
 
 ## Launching changes
 
@@ -164,9 +164,45 @@ For a post to be live, these changes must make it to the `main` branch.
 
 This project uses [shadcn/ui](https://ui.shadcn.com/) for UI components with Tailwind CSS. These are not installed as a package, but instead copied directly into the project in the `components/ui` directory.
 
-### Using components
+## Styling components with TailwindCSS
 
-Components can be imported directly from the components directory:
+Native HTML elements can be styled using Tailwind CSS classes.
+
+For example, instead of writing:
+
+```css
+.box {
+  background-color: red;
+  padding: 20px;
+}
+.big {
+  font-size: 24px;
+}
+```
+
+```tsx
+<div className="box">
+  <p className="big">Hello, world!</p>
+</div>
+```
+
+Or instead of using Chakra like this:
+
+```tsx
+<Box backgroundColor="red" padding="20px">
+  <Text fontSize="24px">Hello, world!</Text>
+</Box>
+```
+
+**You would write:**
+
+```tsx
+<div className="bg-red-500 p-5">
+  <p className="text-2xl">Hello, world!</p>
+</div>
+```
+
+See the [Tailwind CSS documentation](https://tailwindcss.com/docs) for more information.
 
 ## Learn More
 
