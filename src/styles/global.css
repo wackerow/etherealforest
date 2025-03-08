@@ -4,3 +4,42 @@
 
 @import "./colors.css";
 @import "./semantic-tokens.css";
+
+/* Global styles moved from theme.css */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-margin-top: 5rem;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--body);
+  background-color: var(--bg);
+}
+
+main {
+  transition: background 200ms linear !important;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  letter-spacing: var(--letter-spacing-wide);
+  line-height: 1.5;
+}
+
+strong {
+  font-weight: 800;
+}
+
+/* Root font size responsiveness */
+:root {
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 1.25rem;
+  }
+}

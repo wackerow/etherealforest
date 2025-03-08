@@ -5,11 +5,9 @@ import { BLOG_POSTS_DIR } from "@/lib/constants"
 import { getPostParamsFromFilename, getPostURL } from "@/lib/utils/posts"
 import type { PostPath } from "@/lib/types"
 import { ParsedUrlQuery } from "querystring"
-import { ButtonGroup, Container, Heading, Spacer } from "@chakra-ui/react"
-import { MarkdownComponents } from "@/components/Markdown/Components"
 import { MarkdownProvider } from "@/components/Markdown/Provider"
 import { ButtonLink } from "@/components/ui/button"
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 // Generate the paths for each blog post
 export const getStaticPaths: GetStaticPaths = () => {
@@ -74,39 +72,31 @@ const BlogPost = ({
   }).format(new Date(publishDate))
 
   return (
-    <Container>
-      <Heading
-        as="h2"
-        mt={{ base: 12, md: 16 }}
-        mb={{ base: 4, md: 6 }}
-        fontWeight="normal"
-        data-group
-        scrollMarginTop={28}
-        position="relative"
-      >
+    <div className="container max-w-screen-md mx-auto px-4">
+      <h2 className="mt-12 md:mt-16 mb-4 md:mb-6 font-normal relative">
         {title}
-      </Heading>
-      <MarkdownComponents.p>{dateString}</MarkdownComponents.p>
+      </h2>
+      <p className="mb-6">{dateString}</p>
       <MarkdownProvider>{content}</MarkdownProvider>
-      <ButtonGroup w="full" justifyContent="space-between">
+      <div className="w-full flex justify-between">
         {prevPostUrl ? (
           <ButtonLink href={"/blog" + prevPostUrl}>
-            <ChevronLeftIcon />
+            <ChevronLeft />
             Newer
           </ButtonLink>
         ) : (
-          <Spacer />
+          <div className="flex-1"></div>
         )}
         {nextPostUrl ? (
           <ButtonLink href={"/blog" + nextPostUrl}>
             Older
-            <ChevronRightIcon />
+            <ChevronRight />
           </ButtonLink>
         ) : (
-          <Spacer />
+          <div className="flex-1"></div>
         )}
-      </ButtonGroup>
-    </Container>
+      </div>
+    </div>
   )
 }
 
