@@ -40,7 +40,7 @@ export const Nav = ({ items, className, ...props }: NavProps) => {
     <nav
       className={cn(
         "sticky top-0 w-screen z-50 backdrop-blur-sm font-sans",
-        "before:absolute before:inset-0 before:bg-background before:opacity-90 before:shadow-md",
+        "before:absolute before:inset-0 before:bg-bg dark:before:bg-gray-800 before:opacity-90 before:shadow-md",
         className
       )}
       {...props}
@@ -62,7 +62,7 @@ export const Nav = ({ items, className, ...props }: NavProps) => {
               <Link
                 key={href}
                 href={href}
-                className="text-body whitespace-nowrap hover:text-body hover:no-underline"
+                className="text-body hover:text-primary hover:no-underline dark:text-body dark:hover:text-primary-hover"
               >
                 {name}
               </Link>
@@ -75,6 +75,7 @@ export const Nav = ({ items, className, ...props }: NavProps) => {
             size="icon"
             onClick={() => setTheme(isDark ? "light" : "dark")}
             aria-label="Toggle color mode"
+            className="text-body hover:text-primary dark:text-body dark:hover:text-primary-hover"
           >
             {isDark ? (
               <Sun className="h-5 w-5" />
@@ -86,7 +87,7 @@ export const Nav = ({ items, className, ...props }: NavProps) => {
           {/* Mobile nav hamburger menu */}
           <Button
             ref={hamburgerRef}
-            className="md:hidden"
+            className="md:hidden text-body dark:text-body"
             variant="ghost"
             size="icon"
             onClick={mobileDisclosure.onOpen}

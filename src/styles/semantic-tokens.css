@@ -25,7 +25,7 @@
     );
   }
 
-  [data-theme="dark"] {
+  .dark {
     --primary: var(--fuchsia-500);
     --primary-hover: var(--fuchsia-300);
     --primary-light: var(--fuchsia-800);

@@ -17,6 +17,7 @@
 body {
   color: var(--body);
   background-color: var(--bg);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 main {
@@ -42,4 +43,10 @@ strong {
   :root {
     font-size: 1.25rem;
   }
+}
+
+/* Dark mode enhancements */
+.dark body {
+  color: var(--body);
+  background-color: var(--bg);
 }

@@ -17,8 +17,8 @@ type AppProps = Omit<NextAppProps, "Component"> & {
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
-      <div className="relative">
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <div className="relative min-h-screen">
         <NextImage
           src={Bg10}
           alt=""
@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
             inset: "0",
             height: "100vh",
             width: "100vw",
+            zIndex: "-1",
           }}
           sizes="100vw"
           placeholder="blur"
@@ -46,6 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
             inset: "0",
             height: "100vh",
             width: "100vw",
+            zIndex: "-1",
           }}
           sizes="100vw"
           placeholder="blur"
