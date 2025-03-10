@@ -1,8 +1,8 @@
 import NextImage from "next/image"
-import { PageMetadata } from "@/components/PageMetadata"
-import { Link } from "@/components/Link"
 import { Calendar, CalendarCheck, Newspaper } from "lucide-react"
-import { cn } from "@/lib/utils"
+
+import { Link } from "@/components/Link"
+import { PageMetadata } from "@/components/PageMetadata"
 
 import CgHello from "@/components/svg/CgHello.svg"
 import TbMailForward from "@/components/svg/TbMailForward.svg"
@@ -10,28 +10,14 @@ import Twitter from "@/components/svg/twitter.svg"
 
 import GFELEnd from "@/../public/assets/gfel-end.png"
 
-type WideImageProps = {
-  src: string
-  alt: string
-} & React.HTMLAttributes<HTMLImageElement>
-
-// const WideImage = ({ src, alt, ...props }: WideImageProps) => (
-//   <img
-//     src={src}
-//     alt={alt}
-//     className="max-h-64 w-full my-16 object-cover"
-//     {...props}
-//   />
-// )
+import { cn } from "@/lib/utils"
 
 const TextBlock = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLParagraphElement>) => {
-  return (
-    <p className={cn("mb-6 text-lg leading-snug", className)} {...props} />
-  )
-}
+}: React.HTMLAttributes<HTMLParagraphElement>) => (
+  <p className={cn("mb-6 text-lg leading-snug", className)} {...props} />
+)
 
 const Container = ({
   className,

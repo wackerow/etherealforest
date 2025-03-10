@@ -5,13 +5,10 @@
 @import "./colors.css";
 @import "./semantic-tokens.css";
 
-/* Global styles moved from theme.css */
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  scroll-margin-top: 5rem;
-  padding: 0;
-  margin: 0;
+@layer base {
+  * {
+    @apply antialiased box-border scroll-smooth scroll-mt-20 p-0 m-0;
+  }
 }
 
 body {
@@ -21,7 +18,7 @@ body {
 }
 
 main {
-  transition: background 200ms linear !important;
+  transition: background-color 200ms linear !important;
 }
 
 p {
@@ -49,4 +46,9 @@ strong {
 .dark body {
   color: var(--body);
   background-color: var(--bg);
+}
+
+.container {
+  max-width: 60ch;
+  margin-bottom: 2rem;
 }

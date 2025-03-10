@@ -9,7 +9,6 @@ import { PageMetadata } from "@/components/PageMetadata"
 import { BLOG_POSTS_DIR } from "@/lib/constants"
 import { Frontmatter } from "@/lib/types"
 import { slugify } from "@/lib/utils/slugify"
-import { MarkdownComponents } from "@/components/Markdown/Components"
 import { Link } from "@/components/Link"
 import { getPostURL, sanitizePostPreviewContent } from "@/lib/utils/posts"
 import { MarkdownProvider } from "@/components/Markdown/Provider"
@@ -82,16 +81,14 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                       >
                         <h2
                           id={id}
-                          className="mt-12 md:mt-16 font-normal relative scroll-mt-28"
+                          className="text-4xl mt-12 md:mt-16 font-normal relative scroll-mt-28 tracking-tight"
                           data-group
                         >
                           {title}
                         </h2>
                       </Link>
-                      <p className="mb-6">{dateString}</p>
-                      <MarkdownProvider>
-                        {sanitizePostPreviewContent(content)}
-                      </MarkdownProvider>
+                      <p className="mb-6 text-xl">{dateString}</p>
+                      <p className="mb-8 text-xl">{sanitizePostPreviewContent(content)}</p>
                     </div>
                   </li>
                 )

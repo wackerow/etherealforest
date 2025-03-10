@@ -73,10 +73,10 @@ const BlogPost = ({
 
   return (
     <div className="container max-w-screen-md mx-auto px-4">
-      <h2 className="mt-12 md:mt-16 mb-4 md:mb-6 font-normal relative">
+      <h1 className="text-4xl mt-12 md:mt-16 mb-4 md:mb-6 font-normal relative tracking-tight">
         {title}
-      </h2>
-      <p className="mb-6">{dateString}</p>
+      </h1>
+      <p className="mb-6 text-xl">{dateString}</p>
       <MarkdownProvider>{content}</MarkdownProvider>
       <div className="w-full flex justify-between">
         {prevPostUrl ? (

@@ -105,7 +105,7 @@ const Mop = () => {
               />
             </div>
           </div>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-2 mb-16 [&>*]:text-body [&>*]:items-center">
             <Button href="/assets/mop/the-year-is-front.jpeg">Front</Button>
             <Button href="/assets/mop/the-year-is.pdf" icon={<FaFilePdf />}>
               Back
@@ -130,7 +130,7 @@ const Mop = () => {
               />
             </div>
           </div>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-2 mb-16 [&>*]:text-body [&>*]:items-center">
             <Button href="/assets/mop/we-are-the-neotechnics-front.jpeg">
               Front
             </Button>
@@ -148,7 +148,7 @@ const Mop = () => {
           return (
             <Container key={title} className="mb-4">
               <NextImage src={src} alt={title} placeholder="blur" />
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2 mb-16 [&>*]:text-body [&>*]:items-center">
                 {buttons.map(
                   ({ href, label }) =>
                     href && (

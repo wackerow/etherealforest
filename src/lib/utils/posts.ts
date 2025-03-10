@@ -38,7 +38,8 @@ export const getSlicedContent = (content: string, maxLength: number = 125) => {
 }
 
 export const sanitizePostPreviewContent = (content: string): string => {
-  const mdRemoved = removeMd(content)
+  const contentNoImages = content.replace(/!\[.*?\]\(.*?\)/g, "") // Rm images
+  const mdRemoved = removeMd(contentNoImages)
   const truncatedContent = getSlicedContent(mdRemoved)
   const wordArray: string[] = truncatedContent.split(" ")
   const isTooLong: boolean = wordArray.length > MAX_WORDS_PER_POST_PREVIEW
