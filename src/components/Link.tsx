@@ -1,102 +1,78 @@
-import { useRouter } from "next/router"
-import { TbMailForward } from "react-icons/tb"
-import { RxExternalLink } from "react-icons/rx"
-import {
-  Link as NextLink,
-  type LinkProps as NextLinkProps,
-} from "@chakra-ui/next-js"
-import {
-  forwardRef,
-  Icon,
-  Link as ChakraLink,
-  type StyleProps,
-  VisuallyHidden,
-} from "@chakra-ui/react"
-
+import React, { forwardRef } from "react"
+import NextLink from "next/link"
+import { cn } from "@/lib/utils"
 import * as url from "@/lib/utils/url"
-import { FaFilePdf } from "react-icons/fa"
+import { Mail, SquareArrowOutUpRight } from "lucide-react"
 
 type BaseProps = {
   href: string
+  className?: string
   isPartiallyActive?: boolean
   hideIcon?: boolean
+  isExternal?: boolean
+  target?: string
+  rel?: string
 }
 
-export type LinkProps = BaseProps & NextLinkProps
+export type LinkProps = BaseProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>
 
-/**
- * Link wrapper which handles:
- *
- * - Hashed links
- * e.g. <Link href="/page-2/#specific-section">
- *
- * - External links
- * e.g. <Link href="https://example.com/">
- *
- * - PDFs & static files (which open in a new tab)
- * e.g. <Link href="/eth-whitepaper.pdf">
- */
-export const BaseLink = forwardRef(function Link(
-  { href, children, hideIcon, isPartiallyActive = true, ...props }: LinkProps,
+export const BaseLink = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+  { href, children, hideIcon, className, isPartiallyActive = true, ...props },
   ref
 ) {
   const commonProps = {
     ref,
+    className: cn("text-primary hover:text-primary hover:underline", className),
     ...props,
     href,
   }
 
   if (url.isMailto(href)) {
     return (
-      <ChakraLink {...commonProps}>
+      <a {...commonProps}>
         {children}
-        <VisuallyHidden>(opens with email provider)</VisuallyHidden>
+        <span className="sr-only">(opens with email provider)</span>
         {!hideIcon && (
-          <Icon as={TbMailForward} boxSize="6" p="1" verticalAlign="middle" />
+          <Mail className="inline-block align-middle p-1 text-2xl" />
         )}
-      </ChakraLink>
+      </a>
     )
   }
 
   if (url.isPdf(href)) {
     return (
-      <ChakraLink isExternal {...commonProps}>
+      <a {...commonProps} target="_blank" rel="noopener noreferrer">
         {children}
-        <VisuallyHidden>(opens PDF in separate tab)</VisuallyHidden>
-      </ChakraLink>
+        <span className="sr-only">(opens PDF in separate tab)</span>
+      </a>
     )
   }
 
   if (url.isExternal(href)) {
     return (
-      <ChakraLink isExternal {...commonProps}>
+      <a {...commonProps} target="_blank" rel="noopener noreferrer">
         {children}
-        <VisuallyHidden>(opens in a new tab)</VisuallyHidden>
+        <span className="sr-only">(opens in a new tab)</span>
         {!hideIcon && (
-          <Icon
-            as={RxExternalLink}
-            boxSize="6"
-            p="1"
-            verticalAlign="middle"
-            me="-1"
-          />
+          <SquareArrowOutUpRight className="inline-block align-middle p-1 text-2xl -mr-1" />
         )}
-      </ChakraLink>
+      </a>
     )
   }
 
-  if (url.isHash(href))
-    return <ChakraLink {...commonProps}>{children}</ChakraLink>
+  if (url.isHash(href)) return <a {...commonProps}>{children}</a>
 
-  return <NextLink {...commonProps}>{children}</NextLink>
+  return (
+    <NextLink {...commonProps} legacyBehavior={false}>
+      {children}
+    </NextLink>
+  )
 })
 
-export const Link = forwardRef((props: LinkProps, ref) => (
-  <BaseLink
-    data-inline-link
-    ref={ref}
-    color="primary"
-    _hover={{ color: "primary", textDecoration: "underline" }}
-    {...props}
-  />
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => (
+  <BaseLink ref={ref} data-inline-link {...props} />
 ))
+
+// Add display name to fix the ESLint error
+Link.displayName = "Link"

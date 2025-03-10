@@ -1,5 +1,4 @@
-import { IoMdLink } from "react-icons/io"
-import { Icon } from "@chakra-ui/react"
+import { Link2 as LinkIcon } from "lucide-react"
 import { Link } from "./Link"
 
 export const IdAnchor = ({ id }: { id?: string }) => {
@@ -7,15 +6,10 @@ export const IdAnchor = ({ id }: { id?: string }) => {
   return (
     <Link
       href={"#" + id}
-      position="absolute"
-      insetInlineEnd="100%"
+      className="absolute right-full opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-100 ease-in-out"
       aria-label={id.replaceAll("-", " ") + " permalink"}
-      opacity={0}
-      _groupHover={{ opacity: 1 }}
-      _focus={{ opacity: 1 }}
-      transition="opacity 0.1s ease-in-out"
     >
-      <Icon as={IoMdLink} fontSize="xl" me="1" />
+      <LinkIcon className="text-xl me-1" />
     </Link>
   )
 }

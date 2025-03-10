@@ -4,16 +4,16 @@ To get set up locally, first confirm you have NodeJS installed. If not, you can 
 
 Make sure you are using the version noted in [.nvmrc](.nvmrc). If you have `nvm` installed, you can run `nvm use` to switch to the correct version.
 
-Next, install the dependencies. We use `yarn`, which you can install with `npm install -g yarn` if you don't already have it.
+Next, install the dependencies. We use `pnpm` for package management, for which you can find [installation instructions here](https://pnpm.io/installation) if you don't already have it.
 
 ```bash
-yarn
+pnpm install
 ```
 
 To run the site locally, spin-up a development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -149,7 +149,7 @@ To add an asset:
 
 1. Add the image or PDF assets to the `public/assets/mop` directory
 1. Import the display image as a component at the top of `src/data/mop.ts`
-1. Add a new item to the `mop` array in `src/data/mop.ts` with the `title`, `src`, `grayUrl`, and `colorUrl` fields as shown above (or similar to existing arra yitems)
+1. Add a new item to the `mop` array in `src/data/mop.ts` with the `title`, `src`, `grayUrl`, and `colorUrl` fields as shown above (or similar to existing array items)
 
 ## Launching changes
 
@@ -160,19 +160,15 @@ For a post to be live, these changes must make it to the `main` branch.
 - Once PR is open, confirm the Vercel checks pass, and the build preview looks the way you expect
 - Contact admin to merge the PR
 
-## Chakra-UI Components
+## UI Components with shadcn/ui
 
-This project uses [Chakra-UI](https://chakra-ui.com/) for styling. You can find the documentation for the components [here](https://chakra-ui.com/docs/getting-started).
+This project uses [shadcn/ui](https://ui.shadcn.com/) for UI components with Tailwind CSS. These are not installed as a package, but instead copied directly into the project in the `components/ui` directory.
 
-Chakra-UI components can be imported from `@chakra-ui/react`. For example:
+## Styling components with TailwindCSS
 
-```tsx
-import { Box, Text } from "@chakra-ui/react"
-```
+Native HTML elements can be styled using Tailwind CSS classes.
 
-These can be styled using "style props" which resemble css properties, but are passed as props to the component, using "camel case" (ie. `lowerFirstThenUpper`). For example:
-
-Instead of writing:
+For example, instead of writing:
 
 ```css
 .box {
@@ -190,7 +186,7 @@ Instead of writing:
 </div>
 ```
 
-You would write:
+Or instead of using Chakra like this:
 
 ```tsx
 <Box backgroundColor="red" padding="20px">
@@ -198,13 +194,15 @@ You would write:
 </Box>
 ```
 
-Or, you could use the Chakra-UI shorthand tokens and abbreviated prop names:
+**You would write:**
 
 ```tsx
-<Box bgColor="red" p="5">
-  <Text fontSize="2xl">Hello, world!</Text>
-</Box>
+<div className="bg-red-500 p-5">
+  <p className="text-2xl">Hello, world!</p>
+</div>
 ```
+
+See the [Tailwind CSS documentation](https://tailwindcss.com/docs) for more information.
 
 ## Learn More
 

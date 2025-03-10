@@ -3,28 +3,15 @@ import path from "path"
 
 import { GetStaticProps, InferGetStaticPropsType } from "next"
 import matter from "gray-matter"
-import {
-  Box,
-  type BoxProps,
-  Container as ChakraContainer,
-  Heading,
-  UnorderedList,
-  ListItem,
-} from "@chakra-ui/react"
 
 import { PageMetadata } from "@/components/PageMetadata"
 
 import { BLOG_POSTS_DIR } from "@/lib/constants"
 import { Frontmatter } from "@/lib/types"
 import { slugify } from "@/lib/utils/slugify"
-import { MdComponents } from "@/components/MdComponents"
 import { Link } from "@/components/Link"
 import { getPostURL, sanitizePostPreviewContent } from "@/lib/utils/posts"
-import { MarkdownProvider } from "@/components/MarkdownProvider"
-
-const Container = (props: BoxProps) => (
-  <ChakraContainer maxW="container.md" {...props} />
-)
+import { MarkdownProvider } from "@/components/Markdown/Provider"
 
 type PostData = {
   frontmatter: Frontmatter
@@ -66,22 +53,13 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <>
       <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
 
-      <Box as="main" maxW="container.lg" mx="auto" pb="16" bg="white">
-        <Container>
-          <Heading
-            as="h1"
-            fontSize="4xl"
-            fontWeight="bold"
-            letterSpacing="wide"
-            textTransform="uppercase"
-            color="body"
-            pt={{ base: "8", md: "12" }}
-            pb={{ base: "24", md: "12" }}
-          >
+      <main className="max-w-screen-lg mx-auto pb-16 bg-white dark:bg-black">
+        <div className="container max-w-screen-md mx-auto px-4">
+          <h1 className="text-4xl font-bold tracking-wide uppercase text-body pt-8 md:pt-12 pb-24 md:pb-12">
             Blog
-          </Heading>
-        </Container>
-        <UnorderedList m="0">
+          </h1>
+        </div>
+        <ul className="m-0">
           {posts
             .sort(handleSort)
             .map(
@@ -95,36 +73,29 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                   timeZone: "UTC",
                 }).format(new Date(publishDate))
                 return (
-                  <ListItem listStyleType="none" key={index}>
-                    <Container>
+                  <li className="list-none" key={index}>
+                    <div className="container max-w-screen-md mx-auto px-4">
                       <Link
                         href={path.join("blog", postPath)}
-                        color="body"
-                        textDecoration="underline"
+                        className="text-body underline"
                       >
-                        <Heading
-                          as="h2"
+                        <h2
                           id={id}
-                          mt={{ base: 12, md: 16 }}
-                          fontWeight="normal"
+                          className="text-4xl mt-12 md:mt-16 font-normal relative scroll-mt-28 tracking-tight"
                           data-group
-                          scrollMarginTop={28}
-                          position="relative"
                         >
                           {title}
-                        </Heading>
+                        </h2>
                       </Link>
-                      <MdComponents.p>{dateString}</MdComponents.p>
-                      <MarkdownProvider>
-                        {sanitizePostPreviewContent(content)}
-                      </MarkdownProvider>
-                    </Container>
-                  </ListItem>
+                      <p className="mb-6 text-xl">{dateString}</p>
+                      <p className="mb-8 text-xl">{sanitizePostPreviewContent(content)}</p>
+                    </div>
+                  </li>
                 )
               }
             )}
-        </UnorderedList>
-      </Box>
+        </ul>
+      </main>
     </>
   )
 }
