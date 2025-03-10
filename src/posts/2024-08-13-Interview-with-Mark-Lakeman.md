@@ -1,5 +1,5 @@
 ---
-Title: Interview with Mark Lakeman of City Repair Project
+title: Interview with Mark Lakeman of City Repair Project
 publishDate: August 13, 2024
 ---
 
