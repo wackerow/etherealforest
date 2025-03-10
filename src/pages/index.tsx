@@ -40,7 +40,7 @@ const Home = () => {
         description="Homepage for Ethereal Forest"
       />
 
-      <main className="max-w-5xl mx-auto">
+      <main>
         <div
           className="bg-cover"
           style={{ backgroundImage: "url(assets/hero.png)" }}

@@ -9,6 +9,10 @@
   * {
     @apply antialiased box-border scroll-smooth scroll-mt-20 p-0 m-0;
   }
+
+  main {
+    @apply max-w-[1024px] mx-auto;
+  }
 }
 
 body {
