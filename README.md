@@ -4,16 +4,16 @@ To get set up locally, first confirm you have NodeJS installed. If not, you can 
 
 Make sure you are using the version noted in [.nvmrc](.nvmrc). If you have `nvm` installed, you can run `nvm use` to switch to the correct version.
 
-Next, install the dependencies. We use `yarn`, which you can install with `npm install -g yarn` if you don't already have it.
+Next, install the dependencies. We use `pnpm` for package management, for which you can find [installation instructions here](https://pnpm.io/installation) if you don't already have it.
 
 ```bash
-yarn
+pnpm install
 ```
 
 To run the site locally, spin-up a development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
