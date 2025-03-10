@@ -5,7 +5,7 @@ class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="assets/favicon.ico" />
+          <link rel="icon" href="/assets/favicon.ico" />
         </Head>
         <body>
           <Main />

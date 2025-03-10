@@ -30,7 +30,7 @@ export const MarkdownComponents: Components = {
   h2: ({ children, id }) => (
     <h2 
       id={id}
-      className="text-3xl font-normal tracking-wide text-body mt-10 md:mt-14 mb-4 md:mb-6"
+      className="text-5xl font-normal tracking-wide text-body mt-10 md:mt-14 mb-4 md:mb-6"
     >
       {children}
     </h2>
