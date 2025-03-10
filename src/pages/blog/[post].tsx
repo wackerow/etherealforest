@@ -72,7 +72,7 @@ const BlogPost = ({
   }).format(new Date(publishDate))
 
   return (
-    <div className="container max-w-screen-md mx-auto px-4 bg-white dark:bg-black">
+    <div className="container max-w-screen-md mx-auto px-4">
       <h1 className="text-4xl mt-12 md:mt-16 mb-4 md:mb-6 font-normal relative tracking-tight">
         {title}
       </h1>

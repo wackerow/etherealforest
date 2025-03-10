@@ -53,7 +53,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <>
       <PageMetadata title="Blog" description="Blog for the Ethereal Forest" />
 
-      <main className="max-w-screen-lg mx-auto pb-16 bg-white dark:bg-black">
+      <main className="max-w-screen-lg mx-auto pb-16">
         <div className="container max-w-screen-md mx-auto px-4">
           <h1 className="text-4xl font-bold tracking-wide uppercase text-body pt-8 md:pt-12 pb-24 md:pb-12">
             Blog

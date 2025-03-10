@@ -18,7 +18,7 @@ const GFEL = () => {
         title="GFEL: Sept 11-15, Portland, OR 2024"
         description="General Forum on Ethereum Localism - Portland, OR 2024"
       />
-      <div className="max-w-screen-xl px-4 md:px-6 w-full mx-auto bg-white">
+      <div className="max-w-screen-xl px-4 md:px-6 w-full mx-auto">
         <h1 className="mt-12 md:mt-16 text-4xl flex flex-col md:flex-row gap-x-2">
           <span className="first-letter:text-primary first-letter:font-black first-letter:text-6xl">
             General

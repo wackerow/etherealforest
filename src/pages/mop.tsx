@@ -68,7 +68,7 @@ const Mop = () => {
         description="Homepage for the Ethereal Forest Ministry of Propaganda"
       />
 
-      <main className="mx-auto max-w-7xl bg-white dark:bg-black">
+      <main className="mx-auto max-w-7xl">
         <div>
           <Container>
             <h1 className="pt-8 pb-24 md:pt-12 md:pb-12 text-4xl font-bold tracking-wide uppercase text-body">

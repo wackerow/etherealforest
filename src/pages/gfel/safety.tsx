@@ -2,7 +2,7 @@ import { Link } from "@/components/Link"
 
 const SafetyPage = () => {
   return (
-    <div className="container max-w-screen-lg pt-8 bg-white">
+    <div className="container max-w-screen-lg pt-8">
       <Link href="/gfel/" className="my-8 block">
         {"<"} Back to GFEL
       </Link>
