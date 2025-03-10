@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState } from "react"
-import { useScroll } from "framer-motion"
+import { useRef } from "react"
 import { useTheme } from "next-themes"
-import { useRouter } from "next/router"
 import { Menu, Moon, Sun } from "lucide-react"
 
 import { Link } from "@/components/Link"
@@ -17,24 +15,11 @@ export type NavProps = React.HTMLAttributes<HTMLElement> & {
 }
 
 export const Nav = ({ items, className, ...props }: NavProps) => {
-  const { asPath } = useRouter()
   const { theme, setTheme } = useTheme()
   const isDark = theme === "dark"
 
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const mobileDisclosure = useDisclosure()
-
-  const { scrollY } = useScroll()
-  const [hidden, setHidden] = useState(true)
-
-  const isHomepage = asPath.replace(/[?#].*$/, "") === "/"
-  useEffect(() => {
-    const hideTitleAbove = 72
-    const callback = () =>
-      setHidden(scrollY.get() < hideTitleAbove && isHomepage)
-    addEventListener("scroll", callback, { passive: true })
-    return () => removeEventListener("scroll", callback)
-  }, [scrollY, isHomepage])
 
   return (
     <nav
@@ -46,13 +31,7 @@ export const Nav = ({ items, className, ...props }: NavProps) => {
       {...props}
     >
       <div className="relative flex items-center max-w-screen-lg mx-auto p-4">
-        <Link
-          href="/"
-          className={cn(
-            "text-body hover:text-body hover:no-underline",
-            hidden ? "hidden" : "block"
-          )}
-        >
+        <Link href="/" className="text-body hover:text-body hover:no-underline">
           Ethereal Forest
         </Link>
         <div className="flex items-center ml-auto">
