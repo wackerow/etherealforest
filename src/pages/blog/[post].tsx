@@ -5,11 +5,9 @@ import { BLOG_POSTS_DIR } from "@/lib/constants"
 import { getPostParamsFromFilename, getPostURL } from "@/lib/utils/posts"
 import type { PostPath } from "@/lib/types"
 import { ParsedUrlQuery } from "querystring"
-import { ButtonGroup, Container, Heading, Spacer } from "@chakra-ui/react"
-import { MdComponents } from "@/components/MdComponents"
-import { MarkdownProvider } from "@/components/MarkdownProvider"
-import { ButtonLink } from "@/components/ButtonLink"
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
+import { MarkdownProvider } from "@/components/Markdown/Provider"
+import { ButtonLink } from "@/components/ui/button"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 // Generate the paths for each blog post
 export const getStaticPaths: GetStaticPaths = () => {
@@ -74,43 +72,31 @@ const BlogPost = ({
   }).format(new Date(publishDate))
 
   return (
-    <Container>
-      <Heading
-        as="h2"
-        mt={{ base: 12, md: 16 }}
-        mb={{ base: 4, md: 6 }}
-        fontWeight="normal"
-        data-group
-        scrollMarginTop={28}
-        position="relative"
-      >
+    <div className="container max-w-screen-md mx-auto px-4">
+      <h1 className="text-4xl mt-12 md:mt-16 mb-4 md:mb-6 font-normal relative tracking-tight">
         {title}
-      </Heading>
-      <MdComponents.p>{dateString}</MdComponents.p>
+      </h1>
+      <p className="mb-6 text-xl">{dateString}</p>
       <MarkdownProvider>{content}</MarkdownProvider>
-      <ButtonGroup w="full" justifyContent="space-between">
+      <div className="w-full flex justify-between">
         {prevPostUrl ? (
-          <ButtonLink
-            href={"/blog" + prevPostUrl}
-            leftIcon={<ChevronLeftIcon />}
-          >
+          <ButtonLink href={"/blog" + prevPostUrl}>
+            <ChevronLeft />
             Newer
           </ButtonLink>
         ) : (
-          <Spacer />
+          <div className="flex-1"></div>
         )}
         {nextPostUrl ? (
-          <ButtonLink
-            href={"/blog" + nextPostUrl}
-            rightIcon={<ChevronRightIcon />}
-          >
+          <ButtonLink href={"/blog" + nextPostUrl}>
             Older
+            <ChevronRight />
           </ButtonLink>
         ) : (
-          <Spacer />
+          <div className="flex-1"></div>
         )}
-      </ButtonGroup>
-    </Container>
+      </div>
+    </div>
   )
 }
 

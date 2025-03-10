@@ -11,6 +11,7 @@
     --alpha-800: var(--white-alpha-800);
     --alpha-700: var(--white-alpha-700);
     --alpha-invert-100: var(--black-alpha-100);
+    --rainbow: var(--gradient-rainbow);
 
     --gradient-rainbow: linear-gradient(
       to right,
@@ -24,16 +25,17 @@
     );
   }
 
-  [data-theme="dark"] {
-    --primary: var(fuchsia-500);
-    --primary-hover: var(fuchsia-300);
-    --primary-light: var(fuchsia-800);
-    --body: var(white-alpha-900);
-    --bg: var(gray-800);
-    --alpha-900: var(black-alpha-900);
-    --alpha-800: var(black-alpha-800);
-    --alpha-700: var(black-alpha-700);
-    --alpha-invert-100: var(white-alpha-100);
+  .dark {
+    --primary: var(--fuchsia-500);
+    --primary-hover: var(--fuchsia-300);
+    --primary-light: var(--fuchsia-800);
+    --body: var(--white-alpha-900);
+    --bg: var(--gray-800);
+    --alpha-900: var(--black-alpha-900);
+    --alpha-800: var(--black-alpha-800);
+    --alpha-700: var(--black-alpha-700);
+    --alpha-invert-100: var(--white-alpha-100);
+    --rainbow: var(--gradient-rainbow);
     --gradient-rainbow: linear-gradient(
       to right,
       #ff6666,

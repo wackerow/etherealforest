@@ -1,11 +1,17 @@
 import { Link } from "@/components/Link"
 import { PageMetadata } from "@/components/PageMetadata"
-import { useClipboard } from "@chakra-ui/react"
-import { CheckIcon, CopyIcon } from "@chakra-ui/icons"
+import { useState } from "react"
 
 const ALBERTA_ADDRESS = "5131 NE 23rd Ave, Portland, OR 97211"
 const GFEL = () => {
-  const { onCopy, hasCopied } = useClipboard(ALBERTA_ADDRESS)
+  const [hasCopied, setHasCopied] = useState(false)
+  
+  const onCopy = () => {
+    navigator.clipboard.writeText(ALBERTA_ADDRESS);
+    setHasCopied(true);
+    setTimeout(() => setHasCopied(false), 2000);
+  }
+  
   return (
     <>
       <PageMetadata
@@ -57,7 +63,11 @@ const GFEL = () => {
           className="text-primary text-sm uppercase hover:underline mb-6"
           onClick={onCopy}
         >
-          {ALBERTA_ADDRESS} {hasCopied ? <CheckIcon /> : <CopyIcon />}
+          {ALBERTA_ADDRESS} {hasCopied ? (
+            <span className="inline-block w-4 h-4">✓</span>
+          ) : (
+            <span className="inline-block w-4 h-4">📋</span>
+          )}
         </button>
         <p className="mb-2">Alberta Park</p>
         <p className="text-sm uppercase mb-2">

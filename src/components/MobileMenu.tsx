@@ -1,50 +1,56 @@
+import { RefObject, forwardRef } from "react"
+import { Link } from "@/components/Link"
+import { X } from "lucide-react"
 import {
   Drawer,
-  DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
-  DrawerBody,
-  UseDisclosureReturn,
-  forwardRef,
-} from "@chakra-ui/react"
-import { RefObject } from "react"
-import { Link } from "@/components/Link"
+  DrawerOverlay,
+  DrawerTrigger,
+  DrawerClose,
+} from "@/components/ui/drawer"
 
 import type { NavLink } from "@/lib/types"
 
 type MobileMenuProps = {
   items: NavLink[]
-  disclosures: UseDisclosureReturn
+  isOpen: boolean
+  onOpenChange: (open: boolean) => void
+  buttonRef: RefObject<HTMLButtonElement>
 }
-export const MobileMenu = forwardRef(
-  ({ disclosures, items }: MobileMenuProps, ref) => {
-    const { isOpen, onClose } = disclosures
-    return (
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        finalFocusRef={ref as RefObject<HTMLButtonElement>}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
 
-          <DrawerBody
-            display="flex"
-            alignItems="end"
-            gap="8"
-            flexDir="column"
-            pt="24"
-          >
+export const MobileMenu = forwardRef<HTMLDivElement, MobileMenuProps>(
+  ({ isOpen, onOpenChange, items, buttonRef }, ref) => {
+    return (
+      <Drawer open={isOpen} onOpenChange={onOpenChange}>
+        <DrawerTrigger asChild>
+          <button className="sr-only" ref={buttonRef}>
+            Open Menu
+          </button>
+        </DrawerTrigger>
+        <DrawerOverlay />
+        <DrawerContent className="h-full max-h-screen" ref={ref}>
+          <div className="absolute right-4 top-4">
+            <DrawerClose className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+              <X className="h-6 w-6" />
+              <span className="sr-only">Close</span>
+            </DrawerClose>
+          </div>
+
+          <div className="flex flex-col items-end gap-8 px-6 pt-24">
             {items.map(({ name, href }) => (
-              <Link key={href} href={href} color="body">
+              <Link
+                key={href}
+                href={href}
+                className="text-body hover:text-primary"
+              >
                 {name}
               </Link>
             ))}
-          </DrawerBody>
+          </div>
         </DrawerContent>
       </Drawer>
     )
   }
 )
+
+MobileMenu.displayName = "MobileMenu"

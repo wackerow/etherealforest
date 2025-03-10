@@ -1,54 +1,35 @@
-import {
-  Box,
-  type BoxProps,
-  Container as ChakraContainer,
-  Flex,
-  Heading,
-  Image,
-  type ImageProps,
-  ListItem,
-  Text,
-  type TextProps,
-  UnorderedList,
-  ListIcon,
-  Button,
-  VisuallyHidden,
-  Icon,
-  Divider,
-} from "@chakra-ui/react"
-import { ImNewspaper } from "react-icons/im"
-import { FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa"
+import NextImage from "next/image"
+import { Calendar, CalendarCheck, Newspaper } from "lucide-react"
 
-import { PageMetadata } from "@/components/PageMetadata"
 import { Link } from "@/components/Link"
-import { TbBrandTwitter, TbMailForward } from "react-icons/tb"
-import { CgHello } from "react-icons/cg"
+import { PageMetadata } from "@/components/PageMetadata"
 
-type WideImageProps = Omit<ImageProps, "alt" | "src"> & {
-  src: string
-  alt: string
-}
+import CgHello from "@/components/svg/CgHello.svg"
+import TbMailForward from "@/components/svg/TbMailForward.svg"
+import Twitter from "@/components/svg/twitter.svg"
 
-const WideImage = ({ src, alt, ...props }: WideImageProps) => (
-  <Image
-    src={src}
-    alt={alt}
-    maxH="250px"
-    maxW="full"
-    minH="250px"
-    my="16"
-    style={{ objectFit: "cover" }}
-    w="full"
-    {...props}
-  />
+import GFELEnd from "@/../public/assets/gfel-end.png"
+
+import { cn } from "@/lib/utils"
+
+const TextBlock = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) => (
+  <p className={cn("mb-6 text-lg leading-snug", className)} {...props} />
 )
 
-const TextBlock = (props: TextProps) => {
-  return <Text mb="6" fontSize="lg" lineHeight="short" {...props} />
-}
+const Container = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn("max-w-xl mx-auto", className)} {...props} />
+)
 
-const Container = (props: BoxProps) => (
-  <ChakraContainer maxW="container.md" {...props} />
+const Divider = () => <hr className="my-16 bg-body" />
+
+const VisuallyHidden = ({ children }: React.PropsWithChildren) => (
+  <span className="sr-only">{children}</span>
 )
 
 const Home = () => {
@@ -59,62 +40,31 @@ const Home = () => {
         description="Homepage for Ethereal Forest"
       />
 
-      <Box as="main" maxW="container.lg" mx="auto">
-        <Flex
-          bg="url(assets/hero.png)"
-          bgSize="cover"
-          // h="256px"
+      <main>
+        <div
+          className="bg-cover"
+          style={{ backgroundImage: "url(assets/hero.png)" }}
         >
           <Container>
-            <Heading
-              as="h1"
-              fontSize="4xl"
-              fontWeight="bold"
-              letterSpacing="wide"
-              textTransform="uppercase"
-              color="whiteAlpha.900"
-              pt={{ base: "8", md: "12" }}
-              pb={{ base: "24", md: "24" }}
-            >
+            <h1 className="text-4xl font-bold tracking-wide uppercase text-white pt-8 md:pt-12 pb-24">
               Ethereal Forest
-            </Heading>
+            </h1>
           </Container>
-        </Flex>
+        </div>
 
         <Container>
-          <TextBlock fontSize="2xl" lineHeight="short" mt="8">
+          <TextBlock className="text-2xl leading-snug mt-8">
             We are a Portland, Oregon based workgroup focused on{" "}
-            <Text as="strong">
-              localist applications of the decentralized web
-            </Text>
+            <strong>localist applications of the decentralized web</strong>
           </TextBlock>
 
-          <Button
-            as={Link}
+          <Link
             href="https://paragraph.xyz/@etherealforest"
-            rightIcon={<ImNewspaper />}
-            variant="outline"
-            borderRadius="none"
-            hideIcon
-            _hover={{
-              textDecoration: "none",
-              bg: "primaryLight",
-            }}
-            _active={{
-              borderColor: "primaryHover",
-              bg: "primaryHover",
-            }}
-            textDecoration="none"
-            border="2px"
-            px="6"
-            py="4"
-            mb="12"
-            whiteSpace="break-spaces"
-            h="fit-content"
-            borderColor="primary"
+            className="inline-flex items-center justify-center border-2 border-primary px-6 py-4 mb-12 text-center text-primary hover:bg-primaryLight active:bg-primaryHover"
           >
             Subscribe to Our Newsletter
-          </Button>
+            <Newspaper className="ml-2" />
+          </Link>
 
           <TextBlock>
             Our mission is to identify interventions that might be made using
@@ -130,81 +80,37 @@ const Home = () => {
 
           <TextBlock>
             Our work takes the form of three main fronts,{" "}
-            <Text as="strong">research</Text>,{" "}
-            <Text as="strong">discovery</Text> and{" "}
-            <Text as="strong">place-making</Text>. The team researches exotic
-            social and economic forms that may embody or resonate with the web3
-            toolkit, discovers examples of and use cases for those social and
-            economic technologies, and builds community and infrastructure to
-            support those experiments.
+            <strong>research</strong>, <strong>discovery</strong> and{" "}
+            <strong>place-making</strong>. The team researches exotic social and
+            economic forms that may embody or resonate with the web3 toolkit,
+            discovers examples of and use cases for those social and economic
+            technologies, and builds community and infrastructure to support
+            those experiments.
           </TextBlock>
 
           <TextBlock>
             We are a champion of localism and hope to build out infrastructure
             to reflect the shared insights of localist, regenerative economic
             thinking and the decentralized web space. It's under this shared
-            insight that we emphasize principles of{" "}
-            <Text as="strong">autonomy</Text> and fair self-determination,{" "}
-            <Text as="strong">decentralization</Text> as a sustainability
-            measure, <Text as="strong">financial pluralism</Text> and{" "}
-            <Text as="strong">commons-oriented economics</Text>.
+            insight that we emphasize principles of <strong>autonomy</strong>{" "}
+            and fair self-determination, <strong>decentralization</strong> as a
+            sustainability measure, <strong>financial pluralism</strong> and{" "}
+            <strong>commons-oriented economics</strong>.
           </TextBlock>
         </Container>
 
-        {/* <Box
-          background="url(assets/mycelium-spirits.jpeg)"
-          py="16"
-          mb="12"
-          mx="0"
-          w="full"
-          backgroundSize="contain"
-        >
-          <Container bg="alpha800" p="8">
-            <TextBlock>
-              Our work takes the form of three main fronts,{" "}
-              <Text as="strong">research</Text>,{" "}
-              <Text as="strong">discovery</Text> and{" "}
-              <Text as="strong">place-making</Text>. The team researches exotic
-              social and economic forms that may embody or resonate with the
-              web3 toolkit, discovers examples of and use cases for those social
-              and economic technologies, and builds community and infrastructure
-              to support those experiments.
-            </TextBlock>
-          </Container>
-        </Box>
+        <Divider />
 
         <Container>
-          <TextBlock>
-            We are a champion of localism and hope to build out infrastructure
-            to reflect the shared insights of localist, regenerative economic
-            thinking and the decentralized web space. It's under this shared
-            insight that we emphasize principles of{" "}
-            <Text as="strong">autonomy</Text> and fair self-determination,{" "}
-            <Text as="strong">decentralization</Text> as a sustainability
-            measure, <Text as="strong">financial pluralism</Text> and{" "}
-            <Text as="strong">commons-oriented economics</Text>.
-          </TextBlock>
-        </Container> */}
-
-        <Divider my="16" bgColor="body" />
-
-        <Container>
-          <Heading
-            fontSize="4xl"
-            textAlign="center"
-            mb="8"
-            mt="16"
-            fontWeight="bold"
-            letterSpacing="wide"
-          >
+          <h2 className="text-4xl text-center mb-8 mt-16 font-bold tracking-wide">
             PDX DAO
-          </Heading>
+          </h2>
 
           <TextBlock>
             Our central goal, as an expression of all of the above, is to build{" "}
-            <Text as="strong">PDX DAO</Text>, an emergent network for the
-            decentralized web toolkit that can steward the adoption of p2p and
-            self-organized web-based systems in the Portland area.
+            <strong>PDX DAO</strong>, an emergent network for the decentralized
+            web toolkit that can steward the adoption of p2p and self-organized
+            web-based systems in the Portland area.
           </TextBlock>
 
           <TextBlock>
@@ -218,183 +124,123 @@ const Home = () => {
             to function as a pluralistic confederation.
           </TextBlock>
 
-          <TextBlock px="8" py="4">
-            <Text as="strong">
+          <TextBlock className="px-8 py-4">
+            <strong>
               We are on the lookout for organizations, associations, affinity
               groups and squads to come on chain and cultivate this recursive
               ecosystem.
-            </Text>{" "}
+            </strong>{" "}
             The more diverse we are as a coalition, the stronger we will be as
             an advocate of pluralism.
           </TextBlock>
 
-          <TextBlock mb="8">
+          <TextBlock className="mb-8">
             The city is a furnace for social, cultural and economic
             experimentation. PDX DAO can be a catalyst for that creative{" "}
-            <Text as="strong">becoming. Join us! ✊</Text>
+            <strong>becoming. Join us! ✊</strong>
           </TextBlock>
 
-          <TextBlock mb="8">
+          <TextBlock className="mb-8">
             Are you a DAO or interested in building a DAO?
           </TextBlock>
 
-          <Button
-            as={Link}
+          <Link
             href="https://fhg09u9s2on.typeform.com/to/NzuISCXV"
-            rightIcon={<CgHello />}
-            hideIcon
-            variant="outline"
-            borderRadius="none"
-            _hover={{
-              textDecoration: "none",
-              bg: "primaryLight",
-            }}
-            _active={{
-              borderColor: "primaryHover",
-              bg: "primaryHover",
-            }}
-            textDecoration="none"
-            border="2px"
-            px="6"
-            py="4"
-            borderColor="primary"
-            whiteSpace="break-spaces"
-            h="fit-content"
-            maxW="100%"
+            className="inline-flex items-center justify-center border-2 border-primary px-6 py-4 text-center text-primary hover:bg-primaryLight active:bg-primaryHover"
           >
-            {/* Would make a "Reach out" CTA, pull copy up */}
             Contact us
-          </Button>
+            <CgHello className="ml-2" />
+          </Link>
         </Container>
 
-        <Divider my="16" bgColor="body" />
+        <Divider />
 
         <Container>
           <VisuallyHidden>
-            <Heading>Events</Heading>
+            <h2>Events</h2>
           </VisuallyHidden>
-          <Heading
-            as="h3"
-            fontSize="4xl"
-            textAlign="center"
-            mt="16"
-            mb="8"
-            fontWeight="bold"
-            letterSpacing="wide"
-          >
+          <h3 className="text-4xl text-center mt-16 mb-8 font-bold tracking-wide">
             Upcoming Events
-          </Heading>
-          <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
-            <ListItem>
-              <ListIcon as={FaRegCalendar} mb="0.5" />
+          </h3>
+          <ul className="list-none ml-0 mb-6 leading-8">
+            <li>
+              <Calendar className="inline-block mb-0.5" />
               July 15 - August 23rd - Local DAO Summer (Online Series)
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FaRegCalendar} mb="0.5" />
+            </li>
+            <li>
+              <Calendar className="inline-block mb-0.5" />
               <Link href="gfel">
                 September 13-15, 2024 - General Forum on Ethereum Localism
               </Link>
-            </ListItem>
-          </UnorderedList>
-          <Heading
-            as="h3"
-            fontSize="4xl"
-            textAlign="center"
-            mb="8"
-            mt="16"
-            fontWeight="bold"
-            letterSpacing="wide"
-          >
+            </li>
+          </ul>
+          <h3 className="text-4xl text-center mb-8 mt-16 font-bold tracking-wide">
             Past Events
-          </Heading>
-          <UnorderedList styleType="none" ml="0" mb="6" lineHeight="2">
-            <ListItem>
-              <ListIcon as={FaRegCalendarCheck} mb="0.5" />
+          </h3>
+          <ul className="list-none ml-0 mb-6 leading-8">
+            <li className="flex items-center gap-2">
+              <CalendarCheck className="mb-1" />
               May 9, 2024 - Imagination Circle
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FaRegCalendarCheck} mb="0.5" />
+            </li>
+            <li className="flex items-center gap-2">
+              <CalendarCheck className="mb-1" />
               October 13-16, 2023 - General Forum on Ethereum Localism
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FaRegCalendarCheck} mb="0.5" />
+            </li>
+            <li className="flex items-center gap-2">
+              <CalendarCheck className="mb-1" />
               May 26, 2023 - Web3 Security Best Practices Forum
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FaRegCalendarCheck} mb="0.5" />
+            </li>
+            <li className="flex items-center gap-2">
+              <CalendarCheck className="mb-1" />
               March 31, 2023 - Talk on Ethereum Fundamentals
-            </ListItem>
-          </UnorderedList>
+            </li>
+          </ul>
         </Container>
 
         <br />
         <Container>
-          <Image
-            src={"/assets/gfel-end.png"}
+          <NextImage
+            src={GFELEnd}
             alt="General Forum on Ethereum Localism end"
+            className="w-full"
           />
-          <Text
-            fontSize="medium"
-            textAlign="center"
-            mb="8"
-            mt="2"
-            fontWeight="thin"
-            letterSpacing="normal"
-          >
+          <p className="text-medium text-center mb-8 mt-2 font-thin">
             A General Forum on Ethereum Localism 2023
-          </Text>
+          </p>
         </Container>
 
-        <Divider mt="16" mb="8" bgColor="body" />
+        <hr className="mt-16 mb-8 bg-body" />
 
         <Container>
-          {/* <Heading
-            fontSize="4xl"
-            textAlign="center"
-            mb="8"
-            mt="16"
-            fontWeight="normal"
-            letterSpacing="wide"
-          >
-            Connect
-          </Heading> */}
-          <Text lineHeight="base">
-            <Icon
-              as={TbMailForward}
-              boxSize="6"
-              p="1"
-              verticalAlign="middle"
-              ps="0"
-            />
-            Email
+          <p className="leading-base">
+            <div className="flex items-center">
+              <TbMailForward className="size-6 p-1 ps-0 align-middle" />
+              Email
+            </div>
             <Link
-              display="block"
+              className="block"
               href="mailto:etherealforest.eth@protonmail.com"
               hideIcon
             >
               etherealforest.eth@protonmail.com
             </Link>
-          </Text>
+          </p>
 
-          <Text lineHeight="base">
-            <Icon
-              as={TbBrandTwitter}
-              boxSize="6"
-              p="1"
-              verticalAlign="middle"
-              ps="0"
-            />
-            Twitter
+          <p className="leading-base">
+            <div className="flex items-center">
+              <Twitter className="size-6 p-1 ps-0 align-middle" />
+              Twitter
+            </div>
             <Link
-              display="block"
+              className="block"
               hideIcon
               href="https://twitter.com/ETHForestDAO"
             >
               @ETHForestDAO
             </Link>
-          </Text>
+          </p>
         </Container>
-      </Box>
+      </main>
     </>
   )
 }

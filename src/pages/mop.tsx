@@ -1,19 +1,9 @@
 import NextImage from "next/image"
-import {
-  Box,
-  type BoxProps,
-  Container as ChakraContainer,
-  Flex,
-  Heading,
-  Text,
-  type TextProps,
-  ButtonGroup,
-  Button,
-} from "@chakra-ui/react"
-import { FaFilePdf } from "react-icons/fa"
+import FaFilePdf from "@/components/svg/FaFilePdf.svg"
 
 import { Link } from "@/components/Link"
 import { PageMetadata } from "@/components/PageMetadata"
+import { cn } from "@/lib/utils"
 
 import assetData from "@/data/mop"
 import * as url from "@/lib/utils/url"
@@ -23,12 +13,51 @@ import TheYearIsFront from "@/../public/assets/mop/the-year-is-front.jpeg"
 import WeAreTheNeotechnicsBack from "@/../public/assets/mop/we-are-the-neotechnics-back.jpeg"
 import WeAreTheNeotechnicsFront from "@/../public/assets/mop/we-are-the-neotechnics-front.jpeg"
 
-const TextBlock = (props: TextProps) => {
-  return <Text mb="9" fontSize="lg" lineHeight="short" {...props} />
+const TextBlock = ({
+  children,
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) => {
+  return (
+    <p className={cn("mb-9 text-lg leading-tight", className)} {...props}>
+      {children}
+    </p>
+  )
 }
 
-const Container = (props: BoxProps) => (
-  <ChakraContainer maxW="container.md" {...props} />
+const Container = ({
+  children,
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn("container mx-auto max-w-3xl px-4", className)} {...props}>
+    {children}
+  </div>
+)
+
+const Button = ({
+  href,
+  children,
+  icon,
+  className,
+  ...props
+}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  href: string
+  icon?: React.ReactNode
+}) => (
+  <Link
+    href={href}
+    className={cn(
+      "inline-flex h-auto border-2 border-primary px-6 py-4 whitespace-normal text-center no-underline hover:bg-primary-light hover:no-underline active:border-primary-hover active:bg-primary-hover",
+      className
+    )}
+    hideIcon
+    isExternal
+    {...props}
+  >
+    {children}
+    {icon && <span className="ml-2">{icon}</span>}
+  </Link>
 )
 
 const Mop = () => {
@@ -39,180 +68,76 @@ const Mop = () => {
         description="Homepage for the Ethereal Forest Ministry of Propaganda"
       />
 
-      <Box as="main" maxW="container.lg" mx="auto">
-        <Flex bg="" bgSize="">
+      <main className="mx-auto max-w-7xl">
+        <div>
           <Container>
-            <Heading
-              as="h1"
-              fontSize="4xl"
-              fontWeight="bold"
-              letterSpacing="wide"
-              textTransform="uppercase"
-              color="body"
-              pt={{ base: "8", md: "12" }}
-              pb={{ base: "24", md: "12" }}
-            >
+            <h1 className="pt-8 pb-24 md:pt-12 md:pb-12 text-4xl font-bold tracking-wide uppercase text-body">
               Ministry of Propaganda
-            </Heading>
+            </h1>
           </Container>
-        </Flex>
+        </div>
 
         <Container>
           <TextBlock>
-            Ministry of Propaganda is Ethereal Forest’s visual media contingent.
+            Ministry of Propaganda is Ethereal Forest's visual media contingent.
             All media is created for the benefit of the ecosystem; as we grow
             this library, please feel free to make use of its materials to
             whatever purposes you see fit.
           </TextBlock>
         </Container>
 
-        <Container mb="4">
-          <Flex flexDir={{ base: "column", md: "row" }}>
-            <Box flex={1}>
+        <Container className="mb-4">
+          <div className="flex flex-col md:flex-row">
+            <div className="flex-1">
               <NextImage
                 src={TheYearIsFront}
                 alt="The Year Is (front)"
                 placeholder="blur"
                 priority
               />
-            </Box>
-            <Box flex={1}>
+            </div>
+            <div className="flex-1">
               <NextImage
                 src={TheYearIsBack}
                 alt="The Year Is (back)"
                 placeholder="blur"
                 priority
               />
-            </Box>
-          </Flex>
-          <ButtonGroup mt="4">
-            <Button
-              as={Link}
-              href="/assets/mop/the-year-is-front.jpeg"
-              variant="outline"
-              borderRadius="none"
-              hideIcon
-              isExternal
-              _hover={{
-                textDecoration: "none",
-                bg: "primaryLight",
-              }}
-              _active={{
-                borderColor: "primaryHover",
-                bg: "primaryHover",
-              }}
-              textDecoration="none"
-              border="2px"
-              px="6"
-              py="4"
-              mb="12"
-              whiteSpace="break-spaces"
-              h="fit-content"
-              borderColor="primary"
-            >
-              Front
-            </Button>
-            <Button
-              as={Link}
-              href="/assets/mop/the-year-is.pdf"
-              rightIcon={<FaFilePdf />}
-              variant="outline"
-              borderRadius="none"
-              hideIcon
-              isExternal
-              _hover={{
-                textDecoration: "none",
-                bg: "primaryLight",
-              }}
-              _active={{
-                borderColor: "primaryHover",
-                bg: "primaryHover",
-              }}
-              textDecoration="none"
-              border="2px"
-              px="6"
-              py="4"
-              mb="12"
-              whiteSpace="break-spaces"
-              h="fit-content"
-              borderColor="primary"
-            >
+            </div>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2 mb-16 [&>*]:text-body [&>*]:items-center">
+            <Button href="/assets/mop/the-year-is-front.jpeg">Front</Button>
+            <Button href="/assets/mop/the-year-is.pdf" icon={<FaFilePdf />}>
               Back
             </Button>
-          </ButtonGroup>
+          </div>
         </Container>
 
-        <Container mb="4">
-          <Flex flexDir={{ base: "column", md: "row" }}>
-            <Box flex={1}>
+        <Container className="mb-4">
+          <div className="flex flex-col md:flex-row">
+            <div className="flex-1">
               <NextImage
                 src={WeAreTheNeotechnicsFront}
                 alt="We Are The Neotechnics (front)"
                 placeholder="blur"
               />
-            </Box>
-            <Box flex={1}>
+            </div>
+            <div className="flex-1">
               <NextImage
                 src={WeAreTheNeotechnicsBack}
                 alt="We Are The Neotechnics (back)"
                 placeholder="blur"
               />
-            </Box>
-          </Flex>
-          <ButtonGroup mt="4">
-            <Button
-              as={Link}
-              href="/assets/mop/we-are-the-neotechnics-front.jpeg"
-              variant="outline"
-              borderRadius="none"
-              hideIcon
-              isExternal
-              _hover={{
-                textDecoration: "none",
-                bg: "primaryLight",
-              }}
-              _active={{
-                borderColor: "primaryHover",
-                bg: "primaryHover",
-              }}
-              textDecoration="none"
-              border="2px"
-              px="6"
-              py="4"
-              mb="12"
-              whiteSpace="break-spaces"
-              h="fit-content"
-              borderColor="primary"
-            >
+            </div>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2 mb-16 [&>*]:text-body [&>*]:items-center">
+            <Button href="/assets/mop/we-are-the-neotechnics-front.jpeg">
               Front
             </Button>
-            <Button
-              as={Link}
-              href="/assets/mop/we-are-the-neotechnics-back.jpeg"
-              variant="outline"
-              borderRadius="none"
-              hideIcon
-              isExternal
-              _hover={{
-                textDecoration: "none",
-                bg: "primaryLight",
-              }}
-              _active={{
-                borderColor: "primaryHover",
-                bg: "primaryHover",
-              }}
-              textDecoration="none"
-              border="2px"
-              px="6"
-              py="4"
-              mb="12"
-              whiteSpace="break-spaces"
-              h="fit-content"
-              borderColor="primary"
-            >
+            <Button href="/assets/mop/we-are-the-neotechnics-back.jpeg">
               Back
             </Button>
-          </ButtonGroup>
+          </div>
         </Container>
 
         {assetData.map(({ title, src, grayUrl, colorUrl }, index) => {
@@ -221,52 +146,26 @@ const Mop = () => {
             { href: colorUrl, label: "Color" },
           ]
           return (
-            <Container key={title} mb="4">
-              <NextImage
-                src={src}
-                alt={title}
-                placeholder="blur"
-                // priority={index === 0}
-              />
-              <ButtonGroup mt="4">
+            <Container key={title} className="mb-4">
+              <NextImage src={src} alt={title} placeholder="blur" />
+              <div className="mt-4 flex flex-wrap gap-2 mb-16 [&>*]:text-body [&>*]:items-center">
                 {buttons.map(
                   ({ href, label }) =>
                     href && (
                       <Button
                         key={title + label}
-                        as={Link}
                         href={href}
-                        rightIcon={url.isPdf(href) ? <FaFilePdf /> : undefined}
-                        variant="outline"
-                        borderRadius="none"
-                        hideIcon
-                        isExternal
-                        _hover={{
-                          textDecoration: "none",
-                          bg: "primaryLight",
-                        }}
-                        _active={{
-                          borderColor: "primaryHover",
-                          bg: "primaryHover",
-                        }}
-                        textDecoration="none"
-                        border="2px"
-                        px="6"
-                        py="4"
-                        mb="12"
-                        whiteSpace="break-spaces"
-                        h="fit-content"
-                        borderColor="primary"
+                        icon={url.isPdf(href) ? <FaFilePdf /> : undefined}
                       >
                         {label}
                       </Button>
                     )
                 )}
-              </ButtonGroup>
+              </div>
             </Container>
           )
         })}
-      </Box>
+      </main>
     </>
   )
 }
