@@ -178,20 +178,20 @@ const Home = () => {
             Past Events
           </h3>
           <ul className="list-none ml-0 mb-6 leading-8">
-            <li>
-              <CalendarCheck className="inline-block mb-0.5" />
+            <li className="flex items-center gap-2">
+              <CalendarCheck className="mb-1" />
               May 9, 2024 - Imagination Circle
             </li>
-            <li>
-              <CalendarCheck className="inline-block mb-0.5" />
+            <li className="flex items-center gap-2">
+              <CalendarCheck className="mb-1" />
               October 13-16, 2023 - General Forum on Ethereum Localism
             </li>
-            <li>
-              <CalendarCheck className="inline-block mb-0.5" />
+            <li className="flex items-center gap-2">
+              <CalendarCheck className="mb-1" />
               May 26, 2023 - Web3 Security Best Practices Forum
             </li>
-            <li>
-              <CalendarCheck className="inline-block mb-0.5" />
+            <li className="flex items-center gap-2">
+              <CalendarCheck className="mb-1" />
               March 31, 2023 - Talk on Ethereum Fundamentals
             </li>
           </ul>
@@ -213,8 +213,10 @@ const Home = () => {
 
         <Container>
           <p className="leading-base">
-            <TbMailForward className="size-6 p-1 ps-0 align-middle" />
-            Email
+            <div className="flex items-center">
+              <TbMailForward className="size-6 p-1 ps-0 align-middle" />
+              Email
+            </div>
             <Link
               className="block"
               href="mailto:etherealforest.eth@protonmail.com"
@@ -225,8 +227,10 @@ const Home = () => {
           </p>
 
           <p className="leading-base">
-            <Twitter className="size-6 p-1 ps-0 align-middle" />
-            Twitter
+            <div className="flex items-center">
+              <Twitter className="size-6 p-1 ps-0 align-middle" />
+              Twitter
+            </div>
             <Link
               className="block"
               hideIcon
